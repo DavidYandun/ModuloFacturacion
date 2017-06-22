@@ -39,7 +39,7 @@ class ClienteController extends Controller
  		return view('clientes.show',['cliente'=>Cliente::findOrFail($id)]);
  	}
  	public function update(ClienteRequest $request, $id){
- 			Cliente::updateOrCreate(['idCliente'=>$id],$request->all());
+ 			Cliente::updateOrCreate(['IDCLIENTE'=>$id],$request->all());
  			$cliente->idtipo=$request->get('IDTIPO');
  			$cliente->cedula=$request->get('CEDULA');
  			$cliente->nombre=$request->get('NOMBRE');
