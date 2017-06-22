@@ -52,6 +52,9 @@
                                     <td>
                                         <a class="btn btn-info" href="{{URL::action('ClienteController@edit',$c->IDCLIENTE)}}">Editar</a>
                                     </td>
+                                    <td>
+                                        <a class="btn btn-info" href="{{URL::action('ClienteController@destroy',$c->IDCLIENTE)}}">Eliminar</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </table>
