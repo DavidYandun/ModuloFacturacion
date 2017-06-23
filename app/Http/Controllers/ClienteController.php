@@ -23,7 +23,7 @@ class ClienteController extends Controller
  		return view('clientes.create');
  	}	
 
- 	public function store(ClienteRequest $request){
+ 	public function store(Request $request){
  		Cliente::create($request->all());
  		//$prductos=Producto::paginate(10);
  	//	return view('productos.index',compact('productos'));
