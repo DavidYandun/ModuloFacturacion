@@ -1,0 +1,76 @@
+commit 412860d26db567f6fd67d69ad601580b420661d6
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Thu Jun 22 22:16:07 2017 -0500
+
+    Actualizo controlador
+    
+    cambio en store ClienteRequest por Request esto es solo momentáneo hasta que este subido las validaciones
+
+commit 306eaebb412f23622be1377118aaea3a63d4fef9
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Thu Jun 22 22:13:32 2017 -0500
+
+    Actualizo Create Clientes
+    
+    Agrego código
+
+commit 180aff77230796ccdc0f88a119696a6128f5f585
+Author: David Y <davidcad963@gmail.com>
+Date:   Thu Jun 22 19:01:59 2017 -0500
+
+    CRUD tipocliente funcional excepto ELIMINAR
+
+commit aa2b2a7e9300dfb27eb63676bd4ec0c4b39d0d92
+Author: David Y <davidcad963@gmail.com>
+Date:   Thu Jun 22 16:35:49 2017 -0500
+
+    create funcional de tipocliente
+
+commit bb203223d87bcacd185b6eac0314120e8efde1d1
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Wed Jun 21 22:41:55 2017 -0500
+
+    Actualice web.php
+    
+    agrega una ruta para mi método destroy
+
+commit 3e6fa919c3ed73bd6d8895f017ce428cc26d8d1b
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Wed Jun 21 22:15:00 2017 -0500
+
+    Actualice index.bandle.php
+    
+    agregue el botón eliminar ya esta funcional
+
+commit 81cdb921e2e6a749aab75276e313840979261d65
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Wed Jun 21 22:10:34 2017 -0500
+
+    actualice ClienteController
+    
+    modifique el método destroy
+
+commit 35c8496b2941480a14aee9d2e7dfd781523c3d9d
+Author: AndersonVivas <vivas251@gmail.com>
+Date:   Wed Jun 21 20:39:14 2017 -0500
+
+    Update index.blade.php
+
+commit e52525199fa4827dbee5f71466914a3427841c92
+Merge: ea23e35 eb1b21c
+Author: David Y <davidcad963@gmail.com>
+Date:   Wed Jun 21 20:17:08 2017 -0500
+
+    Merge branch 'master' of https://github.com/DavidYandun/ModuloFacturacion
+
+commit ea23e35c24a6f2b2f62b7ec0ce9a3b2345212300
+Author: David Y <davidcad963@gmail.com>
+Date:   Wed Jun 21 20:07:22 2017 -0500
+
+    Inicio Proyecto
+
+commit eb1b21caf915b848eda220c99b7ab54268842372
+Author: DavidYandun <davidcad963@gmail.com>
+Date:   Sun Jun 11 21:20:07 2017 -0500
+
+    Initial commit
