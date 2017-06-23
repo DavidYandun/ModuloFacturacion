@@ -39,10 +39,11 @@ class TipoclienteController extends Controller
  	}
  	public function update(TipoclienteRequest $request, $id){
  			Tipocliente::updateOrCreate(['IDTIPO'=>$id],$request->all());
- 			$tipocliente->tipocliente=$request->get('DETALLE');
+ 			//$tipocliente->tipocliente=$request->get('DETALLE');
  			
  			return Redirect::to('tipocliente');
  	}
+ 	
  	public function destroy($id){
  		$user=Tipocliente::find($id);
  		$user->delete();
