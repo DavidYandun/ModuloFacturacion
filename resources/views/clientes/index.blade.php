@@ -1,5 +1,13 @@
-@extends('layouts.app')
-@section('content')
+
+@extends('admin.template.main')
+@section ('title')
+   Clientes
+@endsection
+@section('TituloBanner')
+Clientes
+@endsection
+
+@section('contenido')
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -18,7 +26,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Clientes</div>
+                
                 <div class="panel-body">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="table-responsive">

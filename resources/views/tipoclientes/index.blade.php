@@ -1,10 +1,20 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+
+@section ('title')
+   Clientes
+@endsection
+@section('TituloBanner')
+Tipo Clientes
+@endsection
+
+
+@section('contenido')
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="tipocliente/create"><button class="btn btn-success">Nuevo</button></a></p>
-        </div>
+            </div>
     </div>
     <!--@if ($message = Session::get('mensaje'))
     <div class="row">
@@ -52,6 +62,8 @@
     </div>
 </div>
 @endsection
+
+
 
 @push('scripts')
 <script type="text/javascript">
