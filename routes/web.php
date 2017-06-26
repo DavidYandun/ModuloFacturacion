@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('cabecera','CabeceraController');
 Route::resource('cliente','ClienteController');
 Route::resource('tipocliente','TipoclienteController');
 Route::get('delete/{id}','TipoclienteController@destroy') ;
