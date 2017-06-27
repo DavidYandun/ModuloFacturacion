@@ -25,8 +25,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
+Route::resource('empleado','EmpleadoController');
 Route::resource('cliente','ClienteController');
 Route::resource('tipocliente','TipoclienteController');
 Route::get('delete/{id}','TipoclienteController@destroy') ;
 Route::get('delete/{id}','ClienteController@destroy') ;
 Route::get('delete/{id}','CabeceraController@destroy') ;
+Route::get('delete/{id}','EmpleadoController@destroy') ;

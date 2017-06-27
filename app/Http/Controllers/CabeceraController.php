@@ -23,8 +23,6 @@ class CabeceraController extends Controller
 
     public function store(Request $request){
         Cabecera::create($request->all());
-        //$prductos=Producto::paginate(10);
-    //  return view('productos.index',compact('productos'));
         return Redirect::to('cabecera');
     }
 
@@ -34,7 +32,7 @@ class CabeceraController extends Controller
 
     }
     public function update(Request $request, $id){
-            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
+            Cabecera::updateOrCreate(['IDEMPLEADO'=>$id],$request->all());
             return Redirect::to('cabecera');
     }
     public function destroy($id){
