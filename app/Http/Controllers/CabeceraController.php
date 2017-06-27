@@ -1,88 +1,47 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\CabeceraRequest;
 use App\Cabecera;
 
-
 class CabeceraController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');//  para poder usar el controlador
+        $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
     }
-    public function index()
-    {
+    public function index(){
         $cabecera=Cabecera::paginate(10);
         return view('cabecera.index',compact('cabecera'));
     }
+    public function create(){
+        return view('cabecera.create');
+    }   
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function store(Request $request){
+        Cabecera::create($request->all());
+        //$prductos=Producto::paginate(10);
+    //  return view('productos.index',compact('productos'));
+        return Redirect::to('cabecera');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function edit($id){
+        $cabecera=Cabecera::find($id);
+        return view('cabecera.edit',compact('cabecera'));
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
+    public function update(Request $request, $id){
+            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
+            return Redirect::to('cabecera');
+    }
+    public function destroy($id){
+        $user=Cabecera::find($id);
+        $user->delete();
+        return Redirect::to('cabecera');
+    }
+ }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}

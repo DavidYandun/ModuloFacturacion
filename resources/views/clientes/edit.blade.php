@@ -15,8 +15,8 @@
 			@endif
 		</div>
 	</div>
-	<form method="POST" action="http://localhost:8000/cliente/{{$cliente->IDCLIENTE}}" accept-charset="UTF-8">
-<input name="_method" type="hidden" value="PATCH">
+		<form method="POST" action="http://localhost:8000/cliente/{{$cliente->IDCLIENTE}}" accept-charset="UTF-8">
+		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
 		<input type="hidden" name="IDCLIENTE" value="{{$cliente->IDCLIENTE}}">
 		

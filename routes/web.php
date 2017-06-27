@@ -29,3 +29,4 @@ Route::resource('cliente','ClienteController');
 Route::resource('tipocliente','TipoclienteController');
 Route::get('delete/{id}','TipoclienteController@destroy') ;
 Route::get('delete/{id}','ClienteController@destroy') ;
+Route::get('delete/{id}','CabeceraController@destroy') ;
