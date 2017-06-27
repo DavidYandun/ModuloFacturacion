@@ -22,7 +22,7 @@
 		<div class="form-group">
 			<label for="detalle" class="col-lg-2 control-label">Detalle <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="DETALLE" id="detalle" class="form-control" type="text" value="{{$tipocliente->DETAÑÑE}}" required>
+				<input name="DETALLE" id="detalle" class="form-control" type="text" value="{{$tipocliente->DETALLE}}" required>
 			</div>
 		</div>
 		
