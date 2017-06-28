@@ -29,7 +29,6 @@ class ProductoRequest extends FormRequest
             return [
                  "IDTIPO"=>"required|min:3|max:20",
                 "CEDULA"=>"required",
-                "NOMBRE"=>"required|unique:productos,codigo,".$id.",idProducto|alpha_num|size:8",
                 "APELLIDO"=>"required|integer",
                 "NACIMIENTO"=>"required|integer|min:10|max:50",
                 "CIUDAD"=>"required|integer|min:10|max:50",
