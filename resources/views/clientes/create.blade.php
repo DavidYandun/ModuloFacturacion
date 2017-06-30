@@ -15,8 +15,12 @@
 			@endif
 		</div>
 	</div>
+		<!--form action="{{url('cliente')}}" method="POST">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}"-->
+
 		<form action="{{url('cliente')}}" method="POST">
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		{{ csrf_field() }}
+		<div class="form-group">
 
 		<div class="form-group">
 			<label for="IDTIPO" class="col-lg-2 control-label">Id Tipo <font color="red">*</font></label>
@@ -34,7 +38,7 @@
 		<div class="form-group">
 			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NOMBRE" id="NOMBRE" class="form-control" type="text" value="{{old('NOMBRE')}}">
+				<input name="NOMBRE" id="NOMBRE" class="form-control" type="text" value="{{old('NOMBRE')}}" required>
 			</div>
 		</div>
 
@@ -48,13 +52,13 @@
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="Fecha" value="{{old('NACIMIENTO')}}" required>
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{old('NACIMIENTO')}}" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="CIUDAD" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{old('CIUDAD')}}" >
+				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{old('CIUDAD')}}" required>
 			</div>
 		</div>
 
@@ -74,13 +78,13 @@
 		<div class="form-group">
 			<label for="EMAIL" class="col-lg-2 control-label">e-mail <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="EMAIL" id="EMAIL" class="form-control" type="text" value="{{old('EMAIL')}}" >
+				<input name="EMAIL" id="EMAIL" class="form-control" type="text" value="{{old('EMAIL')}}" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="ESTADO" class="col-lg-2 control-label">ESTADO <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" >
+				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" required>
 			</div>
 		</div>
 
