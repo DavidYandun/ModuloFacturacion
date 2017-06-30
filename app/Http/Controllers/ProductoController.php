@@ -16,14 +16,14 @@ class ProductoController extends Controller
  	}
  	public function index(){
  		$productos=Producto::paginate(10);
- 		return view('productos.index',compact('productos'));
+ 		return view('producto.index',compact('productos'));
 
  	}
  	public function create(){
  		return view('productos.create');
  	}	
 
- 	public function store(ProductoRequest $request){
+ 	public function store(Request $request){
  		Producto::create($request->all());
  		//$prductos=Producto::paginate(10);
  	//	return view('productos.index',compact('productos'));
@@ -35,7 +35,7 @@ class ProductoController extends Controller
  		return view('productos.edit',compact('producto'));
 
  	}
- 	public function update(ProductoRequest $request, $id){
+ 	public function update(Request $request, $id){
  			Producto::updateOrCreate(['idProducto'=>$id],$request->all());
  			return Redirect::to('producto');
  	}

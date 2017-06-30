@@ -25,9 +25,8 @@ class ClienteController extends Controller
  	//	return view('productos.index',compact('productos'));
  		return Redirect::to('cliente');
  	}
- 	public function show($id){
- 		return view('clientes.show',['cliente'=>Cliente::findOrFail($id)]);
- 	}
+ 	
+
 
  	public function edit($id){
  		$cliente=Cliente::find($id);
@@ -38,7 +37,8 @@ class ClienteController extends Controller
  			Cliente::updateOrCreate(['IDCLIENTE'=>$id],$request->all());
  			return Redirect::to('cliente');
  	}
- 	public function destroy($id){
+
+ 	public function delete($id){
  		Cliente::destroy($id);
  		return Redirect::to('cliente');
  	}
