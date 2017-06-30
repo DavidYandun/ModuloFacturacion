@@ -28,7 +28,19 @@ Route::resource('cabecera','CabeceraController');
 Route::resource('empleado','EmpleadoController');
 Route::resource('cliente','ClienteController');
 Route::resource('tipocliente','TipoclienteController');
+Route::resource('detalle','DetalleController');
+Route::resource('facturaspendientes','FacturaspendientesController');
+Route::resource('caja','CajaController');
+Route::resource('tipousuario','TipousuarioController');
+
 Route::get('delete/{id}','TipoclienteController@destroy') ;
 Route::get('delete/{id}','ClienteController@destroy') ;
+
+Route::get('delete/{id}','DetalleController@destroy') ;
+Route::get('delete/{id}','FacturaspendientesController@destroy') ;
+
 Route::get('delete/{id}','CabeceraController@destroy') ;
 Route::get('delete/{id}','EmpleadoController@destroy') ;
+Route::get('delete/{id}','CajaController@destroy') ;
+
+Route::get('delete/{id}','TipousuarioController@destroy') ;
