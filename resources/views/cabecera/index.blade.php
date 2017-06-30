@@ -38,7 +38,7 @@
                                     
                                     <td>
                                         <a class="btn btn-info" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}">Editar</a>
-                                        <a class="btn btn-info" href="{{URL::action('CabeceraController@destroy',$c->IDCABECERA)}}">Eliminar</a>
+                                        <a class="btn btn-info" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}">Eliminar</a>
                                         
                                     </td>
                                    </tr>

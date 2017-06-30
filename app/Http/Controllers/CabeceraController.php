@@ -21,7 +21,7 @@ class CabeceraController extends Controller
         return view('cabecera.create');
     }   
 
-    public function store(Request $request){
+    public function store(CabeceraRequest $request){
         Cabecera::create($request->all());
         return Redirect::to('cabecera');
     }
@@ -31,13 +31,14 @@ class CabeceraController extends Controller
         return view('cabecera.edit',compact('cabecera'));
 
     }
-    public function update(Request $request, $id){
-            Cabecera::updateOrCreate(['IDEMPLEADO'=>$id],$request->all());
+    public function update(CabeceraRequest $request, $id){
+            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
             return Redirect::to('cabecera');
     }
-    public function destroy($id){
-        $user=Cabecera::find($id);
-        $user->delete();
+
+
+    public function delete($id){
+        Cabecera::destroy($id);
         return Redirect::to('cabecera');
     }
  }
