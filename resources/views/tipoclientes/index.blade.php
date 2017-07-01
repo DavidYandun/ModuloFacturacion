@@ -33,10 +33,10 @@
                                     <td>
                                         <a class="btn btn-info" href="{{URL::action('TipoclienteController@edit',$tc->IDTIPO)}}">Editar</a>
 
-                                        <a class="btn btn-info" href="{{URL::action('TipoclienteController@destroy',$tc->IDTIPO)}}">Eliminar</a>
+                                        <a class="btn btn-info" href="{{URL::action('TipoclienteController@delete',$tc->IDTIPO)}}">Eliminar</a>
 
 
-                                        <a class="btn btn-danger" data-toggle="modal" data-idtipo="{{ $tc->IDTIPO}}" data-action="{{URL::action('TipoclienteController@destroy',$tc->DETALLE)}}" href="#modalEliminarTipoCliente">Eliminar</a>
+                                      <!--a class="btn btn-danger" data-toggle="modal" data-idtipo="{{ $tc->IDTIPO}}" data-action="{{URL::action('TipoclienteController@delete',$tc->DETALLE)}}" href="#modalEliminarTipoCliente">Eliminar</a-->
                                         
                                     </td>
                                    </tr>
