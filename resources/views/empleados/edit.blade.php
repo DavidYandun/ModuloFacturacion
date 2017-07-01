@@ -45,7 +45,7 @@
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="Fecha" value="{{$empleado->NACIMIENTO}}" >
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{$empleado->NACIMIENTO}}" >
 			</div>
 		</div>
 		<div class="form-group">
@@ -69,12 +69,15 @@
 			</div>
 		</div>
 	
-		<div class="form-group">
-			<label for="ESTADO" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{$empleado->ESTADO}}" required>
-			</div>
-		</div>	
+	<div class="form-group">
+      <label for="ESTADO" class="col-lg-2 control-label">Estado<font color="red">*</font></label>
+      <div class="col-lg-10">
+        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{$empleado->ESTADO}}" required required onchange="crear(this.value)">
+        <option value="A">Activo</option>
+        <option value="I">Inactivo</option>
+        </select>
+      </div>
+    </div>
 
 
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

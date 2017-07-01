@@ -29,7 +29,7 @@
 		<div class="form-group">
 			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NOMBRE" id="NOMBRE" class="form-control" type="text" value="{{old('NOMBRE')}}">
+				<input name="NOMBRE" id="NOMBRE" class="form-control" type="text" value="{{old('NOMBRE')}}" required>
 			</div>
 		</div>
 
@@ -43,13 +43,13 @@
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="Fecha" value="{{old('NACIMIENTO')}}" required>
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{old('NACIMIENTO')}}" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="CIUDAD" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{old('CIUDAD')}}" >
+				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{old('CIUDAD')}}" required>
 			</div>
 		</div>
 
@@ -68,11 +68,15 @@
 		</div>
 
 		<div class="form-group">
-			<label for="ESTADO" class="col-lg-2 control-label">ESTADO <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" >
-			</div>
-		</div>
+      <label for="ESTADO" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
+      <div class="col-lg-10" class="col-xs-5 selectContainer">
+        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" required onchange="crear(this.value)">
+        <option value="">Seleccione un Estado</option>
+        <option value="A">Activo</option>
+        <option value="I">Inactivo</option>
+        </select>
+      </div>
+    </div>
 
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <input class="btn btn-primary" type="submit" value="Añadir" />

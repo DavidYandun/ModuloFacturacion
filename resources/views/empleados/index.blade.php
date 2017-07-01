@@ -47,7 +47,7 @@
                                     
                                     <td>
                                         <a class="btn btn-info" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}">Editar</a>
-                                        <a class="btn btn-info" href="{{URL::action('EmpleadoController@destroy',$c->IDEMPLEADO)}}">Eliminar</a>
+                                        <a class="btn btn-info" href="{{URL::action('EmpleadoController@delete',$c->IDEMPLEADO)}}">Eliminar</a>
                                         
                                     </td>
                                    </tr>

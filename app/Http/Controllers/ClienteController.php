@@ -21,13 +21,8 @@ class ClienteController extends Controller
  	}	
  	public function store(ClienteRequest $request){
  		Cliente::create($request->all());
- 		//$prductos=Producto::paginate(10);
- 	//	return view('productos.index',compact('productos'));
  		return Redirect::to('cliente');
  	}
- 	
-
-
  	public function edit($id){
  		$cliente=Cliente::find($id);
  		return view('clientes.edit',compact('cliente'));

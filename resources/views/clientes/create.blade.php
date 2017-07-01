@@ -82,11 +82,15 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="ESTADO" class="col-lg-2 control-label">ESTADO <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" required>
-			</div>
-		</div>
+      <label for="ESTADO" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
+      <div class="col-lg-10" class="col-xs-5 selectContainer">
+        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" required onchange="crear(this.value)">
+        <option value="">Seleccione un Estado</option>
+        <option value="A">Activo</option>
+        <option value="I">Inactivo</option>
+        </select>
+      </div>
+    </div>
 
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <input class="btn btn-primary" type="submit" value="Añadir" />

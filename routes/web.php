@@ -34,6 +34,8 @@ Route::resource('caja','CajaController');
 Route::resource('tipousuario','TipousuarioController');
 
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
+Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
+
 
 //Agrupamiento de rutas
 
