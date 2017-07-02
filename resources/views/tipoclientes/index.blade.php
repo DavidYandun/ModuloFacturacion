@@ -10,12 +10,12 @@ Tipo Clientes
 
 @section('contenido')
 
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="tipocliente/create"><button class="btn btn-success">Nuevo</button></a></p>
-            </div>
-    </div>
+        </div>
+    </div>-->
     <!--@if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
@@ -41,12 +41,12 @@ Tipo Clientes
                                 <tr>
                                     <td>{{ $tc->DETALLE}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('TipoclienteController@edit',$tc->IDTIPO)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('TipoclienteController@edit',$tc->IDTIPO)}}"><i class="fa fa-pencil-square-o" >Editar</i></a>
 
-                                        <a class="btn btn-info" href="{{URL::action('TipoclienteController@destroy',$tc->IDTIPO)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('TipoclienteController@delete',$tc->IDTIPO)}}"><i class="fa fa-trash-o" >Eliminar</i></a>
 
 
-                                        <a class="btn btn-danger" data-toggle="modal" data-idtipo="{{ $tc->IDTIPO}}" data-action="{{URL::action('TipoclienteController@destroy',$tc->DETALLE)}}" href="#modalEliminarTipoCliente">Eliminar</a>
+                                     <!-- <a class="btn btn-danger" data-toggle="modal" data-idtipo="{{ $tc->IDTIPO}}" data-action="{{URL::action('TipoclienteController@delete',$tc->DETALLE)}}" href="#modalEliminarTipoCliente">Eliminar</a>-->
                                         
                                     </td>
                                    </tr>
@@ -63,8 +63,6 @@ Tipo Clientes
 </div>
 @endsection
 
-
-
 @push('scripts')
 <script type="text/javascript">
     $(document).ready(function()){
@@ -76,6 +74,6 @@ Tipo Clientes
         modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar al cliente con C.I"+idtipo +"?");
         modal.find(".modal-body form").attr('action',action);
         });
-    });
+    })
 </script>
 @endpush

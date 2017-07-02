@@ -24,8 +24,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('cabecera','CabeceraController');
+Route::resource('empleado','EmpleadoController');
 Route::resource('cliente','ClienteController');
 Route::resource('tipocliente','TipoclienteController');
-Route::resource('principal','PrincipalController');
-Route::get('delete/{id}','TipoclienteController@destroy') ;
-Route::get('delete/{id}','ClienteController@destroy') ;
+Route::resource('detalle','DetalleController');
+Route::resource('facturaspendientes','FacturaspendientesController');
+Route::resource('caja','CajaController');
+Route::resource('tipousuario','TipousuarioController');
+
+Route::get('cliente/delete/{id}','ClienteController@delete') ;
+Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
+Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;

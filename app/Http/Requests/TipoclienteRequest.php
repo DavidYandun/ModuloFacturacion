@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\support\Facades\Input;
+
 
 class TipoclienteRequest extends FormRequest
 {
@@ -23,8 +25,15 @@ class TipoclienteRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+         if(Input::has('IDTIPO')){
+            $id=Input::get('IDTIPO');
+            return [   
+            "DETALLE"=>"required|min:1|max:2"
+             ];
+         }else{
+        return [    
+         "DETALLE"=>"required|min:1|max:2"               
+         ];
+        }
     }
 }

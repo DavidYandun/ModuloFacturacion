@@ -1,5 +1,12 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Clientes
+@endsection
+@section('TituloBanner')
+Clientes
+@endsection
+
+@section('contenido')
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -15,8 +22,8 @@
 			@endif
 		</div>
 	</div>
-	<form method="POST" action="http://localhost:8000/cliente/{{$cliente->IDCLIENTE}}" accept-charset="UTF-8">
-<input name="_method" type="hidden" value="PATCH">
+		<form method="POST" action="http://localhost:8000/cliente/{{$cliente->IDCLIENTE}}" accept-charset="UTF-8">
+		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
 		<input type="hidden" name="IDCLIENTE" value="{{$cliente->IDCLIENTE}}">
 		
@@ -51,7 +58,7 @@
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="Fecha" value="{{$cliente->NACIMIENTO}}" >
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{$cliente->NACIMIENTO}}" >
 			</div>
 		</div>
 		<div class="form-group">
@@ -80,13 +87,15 @@
 				<input name="EMAIL" id="EMAIL" class="form-control" type="text" value="{{$cliente->EMAIL}}" required>
 			</div>
 		</div>
-		<div class="form-group">
-			<label for="ESTADO" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{$cliente->ESTADO}}" required>
-			</div>
-		</div>	
-
+<div class="form-group">
+      <label for="ESTADO" class="col-lg-2 control-label">Estado<font color="red">*</font></label>
+      <div class="col-lg-10">
+        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{$cliente->ESTADO}}" required required onchange="crear(this.value)">
+        <option value="A">Activo</option>
+        <option value="I">Inactivo</option>
+        </select>
+      </div>
+    </div>
 
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <input class="btn btn-primary" type="submit" value="Actualizar" />
