@@ -1,11 +1,15 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Caja
+@endsection
+
+@section('contenido')
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="caja/create"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
-    </div>
+    </div>-->
     <!--@if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
@@ -35,9 +39,9 @@
                                     <td>{{ $c->IDUSUARIO}}</td>
                                     <td>{{ $c->NUMERO}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('CajaController@edit',$c->IDCAJA)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('CajaController@edit',$c->IDCAJA)}}"><i class="fa fa-pencil-square-o" >Editar</i</a>
 
-                                        <a class="btn btn-info" href="{{URL::action('CajaController@destroy',$c->IDCAJA)}}">Eliminar</a>                                        
+                                        <a class="btn btn-danger" href="{{URL::action('CajaController@destroy',$c->IDCAJA)}}"><i class="fa fa-trash-o" >Eliminar</i</a>                                        
                                     </td>
                                    </tr>
                                 @endforeach

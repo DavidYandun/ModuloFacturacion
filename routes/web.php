@@ -36,6 +36,7 @@ Route::resource('tipousuario','TipousuarioController');
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
+<<<<<<< HEAD
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 
 
@@ -53,3 +54,5 @@ Route::get('delete/{id}','EmpleadoController@destroy') ;
 Route::get('delete/{id}','CajaController@destroy') ;
 
 Route::get('delete/{id}','TipousuarioController@destroy') ;*/
+=======
+>>>>>>> b42063bcdf6ca4c5f07481a3c6316b8bbdbffe1e
