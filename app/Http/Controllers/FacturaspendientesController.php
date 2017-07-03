@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\FacturaspendientesRequest;
 use App\Facturaspendientes;
+use App\Cabecera;
 
 class FacturaspendientesController extends Controller
 {
@@ -19,7 +20,8 @@ class FacturaspendientesController extends Controller
 
  	}
  	public function create(){
- 		return view('facturaspendientes.create');
+ 		$cabecera=Cabecera::all();
+ 		return view('facturaspendientes.create',compact('cabecera'));
  	}	
 
  	public function store(FacturaspendientesRequest $request){
@@ -31,8 +33,8 @@ class FacturaspendientesController extends Controller
 
  	
  	public function edit($id){
- 		
- 		return view('facturaspendientes.edit',['facturaspendiente'=>Facturaspendientes::findOrFail($id)]);
+ 		$cabecera=Cabecera::all();
+ 		return view('facturaspendientes.edit',['facturaspendiente'=>Facturaspendientes::findOrFail($id)],compact('cabecera'));
 
  	}
  	public function show($id){

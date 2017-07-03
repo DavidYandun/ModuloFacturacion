@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Requests\CabeceraRequest;
 use App\Cabecera;
 use Http\ClienteController;
+use App\Cliente;
+use App\Caja;
 
 class CabeceraController extends Controller
 {
@@ -19,7 +21,9 @@ class CabeceraController extends Controller
         return view('cabecera.index',compact('cabecera'));
     }
     public function create(){
-        return view('cabecera.create');
+        $cliente= Cliente::all();
+        $caja= Caja::all();
+        return view('cabecera.create',compact('cliente','caja'));
     }   
 
 
@@ -29,8 +33,10 @@ class CabeceraController extends Controller
     }
     public function edit($id){
         $cabecera=Cabecera::find($id);
-        $clientes= DB::table('cliente')->orderBy('NOMBRE', 'APELLIDO')->lists('NOMBRE','IDCLIENTE');
-        return view('cabecera.edit',compact('cabecera','clientes'));
+       
+         $cliente= Cliente::all();
+        $caja= Caja::all();
+        return view('cabecera.edit',compact('cabecera','cliente','caja'));
 
     }
 

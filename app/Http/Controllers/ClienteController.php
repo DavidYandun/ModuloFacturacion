@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\ClienteRequest;
 use App\Cliente;
+use App\Tipocliente;
 
 class ClienteController extends Controller
 {
@@ -17,7 +18,8 @@ class ClienteController extends Controller
  		return view('clientes.index',compact('clientes'));
  	}
  	public function create(){
- 		return view('clientes.create');
+ 		$tipocliente=Tipocliente::all();
+ 		return view('clientes.create',compact('tipocliente'));
  	}	
  	public function store(ClienteRequest $request){
  		Cliente::create($request->all());
@@ -26,7 +28,8 @@ class ClienteController extends Controller
 
  	public function edit($id){
  		$cliente=Cliente::find($id);
- 		return view('clientes.edit',compact('cliente'));
+ 		$tipocliente=Tipocliente::all();
+ 		return view('clientes.edit',compact('cliente','tipocliente'));
 
  	}
  	public function update(CLienteRequest $request, $id){

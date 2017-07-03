@@ -18,17 +18,31 @@
 		<form action="{{url('cabecera')}}" method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+
+
 		<div class="form-group">
 			<label for="IDCLIENTE" class="col-lg-2 control-label">Id Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCLIENTE" id="IDCLIENTE" class="form-control" type="number" value="{{old('IDCLIENTE')}}" required>
+				
+				<select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
+				@foreach ($cliente as $cli)
+				<option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+				@endforeach
+				</select>
+
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="IDCAJA" class="col-lg-2 control-label">Id Caja <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCAJA" id="IDCAJA" class="form-control" type="number" value="{{old('IDCAJA')}}" required>
+				
+				<select name="IDCAJA" id="IDCAJA" class="form-control">
+				@foreach ($caja as $caj)
+				<option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@endforeach
+				</select>
+
 			</div>
 		</div>
 
