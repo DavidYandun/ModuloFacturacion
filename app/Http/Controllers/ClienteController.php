@@ -23,7 +23,10 @@ class ClienteController extends Controller
  		Cliente::create($request->all());
  		return Redirect::to('cliente');
  	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
  	public function edit($id){
  		$cliente=Cliente::find($id);
  		return view('clientes.edit',compact('cliente'));

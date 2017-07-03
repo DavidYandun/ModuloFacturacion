@@ -11,8 +11,8 @@ use Http\ClienteController;
 
 class CabeceraController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+   public function __construct(){
+    //  $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
     }
     public function index(){
         $cabecera=Cabecera::paginate(10);
@@ -21,18 +21,21 @@ class CabeceraController extends Controller
     public function create(){
         return view('cabecera.create');
     }   
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
     public function store(CabeceraRequest $request){
         Cabecera::create($request->all());
         return Redirect::to('cabecera');
     }
-
     public function edit($id){
         $cabecera=Cabecera::find($id);
         $clientes= DB::table('cliente')->orderBy('NOMBRE', 'APELLIDO')->lists('NOMBRE','IDCLIENTE');
         return view('cabecera.edit',compact('cabecera','clientes'));
 
     }
+<<<<<<< HEAD
 
       /*public function edit($id){
 
@@ -42,16 +45,19 @@ class CabeceraController extends Controller
         return view('installation.edit', compact('installation','clients'));
     }*/
 
+=======
+>>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
     public function update(CabeceraRequest $request, $id){
             Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
             return Redirect::to('cabecera');
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
     public function delete($id){
         Cabecera::destroy($id);
         return Redirect::to('cabecera');
     }
  }
-
-

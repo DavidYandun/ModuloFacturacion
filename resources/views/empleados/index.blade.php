@@ -1,11 +1,15 @@
-@extends('layouts.app')
-@section('content')
-<div class="container">
+@extends('admin.template.main')
+@section ('title')
+   Empleados
+@endsection
+
+@section('contenido')
+<!--<div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="empleado/create"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
-    </div>
+    </div>-->
     <!--@if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
@@ -46,8 +50,8 @@
                                     <td>{{ $c->ESTADO}}</td>
                                     
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}">Editar</a>
-                                        <a class="btn btn-info" href="{{URL::action('EmpleadoController@destroy',$c->IDEMPLEADO)}}">Eliminar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="fa fa-pencil-square-o" >Editar</i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('EmpleadoController@delete',$c->IDEMPLEADO)}}"><i class="fa fa-trash-o" >Eliminar</i></a>
                                         
                                     </td>
                                    </tr>
