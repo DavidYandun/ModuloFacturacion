@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\CabeceraRequest;
 use App\Cabecera;
+use Http\ClienteController;
 
 class CabeceraController extends Controller
 {
@@ -28,9 +29,19 @@ class CabeceraController extends Controller
 
     public function edit($id){
         $cabecera=Cabecera::find($id);
-        return view('cabecera.edit',compact('cabecera'));
+        $clientes= DB::table('cliente')->orderBy('NOMBRE', 'APELLIDO')->lists('NOMBRE','IDCLIENTE');
+        return view('cabecera.edit',compact('cabecera','clientes'));
 
     }
+
+      /*public function edit($id){
+
+        $installation = Installation::find($id); 
+        $clients = DB::table('clients')->orderBy('name', 'asc')->lists('name','id');
+
+        return view('installation.edit', compact('installation','clients'));
+    }*/
+
     public function update(CabeceraRequest $request, $id){
             Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
             return Redirect::to('cabecera');

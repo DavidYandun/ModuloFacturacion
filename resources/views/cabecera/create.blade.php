@@ -22,6 +22,8 @@
 			<label for="IDCLIENTE" class="col-lg-2 control-label">Id Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
 				<input name="IDCLIENTE" id="IDCLIENTE" class="form-control" type="number" value="{{old('IDCLIENTE')}}" required>
+				{!! Form::label('clientes', 'CLIENTES') !!}
+				{!! Form::select('IDCLIENTE', $clientes) !!}
 			</div>
 		</div>
 		<div class="form-group">
