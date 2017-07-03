@@ -25,24 +25,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
-Route::resource('empleado','EmpleadoController');
-Route::resource('cliente','ClienteController');
-Route::resource('tipocliente','TipoclienteController');
-Route::resource('detalle','DetalleController');
-Route::resource('facturaspendientes','FacturaspendientesController');
 Route::resource('caja','CajaController');
+Route::resource('cliente','ClienteController');
+Route::resource('detalle','DetalleController');
+Route::resource('empleado','EmpleadoController');
+Route::resource('facturaspendientes','FacturaspendientesController');
+Route::resource('tipocliente','TipoclienteController');
 Route::resource('tipousuario','TipousuarioController');
 
+Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
+Route::get('caja/delete/{id}','CajaController@delete') ;
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
-<<<<<<< HEAD
-Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
-=======
+Route::get('detalle/delete/{id}','DetalleController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
+Route::get('facturaspendientes/delete/{id}','FacturaspendientesController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
-<<<<<<< HEAD
-Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
+Route::get('tipousuario/delete/{id}','TipousuarioController@delete') ;
 
->>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
+
+
+
 
 //Agrupamiento de rutas
 
@@ -58,5 +60,3 @@ Route::get('delete/{id}','EmpleadoController@destroy') ;
 Route::get('delete/{id}','CajaController@destroy') ;
 
 Route::get('delete/{id}','TipousuarioController@destroy') ;*/
-=======
->>>>>>> b42063bcdf6ca4c5f07481a3c6316b8bbdbffe1e

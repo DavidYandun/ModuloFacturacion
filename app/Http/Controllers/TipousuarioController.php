@@ -44,9 +44,8 @@ class TipousuarioController extends Controller
  			return Redirect::to('tipousuario');
  	}
  	
- 	public function destroy($id){
- 		$user=Tipousuario::find($id);
- 		$user->delete();
+ 	public function delete($id){
+ 		Tipousuario::destroy($id);
  		return Redirect::to('tipousuario');
  	}
 }

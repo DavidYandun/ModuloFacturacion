@@ -37,9 +37,10 @@
                                     <td>{{ $d->ABONO}}</td>
                                     <td>{{ $d->SALDO}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('FacturaspendientesController@edit',$d->IDPENDIENTE)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('FacturaspendientesController@edit',$d->IDPENDIENTE)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-info" href="{{URL::action('FacturaspendientesController@destroy',$d->IDPENDIENTE)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('FacturaspendientesController@delete',$d->IDPENDIENTE)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
+
 
                                     </td>
                                    </tr>

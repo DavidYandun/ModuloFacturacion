@@ -41,9 +41,9 @@
                                     <td>{{ $d->VALOR_TOTAL}}</td>
                                     <td>{{ $d->DESCUENTO}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-info" href="{{URL::action('DetalleController@destroy',$d->IDDETALLE)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('DetalleController@delete',$d->IDDETALLE)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
 
                                     </td>
                                    </tr>

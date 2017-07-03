@@ -45,9 +45,8 @@ class CajaController extends Controller
  			return Redirect::to('caja');
  	}
  	
- 	public function destroy($id){
- 		$user=Caja::find($id);
- 		$user->delete();
- 		return Redirect::to('caja');
- 	}
+ 	public function delete($id){
+        Caja::destroy($id);
+        return Redirect::to('caja');
+    }
 }

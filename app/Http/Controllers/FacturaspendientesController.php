@@ -44,9 +44,8 @@ class FacturaspendientesController extends Controller
  			return Redirect::to('facturaspendientes');
  	}
  	
- 	public function destroy($id){
- 		$user=Facturaspendientes::find($id);
- 		$user->delete();
- 		return Redirect::to('facturaspendientes');
- 	}
+ 	public function delete($id){
+        Facturaspendientes::destroy($id);
+        return Redirect::to('facturaspendientes');
+    }
 }

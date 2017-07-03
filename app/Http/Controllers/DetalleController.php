@@ -44,9 +44,8 @@ class DetalleController extends Controller
  			return Redirect::to('detalle');
  	}
  	
- 	public function destroy($id){
- 		$user=Detalle::find($id);
- 		$user->delete();
- 		return Redirect::to('detalle');
- 	}
+ 	public function delete($id){
+        Detalle::destroy($id);
+        return Redirect::to('detalle');
+    }
 }
