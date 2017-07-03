@@ -41,34 +41,34 @@
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 control-label">Fecha <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="FECHA" id="FECHA" class="form-control" type="Fecha" value="{{old('FECHA')}}" required>
+				<input name="FECHA" id="FECHA" class="form-control" type="text" value="{{old('FECHA')}}" required>
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="SUBTOTAL" class="col-lg-2 control-label">Sub Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="number" value="{{old('SUBTOTAL')}}" >
+				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="text" value="{{old('SUBTOTAL')}}" >
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="IVA" class="col-lg-2 control-label">Iva <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IVA" id="IVA" class="form-control" type="number" value="{{old('IVA')}}" required>
+				<input name="IVA" id="IVA" class="form-control" type="text" value="{{old('IVA')}}" required>
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" value="{{old('DESCUENTO')}}" required>
+				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="text" value="{{old('DESCUENTO')}}" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="TOTAL" class="col-lg-2 control-label">Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TOTAL" id="TOTAL" class="form-control" type="number" value="{{old('TOTAL')}}" >
+				<input name="TOTAL" id="TOTAL" class="form-control" type="text" value="{{old('TOTAL')}}" >
 			</div>
 		</div>
 		

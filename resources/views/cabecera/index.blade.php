@@ -37,8 +37,8 @@
                                     <td>{{ $c->TOTAL}}</td>
                                     
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}">Editar</a>
-                                        <a class="btn btn-info" href="{{URL::action('CabeceraController@destroy',$c->IDCABECERA)}}">Eliminar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="fa fa-pencil-square-o" >Editar</i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="fa fa-trash-o" >Eliminar</i></a>
                                         
                                     </td>
                                    </tr>

@@ -31,28 +31,30 @@
 		<div class="form-group">
 			<label for="CEDULA" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CEDULA" id="CEDULA" class="form-control" type="number" value="{{old('CEDULA')}}" required>
+				<input name="CEDULA" id="CEDULA" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{old('CEDULA')}}" required maxlength="10" minlength="10">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NOMBRE" id="NOMBRE" class="form-control" type="text" value="{{old('NOMBRE')}}" required>
+				<input name="NOMBRE" id="NOMBRE" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}"
+ type="text" value="{{old('NOMBRE')}}" required maxlength="25">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="APELLIDO" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="APELLIDO" id="APELLIDO" class="form-control" type="text" value="{{old('APELLIDO')}}" required>
+				<input name="APELLIDO" id="APELLIDO" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}"
+ type="text" value="{{old('APELLIDO')}}" required maxlength="25">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{old('NACIMIENTO')}}" required>
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{old('NACIMIENTO')}}"  required min="1991-01-01" max="2017-12-31" value="1991-01-01">
 			</div>
 		</div>
 		<div class="form-group">
@@ -72,7 +74,7 @@
 		<div class="form-group">
 			<label for="TELEFONO" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TELEFONO" id="TELEFONO" class="form-control" type="number" value="{{old('TELEFONO')}}" required>
+				<input name="TELEFONO" id="TELEFONO" class="form-control" type="text" pattern="09[0-9]{8}" value="{{old('TELEFONO')}}" required maxlength="10" minlength="10">
 			</div>
 		</div>
 		<div class="form-group">

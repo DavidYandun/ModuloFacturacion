@@ -10,8 +10,8 @@ use App\Cabecera;
 
 class CabeceraController extends Controller
 {
-    public function __construct(){
-        $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+   public function __construct(){
+    //  $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
     }
     public function index(){
         $cabecera=Cabecera::paginate(10);
@@ -20,26 +20,22 @@ class CabeceraController extends Controller
     public function create(){
         return view('cabecera.create');
     }   
-
-    public function store(Request $request){
+    public function store(CabeceraRequest $request){
         Cabecera::create($request->all());
         return Redirect::to('cabecera');
     }
-
     public function edit($id){
         $cabecera=Cabecera::find($id);
         return view('cabecera.edit',compact('cabecera'));
 
     }
-    public function update(Request $request, $id){
-            Cabecera::updateOrCreate(['IDEMPLEADO'=>$id],$request->all());
+    public function update(CabeceraRequest $request, $id){
+            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
             return Redirect::to('cabecera');
     }
-    public function destroy($id){
-        $user=Cabecera::find($id);
-        $user->delete();
+
+    public function delete($id){
+        Cabecera::destroy($id);
         return Redirect::to('cabecera');
     }
  }
-
-
