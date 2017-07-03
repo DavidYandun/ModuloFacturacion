@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\DetalleRequest;
 use App\Detalle;
+use App\Cabecera;
+use App\Producto;
 
 class DetalleController extends Controller
 {
@@ -19,7 +21,10 @@ class DetalleController extends Controller
 
  	}
  	public function create(){
- 		return view('detalles.create');
+ 		$cabecera= Cabecera::all();
+ 		$producto= Producto::all();
+ 		return view('detalles.create',compact('cabecera'),compact('producto'));
+ 		//return view('detalles.create');
  	}	
 
  	public function store(DetalleRequest $request){
@@ -31,8 +36,9 @@ class DetalleController extends Controller
 
  	
  	public function edit($id){
+ 		$cabecera= Cabecera::all();
  		
- 		return view('detalles.edit',['detalle'=>Detalle::findOrFail($id)]);
+ 		return view('detalles.edit',['detalle'=>Detalle::findOrFail($id)],compact('cabecera'));
 
  	}
  	public function show($id){

@@ -3,10 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-<<<<<<< HEAD
-=======
 use Illuminate\support\Facades\Input;
->>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
 
 class CabeceraRequest extends FormRequest
 {
@@ -26,14 +23,6 @@ class CabeceraRequest extends FormRequest
      * @return array
      */
     public function rules()
-<<<<<<< HEAD
-    {
-        return [
-            //
-        ];
-    }
-}
-=======
 {
         if(Input::has('IDCABECERA')){
             $id=Input::Get('IDCABECERA');
@@ -61,5 +50,4 @@ class CabeceraRequest extends FormRequest
         ];
      }
     }
-}   
->>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
+}

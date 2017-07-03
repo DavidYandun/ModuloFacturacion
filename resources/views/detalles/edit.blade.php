@@ -28,7 +28,11 @@
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCABECERA" id="idcabecera" class="form-control" type="text" value="{{$detalle->IDCABECERA}}" required>
+				<select name="IDCABECERA" id="detalle" class="form-control">
+				@foreach ($cabecera as $cab)
+				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<!--IDPRODUCTO-->

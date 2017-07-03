@@ -22,10 +22,9 @@
 			<label for="IDCLIENTE" class="col-lg-2 control-label">Id Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
 				<input name="IDCLIENTE" id="IDCLIENTE" class="form-control" type="number" value="{{old('IDCLIENTE')}}" required>
-				{!! Form::label('clientes', 'CLIENTES') !!}
-				{!! Form::select('IDCLIENTE', $clientes) !!}
 			</div>
 		</div>
+
 		<div class="form-group">
 			<label for="IDCAJA" class="col-lg-2 control-label">Id Caja <font color="red">*</font></label>
 			<div class="col-lg-10">
@@ -43,11 +42,7 @@
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 control-label">Fecha <font color="red">*</font></label>
 			<div class="col-lg-10">
-<<<<<<< HEAD
-				<input name="FECHA" id="FECHA" class="form-control" type="date" value="{{old('FECHA')}}" required>
-=======
 				<input name="FECHA" id="FECHA" class="form-control" type="text" value="{{old('FECHA')}}" required>
->>>>>>> 3ed065e5894645cb6d61318aa697099c2cd95716
 			</div>
 		</div>
 

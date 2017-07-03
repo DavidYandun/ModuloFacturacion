@@ -15,19 +15,29 @@
 			@endif
 		</div>
 	</div>
+
 		{!!Form::open(['url'=>'detalle'])!!}		
 		<!--IDCABECERA-->
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCABECERA" id="detalle" class="form-control" type="text" value="{{old('IDCABECERA')}}" required>
+				<select name="IDCABECERA" id="detalle" class="form-control">
+				@foreach ($cabecera as $cab)
+				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
+	
 		<!--IDPRODUCTO-->
 		<div class="form-group">
 			<label for="idproducto" class="col-lg-2 control-label">ID-Producto<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDPRODUCTO" id="idproducto" class="form-control" type="text" value="{{old('IDPRODUCTO')}}" required>
+				<select name="IDPRODUCTO" id="detalle" class="form-control">
+				@foreach ($producto as $p)
+				<option value="{{ $p->IDPRODUCTO }}">{{ $p->IDPRODUCTO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<!--CANTIDAD-->
