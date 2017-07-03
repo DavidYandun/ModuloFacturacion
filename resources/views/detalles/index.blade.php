@@ -1,12 +1,19 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Detalle
+@endsection
+
+@section('contenido')
+
+
+
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="detalle/create"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
     </div>
-    <!--@if ($message = Session::get('mensaje'))
+    @if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
         <p>

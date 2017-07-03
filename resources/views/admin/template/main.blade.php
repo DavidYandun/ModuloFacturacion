@@ -68,10 +68,17 @@
                                             <li><a href="{{url('empleado/create')}}">Añadir nuevo</a></li>
                                         </ul>
                                     </li>
+
                                     <li><a><i class="fa fa-calculator"></i>Caja <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="{{url('caja')}}">Todas las Cajas</a></li>
                                             <li><a href="{{url('caja/create')}}">Añadir nuevo</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{url('detalle')}}">Todos los Detalles</a></li>
+                                            <li><a href="{{url('detalle/create')}}">Añadir nuevo</a></li>
                                         </ul>
                                     </li>
                                     <!--<li><a><i class="fa fa-file-pdf-o"></i>Otros Reportes <span class="fa fa-chevron-down"></span></a>
