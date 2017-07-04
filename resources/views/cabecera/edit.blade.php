@@ -44,7 +44,7 @@
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 control-label">Fecha <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="FECHA" id="FECHA" class="form-control" value="<?php echo date('Y-m-d H:i:s'); ?>" value="{{$cabecera->FECHA}}" required>
+				<input name="FECHA" id="FECHA" class="form-control" value="<?php echo date('Y-m-d H:i:s'); ?>" 	 value="{{$cabecera->FECHA}}" required>
 			</div>
 		</div>
 
