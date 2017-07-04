@@ -71,27 +71,27 @@ Cabecera
 		<div class="form-group">
 			<label for="SUBTOTAL" class="col-lg-2 control-label">Subtotal <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="number" value="{{$cabecera->SUBTOTAL}}" required>
+				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="decimal" value="{{$cabecera->SUBTOTAL}}" required>
 			</div>
 			<!--IVA-->
 		<div class="form-group">
 			<label for="IVA" class="col-lg-2 control-label">IVA <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IVA" id="IVA" class="form-control" type="number" value="{{$cabecera->IVA}}" required >
+				<input name="IVA" id="IVA" class="form-control" type="decimal" value="{{$cabecera->IVA}}" required >
 			</div>
 		</div>
 		<!--DESCUENTO-->
 		<div class="form-group">
 			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" value="{{$cabecera->DESCUENTO}}" >
+				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="decimal" value="{{$cabecera->DESCUENTO}}" >
 			</div>
 		</div>
 			<!--Total-->
 		<div class="form-group">
 			<label for="TOTAL" class="col-lg-2 control-label">Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TOTAL" id="TOTAL" class="form-control" type="number" value="{{$cabecera->TOTAL}}" required>
+				<input name="TOTAL" id="TOTAL" class="form-control" type="decimal" value="{{$cabecera->TOTAL}}" required>
 			</div>
 		</div>
 
