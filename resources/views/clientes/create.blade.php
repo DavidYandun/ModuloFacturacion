@@ -30,7 +30,13 @@
 		<div class="form-group">
 			<label for="IDTIPO" class="col-lg-2 control-label">Id Tipo <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDTIPO" id="IDTIPO" class="form-control" type="number" value="{{old('IDTIPO')}}" required>
+				
+				<select name="IDTIPO" id="IDTIPO" class="form-control">
+				<option value="">Seleccione el tipo de cliente</option>
+				@foreach ($tipocliente as $tc)
+				<option value="{{ $tc->IDTIPO }}">{{ $tc->DETALLE }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<div class="form-group">

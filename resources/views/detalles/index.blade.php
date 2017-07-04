@@ -1,12 +1,19 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Detalle
+@endsection
+
+@section('contenido')
+
+
+
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="detalle/create"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
     </div>
-    <!--@if ($message = Session::get('mensaje'))
+    @if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
         <p>
@@ -41,9 +48,9 @@
                                     <td>{{ $d->VALOR_TOTAL}}</td>
                                     <td>{{ $d->DESCUENTO}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-info" href="{{URL::action('DetalleController@destroy',$d->IDDETALLE)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('DetalleController@delete',$d->IDDETALLE)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
 
                                     </td>
                                    </tr>

@@ -1,5 +1,10 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Cabecera
+@endsection
+
+
+@section('contenido')
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -23,13 +28,29 @@
 		<div class="form-group">
 			<label for="IDCLIENTE" class="col-lg-2 control-label">Id Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCLIENTE" id="IDCLIENTE" class="form-control" type="number" value="{{old('IDCLIENTE')}}" required>
+				
+				<select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
+				<option value="">selecciona un cliente</option>
+				@foreach ($cliente as $cli)
+				
+				<option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+				@endforeach
+				</select>
+
 			</div>
 		</div>
+
 		<div class="form-group">
 			<label for="IDCAJA" class="col-lg-2 control-label">Id Caja <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCAJA" id="IDCAJA" class="form-control" type="number" value="{{old('IDCAJA')}}" required>
+				
+				<select name="IDCAJA" id="IDCAJA" class="form-control">
+				<option value="">selecciona un caja</option>
+				@foreach ($caja as $caj)
+				<option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@endforeach
+				</select>
+
 			</div>
 		</div>
 
@@ -51,7 +72,7 @@
 		<div class="form-group">
 			<label for="SUBTOTAL" class="col-lg-2 control-label">Sub Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="text" value="{{old('SUBTOTAL')}}" >
+				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="text" value="{{old('SUBTOTAL')}}" required>
 			</div>
 		</div>
 
@@ -63,15 +84,15 @@
 		</div>
 
 		<div class="form-group">
-			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="red">*</font></label>
+			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="text" value="{{old('DESCUENTO')}}" required>
+				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="text" value="{{old('DESCUENTO')}}">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="TOTAL" class="col-lg-2 control-label">Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TOTAL" id="TOTAL" class="form-control" type="text" value="{{old('TOTAL')}}" >
+				<input name="TOTAL" id="TOTAL" class="form-control" type="text" value="{{old('TOTAL')}}" required>
 			</div>
 		</div>
 		

@@ -39,10 +39,13 @@
                                     <td>{{ $c->IDUSUARIO}}</td>
                                     <td>{{ $c->NUMERO}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{URL::action('CajaController@edit',$c->IDCAJA)}}"><i class="fa fa-pencil-square-o" >Editar</i</a>
+                                        <a class="btn btn-primary" href="{{URL::action('CajaController@edit',$c->IDCAJA)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-danger" href="{{URL::action('CajaController@destroy',$c->IDCAJA)}}"><i class="fa fa-trash-o" >Eliminar</i</a>                                        
+                                        <a class="btn btn-danger" href="{{URL::action('CajaController@delete',$c->IDCAJA)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
+
+
                                     </td>
+
                                    </tr>
                                 @endforeach
                             </table>
@@ -58,16 +61,20 @@
 @endsection
 
 @push('scripts')
+
 <script type="text/javascript">
-    $(document).ready(function()){
-        $('#modalEliminarTipoCliente').on('show.bs.modal',function(event)){
-        var button=$(event.relatedTarget);
-        var action=button.data('action');
-        var idtipo=button.data('idtipo');
-        var modal=$(this);
-        modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar al cliente con C.I"+idtipo +"?");
-        modal.find(".modal-body form").attr('action',action);
-        });
+$(document).ready(function () {
+    
+
+    $('#modalEliminarCaja').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var action = button.data('action');
+        var IDCAJA = button.data('IDCAJA');
+        var modal = $(this);
+        modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar a la Caja con IDCAJA " + IDCAJA + "?");
+        modal.find(".modal-body form").attr('action', action);
     });
+});
 </script>
+
 @endpush

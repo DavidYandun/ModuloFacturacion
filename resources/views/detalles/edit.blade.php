@@ -1,5 +1,9 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Detalle
+@endsection
+
+@section('contenido')
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -24,14 +28,22 @@
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCABECERA" id="idcabecera" class="form-control" type="text" value="{{$detalle->IDCABECERA}}" required>
+				<select name="IDCABECERA" id="detalle" class="form-control">
+				@foreach ($cabecera as $cab)
+				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<!--IDPRODUCTO-->
 		<div class="form-group">
 			<label for="idproducto" class="col-lg-2 control-label">ID-producto <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDPRODUCTO" id="idproducto" class="form-control" type="text" value="{{$detalle->IDPRODUCTO}}" required>
+				<select name="IDCAIDPRODUCTO" id="detalle" class="form-control">
+				@foreach ($producto as $pro)
+				<option value="{{ $pro->IDCAIDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<!--CANTIDAD-->
@@ -57,9 +69,9 @@
 		</div>
 		<!--DESCUENTO-->
 		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">descuento <font color="red">*</font></label>
+			<label for="descuento" class="col-lg-2 control-label">descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="text" value="{{$detalle->DESCUENTO}}" required>
+				<input name="DESCUENTO" id="descuento" class="form-control" type="text" value="{{$detalle->DESCUENTO}}">
 			</div>
 		</div>
 

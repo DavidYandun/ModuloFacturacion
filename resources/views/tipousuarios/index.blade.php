@@ -33,9 +33,9 @@
                                     <td>{{ $tu->IDTIPO}}</td>
                                     <td>{{ $tu->DETALLE}}</td>
                                     <td>
-                                        <a class="btn btn-info" href="{{URL::action('TipousuarioController@edit',$tu->IDTIPO)}}">Editar</a>
+                                        <a class="btn btn-primary" href="{{URL::action('TipousuarioController@edit',$tu->IDTIPO)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-info" href="{{URL::action('TipousuarioController@destroy',$tu->IDTIPO)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('TipousuarioController@delete',$tu->IDTIPO)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
                                         
                                     </td>
                                    </tr>
