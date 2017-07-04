@@ -50,6 +50,26 @@
                                 <ul class="nav side-menu" >
                                     <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Inicio </a>
                                     </li>
+
+                                    <li><a><i class="fa fa-gg"></i>Cabecera <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{url('cabecera')}}">Todas las Cabeceras</a></li>
+                                            <li><a href="{{url('cabecera/create')}}">Añadir nuevo</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{url('detalle')}}">Todos los Detalles</a></li>
+                                            <li><a href="{{url('detalle/create')}}">Añadir nuevo</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a><i class="fa fa-calculator"></i>Caja <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="{{url('caja')}}">Todas las Cajas</a></li>
+                                            <li><a href="{{url('caja/create')}}">Añadir nuevo</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a><i class="fa fa-bars"></i>Clientes <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="{{url('cliente')}}">Todos l</a></li>
@@ -69,18 +89,8 @@
                                         </ul>
                                     </li>
 
-                                    <li><a><i class="fa fa-calculator"></i>Caja <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('caja')}}">Todas las Cajas</a></li>
-                                            <li><a href="{{url('caja/create')}}">Añadir nuevo</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('detalle')}}">Todos los Detalles</a></li>
-                                            <li><a href="{{url('detalle/create')}}">Añadir nuevo</a></li>
-                                        </ul>
-                                    </li>
+                                    
+                                    
                                     <!--<li><a><i class="fa fa-file-pdf-o"></i>Otros Reportes <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="{{url('reporte')}}" target="_blank">Clientes con sus movimientos</a></li>

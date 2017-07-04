@@ -1,10 +1,12 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Cabecera
+@endsection
+
+@section('contenido')
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="cabecera/create"><button class="btn btn-success">Nuevo</button></a></p>
-        </div>
+       
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -37,8 +39,8 @@
                                     <td>{{ $c->TOTAL}}</td>
                                     
                                     <td>
-                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="fa fa-pencil-square-o" >Editar</i></a>
-                                        <a class="btn btn-danger" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="fa fa-trash-o" >Eliminar</i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
 
                                         
                                     </td>

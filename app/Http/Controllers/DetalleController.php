@@ -37,8 +37,8 @@ class DetalleController extends Controller
  	
  	public function edit($id){
  		$cabecera= Cabecera::all();
- 		
- 		return view('detalles.edit',['detalle'=>Detalle::findOrFail($id)],compact('cabecera'));
+ 		$producto= Producto::all();
+ 		return view('detalles.edit',['detalle'=>Detalle::findOrFail($id)],compact('cabecera','producto'));
 
  	}
  	public function show($id){

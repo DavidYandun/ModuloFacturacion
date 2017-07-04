@@ -39,7 +39,11 @@
 		<div class="form-group">
 			<label for="idproducto" class="col-lg-2 control-label">ID-producto <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDPRODUCTO" id="idproducto" class="form-control" type="text" value="{{$detalle->IDPRODUCTO}}" required>
+				<select name="IDCAIDPRODUCTO" id="detalle" class="form-control">
+				@foreach ($producto as $pro)
+				<option value="{{ $pro->IDCAIDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option>
+				@endforeach
+				</select>
 			</div>
 		</div>
 		<!--CANTIDAD-->
@@ -65,9 +69,9 @@
 		</div>
 		<!--DESCUENTO-->
 		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">descuento <font color="red">*</font></label>
+			<label for="descuento" class="col-lg-2 control-label">descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="text" value="{{$detalle->DESCUENTO}}" required>
+				<input name="DESCUENTO" id="descuento" class="form-control" type="text" value="{{$detalle->DESCUENTO}}">
 			</div>
 		</div>
 

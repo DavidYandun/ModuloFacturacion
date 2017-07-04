@@ -32,6 +32,7 @@
 			<div class="col-lg-10">
 				
 				<select name="IDTIPO" id="IDTIPO" class="form-control">
+				<option value="">Seleccione el tipo de cliente</option>
 				@foreach ($tipocliente as $tc)
 				<option value="{{ $tc->IDTIPO }}">{{ $tc->DETALLE }}</option>
 				@endforeach
