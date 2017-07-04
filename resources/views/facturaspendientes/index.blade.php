@@ -1,5 +1,9 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+@section ('title')
+   Facturas Pendientes
+@endsection
+
+@section('contenido')
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">

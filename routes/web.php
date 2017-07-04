@@ -40,15 +40,15 @@ Route::get('detalle/delete/{id}','DetalleController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
 Route::get('facturaspendientes/delete/{id}','FacturaspendientesController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
-<<<<<<< HEAD
+
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
-=======
+
 Route::get('tipousuario/delete/{id}','TipousuarioController@delete') ;
 
 
 
->>>>>>> 3e1d400b472db7d56e1fd98cba6a35587e718f6d
+
 
 
 //Agrupamiento de rutas
@@ -65,7 +65,4 @@ Route::get('delete/{id}','EmpleadoController@destroy') ;
 Route::get('delete/{id}','CajaController@destroy') ;
 
 Route::get('delete/{id}','TipousuarioController@destroy') ;*/
-<<<<<<< HEAD
 
-=======
->>>>>>> 3e1d400b472db7d56e1fd98cba6a35587e718f6d
