@@ -30,7 +30,12 @@
 			<div class="col-lg-10">
 				<select name="IDCABECERA" id="detalle" class="form-control">
 				@foreach ($cabecera as $cab)
-				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+					@if($cab->IDCABECERA == $detalle->IDCABECERA)
+					<option selected='true' value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+					@endif
+					@if($cab->IDCABECERA != $detalle->IDCABECERA)
+					<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+					@endif
 				@endforeach
 				</select>
 			</div>
@@ -39,9 +44,15 @@
 		<div class="form-group">
 			<label for="idproducto" class="col-lg-2 control-label">ID-producto <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<select name="IDCAIDPRODUCTO" id="detalle" class="form-control">
+				<select name="IDPRODUCTO" id="detalle" class="form-control">
 				@foreach ($producto as $pro)
-				<option value="{{ $pro->IDCAIDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option>
+					@if($pro->IDPRODUCTO==$detalle->IDPRODUCTO)
+						<option selected= 'true' value="{{ $pro->IDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option> 
+					@endif
+					@if($pro->IDPRODUCTO!=$detalle->IDPRODUCTO)
+						<option value="{{ $pro->IDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option>
+					@endif
+					
 				@endforeach
 				</select>
 			</div>

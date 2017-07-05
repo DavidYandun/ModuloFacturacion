@@ -43,7 +43,12 @@
                                 </thead>
                                @foreach ($clientes as $c)
                                 <tr>
-                                    <td>{{ $c->IDTIPO}}</td>
+                                    <!--{{$codtipo=$c->IDTIPO}}-->
+                                    <?php
+                                        $nombreTipo = App\TipoCliente::find($codtipo);
+                                    ?>
+                                    <td>{{ $nombreTipo->DETALLE}}</td>
+                                    
                                     <td>{{ $c->CEDULA}}</td>
                                     <td>{{ $c->NOMBRE}}</td>
                                     <td>{{ $c->APELLIDO}}</td>

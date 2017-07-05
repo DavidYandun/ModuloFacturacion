@@ -34,7 +34,12 @@ Cabecera
 				
 				<select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
 				@foreach ($cliente as $cli)
+				@if($cli->IDCLIENTE == $cabecera->IDCLIENTE)
+						<option selected='true' value="{{$cli->IDCLIENTE}}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+					@endif
+				@if($cli->IDCLIENTE != $cabecera->IDCLIENTE)
 				<option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+				@endif
 				@endforeach
 				</select>
 
@@ -47,7 +52,12 @@ Cabecera
 				
 				<select name="IDCAJA" id="IDCAJA" class="form-control">
 				@foreach ($caja as $caj)
+				@if ($caj->IDCAJA == $cabecera->IDCAJA)
+				<option selected='true' value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@endif
+				@if ($caj->IDCAJA != $cabecera->IDCAJA)
 				<option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@endif
 				@endforeach
 				</select>
 

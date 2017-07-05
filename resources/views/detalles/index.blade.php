@@ -41,6 +41,12 @@
                                 </thead>
                               @foreach ($detalles as $d)
                                 <tr>
+                                <!--{{$idcabecera=$d->IDCABECERA}}-->
+
+                                    <?php
+                                        $numeroCabecera = App\Cabecera::find($idcabecera);
+                                    ?>
+                                    <td>{{ $numeroCabecera->NUMERO}}</td>
                                     <td>{{ $d->IDCABECERA}}</td>
                                     <td>{{ $d->IDPRODUCTO}}</td>
                                     <td>{{ $d->CANTIDAD}}</td>
