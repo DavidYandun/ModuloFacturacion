@@ -29,7 +29,11 @@
                                 </thead>
                                @foreach ($cabecera as $c)
                                 <tr>
-                                    <td>{{ $c->IDCLIENTE}}</td>
+                                    <!--{{$codcliente=$c->IDCLIENTE}}-->
+                                    <?php
+                                        $nombreCliente = App\Cliente::find($codcliente);
+                                    ?>
+                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
                                     <td>{{ $c->IDCAJA}}</td>
                                     <td>{{ $c->NUMERO}}</td>
                                     <td>{{ $c->FECHA}}</td>
