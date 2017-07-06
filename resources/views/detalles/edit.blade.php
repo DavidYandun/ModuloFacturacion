@@ -26,7 +26,7 @@
 		<input type="hidden" name="IDDETALLE" value="{{$detalle->IDDETALLE}}">
 		<!--IDCABECERA-->
 		<div class="form-group">
-			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera <font color="red">*</font></label>
+			<label for="idcabecera" class="col-lg-2 control-label">Cabecera <font color="red">*</font></label>
 			<div class="col-lg-10">
 				<select name="IDCABECERA" id="detalle" class="form-control">
 				@foreach ($cabecera as $cab)
@@ -42,7 +42,7 @@
 		</div>
 		<!--IDPRODUCTO-->
 		<div class="form-group">
-			<label for="idproducto" class="col-lg-2 control-label">ID-producto <font color="red">*</font></label>
+			<label for="idproducto" class="col-lg-2 control-label">ID-Producto <font color="red">*</font></label>
 			<div class="col-lg-10">
 				<select name="IDPRODUCTO" id="detalle" class="form-control">
 				@foreach ($producto as $pro)
@@ -59,37 +59,44 @@
 		</div>
 		<!--CANTIDAD-->
 		<div class="form-group">
-			<label for="cantidad" class="col-lg-2 control-label">cantidad <font color="red">*</font></label>
+			<label for="cantidad" class="col-lg-2 control-label">Cantidad <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CANTIDAD" id="cantidad" class="form-control" type="text" value="{{$detalle->CANTIDAD}}" required>
+				<input name="CANTIDAD" id="cantidad" class="form-control" type="number" value="{{$detalle->CANTIDAD}}" required>
 			</div>
 		</div>
 		<!--VALOR_UNITARIO-->
 		<div class="form-group">
 			<label for="valor_unitario" class="col-lg-2 control-label">Valor Unitario <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="text" value="{{$detalle->VALOR_UNITARIO}}" required>
+				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{$detalle->VALOR_UNITARIO}}" required>
 			</div>
 		</div>
 		<!--VALOR_TOTAL-->
 		<div class="form-group">
 			<label for="valor_total" class="col-lg-2 control-label">Valor Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="text" value="{{$detalle->VALOR_TOTAL}}" required>
+				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{$detalle->VALOR_TOTAL}}" required>
 			</div>
 		</div>
 		<!--DESCUENTO-->
 		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">descuento <font color="#76D7C4"> (opcional)</font></label>
+			<label for="descuento" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="text" value="{{$detalle->DESCUENTO}}">
+				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{$detalle->DESCUENTO}}">
 			</div>
 		</div>
 
-		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input class="btn btn-primary" type="submit" value="Actualizar" />
-        </div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <input class="form-control btn btn-primary" type="submit" value="Actualizar" />
+        	</div>
+        	
+		</div>
 	</form>
+	<br>
+		<div class=" col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <a href="{{url('detalle')}}" class="form-control btn btn-danger">Cancelar</a>
+        </div>
 
 </div>
 @endsection

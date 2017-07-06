@@ -74,7 +74,7 @@ Cabecera
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 control-label">Fecha <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="FECHA" id="FECHA" class="form-control" value="<?php echo date('Y-m-d H:i:s'); ?>" 	 value="{{$cabecera->FECHA}}" required>
+				<input name="FECHA" id="FECHA" class="form-control" value="{{$cabecera->FECHA}}" 	 value="{{$cabecera->FECHA}}" required>
 			</div>
 		</div>
 		<!--SUBTOTAL-->
@@ -108,11 +108,16 @@ Cabecera
 
 		</div>
 
-
-
-		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input class="btn btn-primary" type="submit" value="Actualizar" />
-        </div>
+	<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <input class="form-control btn btn-primary" type="submit" value="Actualizar" />
+        	</div>
+        	
+		</div>
 	</form>
+	<br>
+		<div class=" col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <a href="{{url('cabecera')}}" class="form-control btn btn-danger">Cancelar</a>
+        </div>
 </div>
 @endsection

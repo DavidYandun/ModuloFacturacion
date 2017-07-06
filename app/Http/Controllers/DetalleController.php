@@ -10,6 +10,7 @@ use App\Detalle;
 use App\Cabecera;
 use App\Producto;
 
+
 class DetalleController extends Controller
 {
     public function __construct(){
@@ -25,6 +26,10 @@ class DetalleController extends Controller
  		$producto= Producto::all();
  		return view('detalles.create',compact('cabecera'),compact('producto'));
  		//return view('detalles.create');
+ 	}
+ 	public function opValorTotal($cant,$unit){
+ 		$total=$unit*$cant;
+ 		return view(compact('total'));
  	}	
 
  	public function store(DetalleRequest $request){

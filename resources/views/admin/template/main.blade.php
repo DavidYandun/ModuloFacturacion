@@ -48,52 +48,29 @@
                         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
                             <div class="menu_section">
                                 <ul class="nav side-menu" >
+                                <!--INICIO-->
                                     <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Inicio </a>
                                     </li>
-
-                                    <li><a><i class="fa fa-gg"></i>Cabecera <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('cabecera')}}">Todas las Cabeceras</a></li>
-                                            <li><a href="{{url('cabecera/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--CABECERA-->
+                                    <li><a href="{{url('cabecera')}}"><i class="fa fa-gg"></i>Cabecera <span class="fa fa-chevron-right"></span></a>        
                                     </li>
-                                    <li><a><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('detalle')}}">Todos los Detalles</a></li>
-                                            <li><a href="{{url('detalle/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                 <!--DETALLE-->   
+                                    <li><a href="{{url('detalle')}}"><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-right"></span></a>
                                     </li>
-
-                                    <li><a><i class="fa fa-calculator"></i>Caja <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('caja')}}">Todas las Cajas</a></li>
-                                            <li><a href="{{url('caja/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--CAJA-->   
+                                    <li><a href="{{url('caja')}}"><i class="fa fa-calculator"></i>Caja <span class="fa fa-chevron-right"></span></a>
                                     </li>
-                                    <li><a><i class="fa fa-bars"></i>Clientes <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('cliente')}}">Todos l</a></li>
-                                            <li><a  href="{{url('cliente/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--CLIENTES-->  
+                                    <li><a href="{{url('cliente')}}"><i class="fa fa-bars"></i>Clientes <span class="fa fa-chevron-right"></span></a>
                                     </li>
-                                    <li><a><i class="fa fa-users"></i> Tipo Clientes <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('tipocliente')}}">Todos </a></li>
-                                            <li><a  href="{{url('tipocliente/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--TIPOCLIENTE-->  
+                                    <li><a href="{{url('tipocliente')}}"><i class="fa fa-users"></i> Tipo Clientes <span class="fa fa-chevron-right"></span></a>
                                     </li>
-                                    <li><a><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('empleado')}}">Todos los empleados</a></li>
-                                            <li><a href="{{url('empleado/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--EMPLEADOS-->  
+                                    <li><a href="{{url('empleado')}}"><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-right"></span></a>
                                     </li>
-                                    
-                                     <li><a><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li><a href="{{url('facturaspendientes')}}">Todos las Facturas Pendiente</a></li>
-                                            <li><a href="{{url('facturaspendientes/create')}}">Añadir nuevo</a></li>
-                                        </ul>
+                                <!--FACTURAS PENDIENTES-->  
+                                     <li><a href="{{url('facturaspendientes')}}"><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-right"></span></a>
                                     </li>
 
                                     

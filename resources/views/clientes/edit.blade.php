@@ -35,7 +35,7 @@ Clientes
 				<select name="IDTIPO" id="IDTIPO" class="form-control">
 				@foreach ($tipocliente as $tc)
 					@if($tc->IDTIPO == $cliente->IDTIPO)
-						<option selected='true' value="$tc->IDTIPO">{{ $tc->DETALLE }}</option>
+						<option selected='true' value="{{$tc->IDTIPO}}">{{ $tc->DETALLE }}</option>
 					@endif
 					@if ($tc->IDTIPO != $cliente->IDTIPO)
 						<option value="{{ $tc->IDTIPO }}">{{ $tc->DETALLE }}</option>
@@ -44,7 +44,7 @@ Clientes
 				</select>
 			</div>
 		</div>
-
+<!--CEDULA-->
 	<div class="form-group">
 			<label for="CEDULA" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
 			<div class="col-lg-10">
@@ -56,7 +56,7 @@ Clientes
 			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
 				<input name="NOMBRE" id="NOMBRE" class="form-control"
-				pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}"
+				pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{2,11}"
 
 				 type="text" value="{{$cliente->NOMBRE}}" required maxlength="25">
 			</div>
@@ -65,14 +65,14 @@ Clientes
 		<div class="form-group">
 			<label for="APELLIDO" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="APELLIDO" id="APELLIDO" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}" type="text" value="{{$cliente->APELLIDO}}" required maxlength="25">
+				<input name="APELLIDO" id="APELLIDO" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{2,11}" type="text" value="{{$cliente->APELLIDO}}" required maxlength="25">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{$cliente->NACIMIENTO}}" required min="1985-01-01" max="2017-12-31">
+				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{$cliente->NACIMIENTO}}" required min="1900-01-01" max="<?php echo date('Y-m-d'); ?>">
 			</div>
 		</div>
 		<div class="form-group">
@@ -92,13 +92,13 @@ Clientes
 		<div class="form-group">
 			<label for="TELEFONO" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TELEFONO" id="TELEFONO" class="form-control" type="text" pattern="09[0-9]{8}" value="{{$cliente->TELEFONO}}" required maxlength="10" minlength="10">
+				<input name="TELEFONO" id="TELEFONO" class="form-control" type="tel" pattern="0[0-9]{9}" value="{{$cliente->TELEFONO}}" required maxlength="10" minlength="10">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="EMAIL" class="col-lg-2 control-label">e-mail <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="EMAIL" id="EMAIL" class="form-control" type="text" value="{{$cliente->EMAIL}}" required>
+				<input name="EMAIL" id="EMAIL" class="form-control" type="email" value="{{$cliente->EMAIL}}" required>
 			</div>
 		</div>
 <div class="form-group">
@@ -111,10 +111,17 @@ Clientes
       </div>
     </div>
 
-		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <input class="btn btn-primary" type="submit" value="Actualizar" />
-        </div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <input class="form-control btn btn-primary" type="submit" value="Actualizar" />
+        	</div>
+        	
+		</div>
 	</form>
+	<br>
+		<div class=" col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
+              <a href="{{url('cliente')}}" class="form-control btn btn-danger">Cancelar</a>
+        </div>
 </div>
 @endsection
 
