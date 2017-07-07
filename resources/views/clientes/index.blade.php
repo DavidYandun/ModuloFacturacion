@@ -29,7 +29,7 @@
                         <div class="table-responsive">
                             <table class="table table table-bordered table-condensed table-hover">
                                 <thead class="thead thead-inverse">
-                                    <th colspan="2">Opciones</th>
+                                    <th colspan="1">Opciones</th>
                                     <th>Tipo</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
@@ -44,9 +44,7 @@
                                 </thead>
                                @foreach ($clientes as $c)
                                 <tr>
-                                <td align="center">
-                                    <a class="btn btn-danger" href="{{URL::action('ClienteController@delete',$c->IDCLIENTE)}}"><i class="glyphicon glyphicon-trash" ></i></a>                                        
-                                </td>
+
                                 <td align="center">
                                        <a class="btn btn-primary" href="{{URL::action('ClienteController@edit',$c->IDCLIENTE)}}" ><i class="glyphicon glyphicon-pencil" ></i></a>
                                 </td>

@@ -4,12 +4,12 @@
 @endsection
 
 @section('contenido')
-<!--<div class="container">
+<div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="empleado/create"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="empleado/create"><button class="btn btn-success"><i class="glyphicon glyphicon-edit"> Nuevo</i></button></a></p>
         </div>
-    </div>-->
+    </div>
     <!--@if ($message = Session::get('mensaje'))
     <div class="row">
     <div class="alert alert-success">
@@ -28,6 +28,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>                                    
+                                    <th colspan="2">Opciones</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
@@ -36,10 +37,16 @@
                                     <th>Dirección</th>
                                     <th>Teléfono</th>                                    
                                     <th>Estado</th>
-                                    <th>Opciones</th>
+                                    
                                 </thead>
                                @foreach ($empleados as $c)
-                                <tr>                                    
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{URL::action('EmpleadoController@delete',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-trash" ></i></a>
+                                    </td>                                    
+                                    <td>
+                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
+                                    </td>
                                     <td>{{ $c->CEDULA}}</td>
                                     <td>{{ $c->NOMBRE}}</td>
                                     <td>{{ $c->APELLIDO}}</td>
@@ -49,11 +56,7 @@
                                     <td>{{ $c->TELEFONO}}</td>                                    
                                     <td>{{ $c->ESTADO}}</td>
                                     
-                                    <td>
-                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="fa fa-pencil-square-o" >Editar</i></a>
-                                        <a class="btn btn-danger" href="{{URL::action('EmpleadoController@delete',$c->IDEMPLEADO)}}"><i class="fa fa-trash-o" >Eliminar</i></a>
-                                        
-                                    </td>
+                                    
                                    </tr>
                                 @endforeach
                             </table>
