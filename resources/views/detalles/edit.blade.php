@@ -61,14 +61,21 @@
 		<div class="form-group">
 			<label for="cantidad" class="col-lg-2 control-label">Cantidad <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CANTIDAD" id="cantidad" class="form-control" type="number" value="{{$detalle->CANTIDAD}}" required>
+				<input name="CANTIDAD" id="cantidad" class="form-control" type="number" value="{{$detalle->CANTIDAD}}" required onkeyup="fValorTotal();">
 			</div>
 		</div>
 		<!--VALOR_UNITARIO-->
 		<div class="form-group">
 			<label for="valor_unitario" class="col-lg-2 control-label">Valor Unitario <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{$detalle->VALOR_UNITARIO}}" required>
+				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{$detalle->VALOR_UNITARIO}}" required onkeyup="fValorTotal();">
+			</div>
+		</div>
+		<!--DESCUENTO-->
+		<div class="form-group">
+			<label for="descuento" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
+			<div class="col-lg-10">
+				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{$detalle->DESCUENTO}}" onkeyup="fValorTotal();">
 			</div>
 		</div>
 		<!--VALOR_TOTAL-->
@@ -78,13 +85,7 @@
 				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{$detalle->VALOR_TOTAL}}" required>
 			</div>
 		</div>
-		<!--DESCUENTO-->
-		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
-			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{$detalle->DESCUENTO}}">
-			</div>
-		</div>
+		
 
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -100,3 +101,8 @@
 
 </div>
 @endsection
+<script language="javascript">
+    function fValorTotal() {
+        document.getElementById("valor_total").value = (document.getElementById("cantidad").value * document.getElementById("valor_unitario").value)-document.getElementById("descuento").value;
+    }
+</script>

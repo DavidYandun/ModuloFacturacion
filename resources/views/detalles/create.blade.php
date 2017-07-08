@@ -51,31 +51,34 @@
 		<div class="form-group">
 			<label for="cantidad" class="col-lg-2 control-label">Cantidad<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CANTIDAD" id="cantidad" class="form-control" type="number" value="1" required>
+				<input name="CANTIDAD" id="cantidad" class="form-control" type="number" value="1" required onkeyup="fValorTotal();">
 			</div>
 		</div>
 		<!--VALOR_UNITARIO-->
 		<div class="form-group">
 			<label for="valor_unitario" class="col-lg-2 control-label">Valor Unitario<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{old('VALOR_UNITARIO')}}" required placeholder="0.00">
+				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{old('VALOR_UNITARIO')}}" required onkeyup="fValorTotal();" placeholder="0.00" >
 			</div>
+
 		</div>
 		
 		<!--DESCUENTO-->
 		<div class="form-group">
 			<label for="descuento" class="col-lg-2 control-label">Descuento<font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{old('DESCUENTO')}}" placeholder="0.00">
+				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{old('DESCUENTO')}}" onkeyup="fValorTotal();" placeholder="0.00">
 			</div>
 		</div>
 		<!--VALOR_TOTAL-->
+		
 		<div class="form-group">
 			<label for="valor_total" class="col-lg-2 control-label">Valor Total<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{old('VALOR_TOTAL')}}" required placeholder="0.00">
+				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{old('VALOR_TOTAL')}}"  placeholder="0.00" disabled="">
 			</div>
 		</div>
+
 				
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -83,10 +86,20 @@
         	</div>
         	
 		</div>
+		
 	{!!Form::close()!!}
 	<br>
 		<div class=" col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
               <a href="{{url('detalle')}}" class="form-control btn btn-danger">Cancelar</a>
         </div>
+
 </div>
 @endsection
+@push('scripts')
+<script src="{{asset('js\validaciones.js')}}"></script>
+@endpush
+<script language="javascript">
+    function fValorTotal() {
+        document.getElementById("valor_total").value = (document.getElementById("cantidad").value * document.getElementById("valor_unitario").value)-document.getElementById("descuento").value;
+    }
+</script>

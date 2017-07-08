@@ -29,7 +29,7 @@ class ClienteRequest extends FormRequest
             $id=Input::get('IDCLIENTE');
             return [
                 "IDTIPO"=>"required|integer|min:1|max:11",
-                "CEDULA"=>"required|min:10|max:10",
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:10",
                 "NOMBRE"=>"required|min:3|max:25",
                 "APELLIDO"=>"required|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 
@@ -42,7 +42,7 @@ class ClienteRequest extends FormRequest
          }else{
         return [
              "IDTIPO"=>"required|integer|min:1|max:11",
-                "CEDULA"=>"required|min:10|max:13",
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:13",
                 "NOMBRE"=>"required|min:3|max:25",
                 "APELLIDO"=>"required|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 
