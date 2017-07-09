@@ -32,11 +32,16 @@ class CabeceraController extends Controller
         return Redirect::to('cabecera');
     }
     public function edit($id){
-        $cabecera=Cabecera::find($id);
-       
+        $cabecera=Cabecera::find($id);       
          $cliente= Cliente::all();
         $caja= Caja::all();
         return view('cabecera.edit',compact('cabecera','cliente','caja'));
+
+    }
+    public function findCliente($id){
+        $cliente1=Cliente::find($id);
+        $tipocliente=Tipocliente::all();
+        return $cliente;
 
     }
 

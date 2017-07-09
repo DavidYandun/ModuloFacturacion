@@ -29,7 +29,9 @@
                                 </thead>
                                @foreach ($cabecera as $c)
                                 <tr>
-                                    <td>{{ $c->IDCLIENTE}}</td>
+                                    $idcliente=$c->IDCLIENTE
+                                   <? php $cliente1=App\Cliente::find($idcliente); ?>
+                                    <td>{{ $cliente1->NOMBRE}}</td>
                                     <td>{{ $c->IDCAJA}}</td>
                                     <td>{{ $c->NUMERO}}</td>
                                     <td>{{ $c->FECHA}}</td>
