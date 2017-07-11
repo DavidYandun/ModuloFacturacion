@@ -29,7 +29,7 @@ class CabeceraRequest extends FormRequest
         return [
             "IDCLIENTE"=>"required|integer|min:1|max:1000",
             "IDCAJA"=>"required|integer|min:1|max:11",
-            "NUMERO"=>"required|integer",
+            
             //"FECHA"=>"required|date(dd-mm-aaaa HH:mm:ss)",
             
             "SUBTOTAL"=>"required|numeric",
@@ -41,7 +41,7 @@ class CabeceraRequest extends FormRequest
         return[
             "IDCLIENTE"=>"required|integer|min:1|max:1000",
             "IDCAJA"=>"required|integer|min:1|max:11",
-            "NUMERO"=>"required|integer",
+            
             //"FECHA"=>"required|date(dd-mm-aaaa HH:mm:ss)",
             "SUBTOTAL"=>"required|numeric",
             "IVA"=>"required|numeric",

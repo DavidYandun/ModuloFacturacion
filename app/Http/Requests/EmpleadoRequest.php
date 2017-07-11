@@ -27,7 +27,7 @@ class EmpleadoRequest extends FormRequest
       if(Input::has('IDEMPLEADO')){
             $id=Input::get('IDEMPLEADO');
             return [                
-                "CEDULA"=>"required|min:10|max:10",
+                "CEDULA"=>"unique:empleados,CEDULA|min:10|max:10",
                 "NOMBRE"=>"required|min:3|max:25",
                 "APELLIDO"=>"required|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 
@@ -38,7 +38,7 @@ class EmpleadoRequest extends FormRequest
             ];
          }else{
         return [             
-                "CEDULA"=>"required|min:10|max:13",
+                "CEDULA"=>"unique:empleados,CEDULA|min:10|max:13",
                 "NOMBRE"=>"required|min:3|max:25",
                 "APELLIDO"=>"required|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 

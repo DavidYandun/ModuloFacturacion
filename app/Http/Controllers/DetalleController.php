@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
@@ -9,8 +7,6 @@ use App\Http\Requests\DetalleRequest;
 use App\Detalle;
 use App\Cabecera;
 use App\Producto;
-
-
 class DetalleController extends Controller
 {
     public function __construct(){
@@ -19,7 +15,6 @@ class DetalleController extends Controller
  	public function index(){
  		$detalles=Detalle::paginate(10);
  		return view('detalles.index',compact('detalles'));
-
  	}
  	public function create(){
  		$cabecera= Cabecera::all();
@@ -31,25 +26,21 @@ class DetalleController extends Controller
  		$total=$unit*$cant;
  		return view(compact('total'));
  	}	
-
  	public function store(DetalleRequest $request){
  		Detalle::create($request->all());
  		//$prductos=Producto::paginate(10);
  	//	return view('detalles.index',compact('detalles'));
  		return Redirect::to('detalle');
  	}
-
  	
  	public function edit($id){
  		$cabecera= Cabecera::all();
  		$producto= Producto::all();
  		return view('detalles.edit',['detalle'=>Detalle::findOrFail($id)],compact('cabecera','producto'));
-
  	}
  	public function show($id){
  		return view('detalles.show',['detalle'=>Detalle::findOrFail($id)]);
  	}
-
  	public function update(DetalleRequest $request, $id){
  			Detalle::updateOrCreate(['IDDETALLE'=>$id],$request->all());
  			return Redirect::to('detalle');

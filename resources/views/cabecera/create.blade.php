@@ -20,10 +20,17 @@
 			@endif
 		</div>
 	</div>
+	
 		<form action="{{url('cabecera')}}" method="POST" class="">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+		<div class="form-group">
+			<label for="IDCABECERA" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Número <font color="red">*</font></label>
 
+			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+				<input name="IDCABECERA" id="IDCABECERA" class="form-control"  value="{{old('IDCABECERA')}}" required type="number" placeholder="00001234">
+			</div>
+		</div>	
 
 		<div class="form-group">
 			<label for="IDCLIENTE" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Cliente <font color="red">*</font></label>
@@ -54,12 +61,7 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-			<label for="NUMERO" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Número <font color="red">*</font></label>
-			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="NUMERO" id="NUMERO" class="form-control"  value="{{old('NUMERO')}}" required type="number" placeholder="00001234">
-			</div>
-		</div>	
+		
 
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Fecha <font color="red">*</font></label>

@@ -26,10 +26,10 @@
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<select name="IDCABECERA" id="detalle" class="form-control">
+				<select name="IDCABECERA" id="detalle" class="form-control" required>
 				<option value="">Seleccione una Factura</option>
 				@foreach ($cabecera as $cab)
-				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+				<option value="{{ $cab->IDCABECERA }}">{{ $cab->IDCABECERA }}</option>
 				@endforeach
 				</select>
 			</div>
@@ -39,10 +39,10 @@
 		<div class="form-group">
 			<label for="idproducto" class="col-lg-2 control-label">ID-Producto<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<select name="IDPRODUCTO" id="detalle" class="form-control">
+				<select name="IDPRODUCTO" id="detalle" class="form-control" required>
 				<option value="">Seleccione un Producto</option>
 				@foreach ($producto as $p)
-				<option value="{{ $p->IDPRODUCTO }}">{{ $p->IDPRODUCTO }}</option>
+				<option value="{{ $p->IDPRODUCTO }}">{{ $p->NOMBREP }}</option>
 				@endforeach
 				</select>
 			</div>

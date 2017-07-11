@@ -1,5 +1,14 @@
-@extends('layouts.app')
-@section('content')
+@extends('admin.template.main')
+
+@section ('title')
+   Productos
+@endsection
+@section('TituloBanner')
+Productos
+@endsection
+
+
+@section('contenido')
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -18,33 +27,38 @@
 		<form action="{{url('producto')}}" method="POST">
 		{{ csrf_field() }}
 		<div class="form-group">
-			<label for="nombre" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
+		<!--STOCK-->
+			<label for="STOCK" class="col-lg-2 control-label">Stock <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="nombre" id="nombre" class="form-control" type="text" value="{{old('nombre')}}" required>
+				<input name="STOCK" id="STOCK" class="form-control" type="number" value="{{old('STOCK')}}" required>
 			</div>
 		</div>
+		<!--NOMBREP-->
 		<div class="form-group">
-			<label for="precio" class="col-lg-2 control-label">Precio <font color="red">*</font></label>
+			<label for="NOMBREP" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="precio" id="precio" class="form-control" type="number" step="0.01" value="{{old('precio')}}" required>
+				<input name="NOMBREP" id="NOMBREP" class="form-control" type="text" value="{{old('NOMBREP')}}" required>
 			</div>
 		</div>
+		<!--DESCRIPCION-->
 		<div class="form-group">
-			<label for="codigo" class="col-lg-2 control-label">Código <font color="red">*</font></label>
+			<label for="DESCRIPCION" class="col-lg-2 control-label">Descripción <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="codigo" id="codigo" class="form-control" type="text" value="{{old('codigo')}}" required>
+				<input name="DESCRIPCION" id="DESCRIPCION" class="form-control" type="text" value="{{old('DESCRIPCION')}}" required>
 			</div>
 		</div>
+		<!--DESCUENTO-->
 		<div class="form-group">
-			<label for="cantidad" class="col-lg-2 control-label">Cantidad <font color="red">*</font></label>
+			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="cantidad" id="cantidad" class="form-control" type="number" value="{{old('cantidad')}}" required>
+				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" value="{{old('DESCUENTO')}}" required>
 			</div>
 		</div>
+		<!--VALOR-->
 		<div class="form-group">
-			<label for="minStock" class="col-lg-2 control-label">minStock <font color="red">*</font></label>
+			<label for="VALOR" class="col-lg-2 control-label">Precio <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="minStock" id="minStock" class="form-control" type="number" value="{{old('minStock')}}" required>
+				<input name="VALOR" id="VALOR" class="form-control" type="number" value="{{old('VALOR')}}" required>
 			</div>
 		</div>
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

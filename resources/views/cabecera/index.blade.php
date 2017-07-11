@@ -21,9 +21,9 @@
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
                                     <th colspan="2">Opciones</th>
+                                    <th>Número</th>
                                     <th>Cliente</th>
                                     <th>Caja</th>
-                                    <th>Número</th>
                                     <th>Fecha</th>
                                     <th>Sub Total</th>
                                     <th>Iva</th>
@@ -44,9 +44,9 @@
                                     <td align="center">
                                         <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil"></i></a>
                                     </td>
+                                    <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
                                     <td>{{ $c->IDCAJA}}</td>
-                                    <td>{{ $c->NUMERO}}</td>
                                     <td>{{ $c->FECHA}}</td>
                                     <td>{{ $c->SUBTOTAL}}</td>
                                     <td>{{ $c->IVA}}</td>

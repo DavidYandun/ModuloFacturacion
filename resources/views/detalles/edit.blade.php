@@ -47,10 +47,10 @@
 				<select name="IDPRODUCTO" id="detalle" class="form-control">
 				@foreach ($producto as $pro)
 					@if($pro->IDPRODUCTO==$detalle->IDPRODUCTO)
-						<option selected= 'true' value="{{ $pro->IDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option> 
+						<option selected= 'true' value="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}</option> 
 					@endif
 					@if($pro->IDPRODUCTO!=$detalle->IDPRODUCTO)
-						<option value="{{ $pro->IDPRODUCTO }}">{{ $pro->IDPRODUCTO }}</option>
+						<option value="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}</option>
 					@endif
 					
 				@endforeach

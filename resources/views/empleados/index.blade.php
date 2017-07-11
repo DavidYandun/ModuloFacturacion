@@ -28,7 +28,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>                                    
-                                    <th colspan="2">Opciones</th>
+                                    <th colspan="1">Opciones</th>
                                     <th>Cédula</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
@@ -41,10 +41,7 @@
                                 </thead>
                                @foreach ($empleados as $c)
                                 <tr>
-                                    <td>
-                                        <a class="btn btn-danger" href="{{URL::action('EmpleadoController@delete',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-trash" ></i></a>
-                                    </td>                                    
-                                    <td>
+                                    <td align="center">
                                         <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                     </td>
                                     <td>{{ $c->CEDULA}}</td>

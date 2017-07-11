@@ -51,11 +51,8 @@
                                     <td align="center">
                                         <a class="btn btn-primary" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                     </td>
-                                <!--{{$idcabecera=$d->IDCABECERA}}-->
-                                    <?php
-                                        $numeroCabecera = App\Cabecera::find($idcabecera);
-                                    ?>
-                                    <td>{{ $numeroCabecera->NUMERO}}</td>
+                                
+                                    <td>{{ $d->IDCABECERA}}</td>
                                     <td>{{ $d->IDPRODUCTO}}</td>
                                     <td>{{ $d->CANTIDAD}}</td>
                                     <td>{{ $d->VALOR_UNITARIO}}</td>

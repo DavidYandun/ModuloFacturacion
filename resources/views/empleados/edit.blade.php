@@ -28,7 +28,7 @@
 	<div class="form-group">
 			<label for="CEDULA" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CEDULA" id="CEDULA" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$empleado->CEDULA}}" required maxlength="10" minlength="10">
+				<input name="CEDULA" id="CEDULA" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$empleado->CEDULA}}" required maxlength="10" minlength="10" disabled>
 			</div>
 		</div>
 

@@ -26,10 +26,16 @@ Cabecera
 		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
 		<input type="hidden" name="IDCABECERA" value="{{$cabecera->IDCABECERA}}">
+		<!--NUMERO-->
+		<div class="form-group">
+			<label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
+			<div class="col-lg-10">
+				<input name="IDCABECERA" id="IDCABECERA" class="form-control" type="number" value="{{$cabecera->IDCABECERA}}" disabled>
+			</div>
 		<!--ID CLIENTE-->
 
 		<div class="form-group">
-			<label for="IDCLIENTE" class="col-lg-2 control-label">Id Cliente <font color="red">*</font></label>
+			<label for="IDCLIENTE" class="col-lg-2 control-label">Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
 				
 				<select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
@@ -63,12 +69,7 @@ Cabecera
 
 			</div>
 		</div>
-		<!--NUMERO-->
-		<div class="form-group">
-			<label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="NUMERO" id="NUMERO" class="form-control" type="number" value="{{$cabecera->NUMERO}}" required >
-			</div>
+		
 		</div>
 		<!--FECHA-->
 		<div class="form-group">
