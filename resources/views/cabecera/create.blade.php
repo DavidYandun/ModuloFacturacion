@@ -28,7 +28,7 @@
 			<label for="IDCABECERA" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Número <font color="red">*</font></label>
 
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="IDCABECERA" id="IDCABECERA" class="form-control"  value="{{old('IDCABECERA')}}" required type="number" placeholder="00001234">
+				<input name="IDCABECERA" id="IDCABECERA" class="form-control"  value="{{old('IDCABECERA')}}" type="number" placeholder="00001234">
 			</div>
 		</div>	
 
@@ -66,8 +66,7 @@
 		<div class="form-group">
 			<label for="FECHA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Fecha <font color="red">*</font></label>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="FECHA" id="FECHA" class="form-control"  value="<?php echo date('Y-m-d'); ?>" value="{{old('FECHA')}}" required disabled="disabled">
-				<!--disabled="disabled"-->
+				<input name="FECHA" id="FECHA" class="form-control"  value="<?php echo date('Y-m-d'); ?>" value="{{old('FECHA')}}" OnFocus="this.blur()">
 			</div>
 		</div>
 
