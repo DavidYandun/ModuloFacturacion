@@ -36,7 +36,7 @@
                                 <thead>
                                     <th colspan="2">Opciones</th>
                                     <th>Cabecera</th>
-                                    <th>ID_Producto</th>
+                                    <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Valor Unitario</th>
                                     <th>Descuento</th>
@@ -53,7 +53,11 @@
                                     </td>
                                 
                                     <td>{{ $d->IDCABECERA}}</td>
-                                    <td>{{ $d->IDPRODUCTO}}</td>
+                                    <!--{{$idproducto=$d->IDPRODUCTO}}-->
+                                    <?php
+                                        $prod = App\Producto::find($idproducto);
+                                    ?>
+                                    <td>{{ $prod->NOMBREP}}</td>
                                     <td>{{ $d->CANTIDAD}}</td>
                                     <td>{{ $d->VALOR_UNITARIO}}</td>
                                     <td>{{ $d->DESCUENTO}}</td>

@@ -67,7 +67,7 @@
 		<div class="form-group">
 			<label for="descuento" class="col-lg-2 control-label">Descuento<font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{old('DESCUENTO')}}" onkeyup="fValorTotal();" placeholder="0.00">
+				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="0" onkeyup="fValorTotal();" placeholder="0.00">
 			</div>
 		</div>
 		<!--VALOR_TOTAL-->
@@ -75,7 +75,7 @@
 		<div class="form-group">
 			<label for="valor_total" class="col-lg-2 control-label">Valor Total<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{old('VALOR_TOTAL')}}"  placeholder="0.00" disabled="">
+				<input name="VALOR_TOTAL" id="valor_total" class="form-control" type="number" value="{{old('VALOR_TOTAL')}}"  placeholder="0.00" OnFocus="this.blur()">
 			</div>
 		</div>
 
@@ -100,6 +100,6 @@
 @endpush
 <script language="javascript">
     function fValorTotal() {
-        document.getElementById("valor_total").value = (document.getElementById("cantidad").value * document.getElementById("valor_unitario").value)-document.getElementById("descuento").value;
+        document.getElementById("valor_total").value = (parseFloat(document.getElementById("cantidad").value) * parseFloat(document.getElementById("valor_unitario").value))-parseFloat(document.getElementById("descuento").value);
     }
 </script>

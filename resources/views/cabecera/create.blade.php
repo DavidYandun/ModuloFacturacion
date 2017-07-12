@@ -73,27 +73,27 @@
 		<div class="form-group">
 			<label for="SUBTOTAL" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Sub Total <font color="red">*</font></label>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="number" value="{{old('SUBTOTAL')}}" required placeholder="0.00">
+				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="number"  value="{{old('SUBTOTAL')}}" required placeholder="0.00" onkeyup="fIva();">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="IVA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Iva <font color="red">*</font></label>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="IVA" id="IVA" class="form-control" type="text" value="{{old('IVA')}}" required type="number" placeholder="0.00">
+				<input name="IVA" id="IVA" class="form-control" type="number" value="{{old('IVA')}}" required type="number" placeholder="0.00" onkeyup="fIva();" OnFocus="this.blur()">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="DESCUENTO" class="col-lg-2 col-md-12 col-sm-12 col-xs-12  control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" placeholder="0.00" value="{{old('DESCUENTO')}}">
+				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" placeholder="0.00" value="0" onkeyup="fIva();" >
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="TOTAL" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Total <font color="red">*</font></label>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-				<input name="TOTAL" id="TOTAL" class="form-control" type="number" placeholder="0.00" value="{{old('TOTAL')}}" required>
+				<input name="TOTAL" id="TOTAL" class="form-control" type="number" placeholder="0.00" value="{{old('TOTAL')}}" required OnFocus="this.blur()">
 			</div>
 		</div>
 		<br>
@@ -111,3 +111,10 @@
         </div>
 </div>
 @endsection
+<script type="text/javascript">
+	function fIva() {
+    document.getElementById("IVA").value = (parseFloat(document.getElementById("SUBTOTAL").value)*12)/100;
+    document.getElementById("TOTAL").value = parseFloat(document.getElementById("SUBTOTAL").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
+    }
+
+ </script>
