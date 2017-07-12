@@ -51,7 +51,7 @@
                                 <li><a href="{{url('home')}}"><i class="fa fa-home"></i> Inicio </a>
                                 </li>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-calculator"></i> VENTAS <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-calculator"></i> VENTAS DE PRODUCTOS <span class="fa fa-chevron-down"></span></a>
                                 </li>
                                 <li><a><i class="glyphicon glyphicon-tasks"></i> CRUDS <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" >
