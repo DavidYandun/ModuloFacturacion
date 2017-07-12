@@ -19,6 +19,7 @@
     </div>
     </div>
     @endif-->
+    <button class="btn btn-primary" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-plus"> Nuevo</i></button>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -55,6 +56,39 @@
                     @include('caja.delete')
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4>Nuevo Cliente</h4>
+            </div>
+            <div class="modal-body">
+            <form action="{{url('caja')}}" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+        <div class="form-group">
+            <label for="IDUSUARIO" class="col-lg-2 control-label">ID Usuario <font color="red">*</font></label>
+            <div class="col-lg-10">
+                <input name="IDUSUARIO" id="IDUSUARIO" class="form-control" type="number" value="{{old('IDUSUARIO')}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
+            <div class="col-lg-10">
+                <input name="NUMERO" id="NUMERO" class="form-control" type="number" value="{{old('NUMERO')}}" required>
+            </div>
+        </div>
+
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input class="btn btn-primary" type="submit" value="Añadir" />
+        </div>
+    </form>
+ </div>
         </div>
     </div>
 </div>

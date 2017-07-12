@@ -1,7 +1,7 @@
 @extends('admin.template.main')
 
 @section ('title')
-   Clientes
+Tipo Clientes
 @endsection
 @section('TituloBanner')
 Tipo Clientes
@@ -25,6 +25,9 @@ Tipo Clientes
     </div>
     </div>
     @endif-->
+    <div>
+        <button  class="btn btn-primary" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-plus"> Nuevo</i></button> 
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -58,6 +61,34 @@ Tipo Clientes
                     @include('tipoclientes.delete')
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4>Nuevo Cliente</h4>
+            </div>
+            <div class="modal-body">
+            {!!Form::open(['url'=>'tipocliente'])!!}        
+        <div class="form-group">
+            <label for="detalle" class="col-lg-2 control-label">Id Tipo <font color="red">*</font></label>
+            <div class="col-lg-10">
+                <input name="DETALLE" id="detalle" class="form-control" type="text" value="{{old('DETALLE')}}" required>
+            </div>
+        </div>
+                
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input class="btn btn-primary" type="submit" value="Añadir" />
+        </div>
+    {!!Form::close()!!}
+
+
+
+ </div>
         </div>
     </div>
 </div>

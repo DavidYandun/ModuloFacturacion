@@ -16,7 +16,8 @@ class FacturaspendientesController extends Controller
  	}
  	public function index(){
  		$facturaspendientes=Facturaspendientes::paginate(10);
- 		return view('facturaspendientes.index',compact('facturaspendientes'));
+ 		$cabecera=Cabecera::all();
+ 		return view('facturaspendientes.index',compact('facturaspendientes','cabecera'));
 
  	}
  	public function create(){
