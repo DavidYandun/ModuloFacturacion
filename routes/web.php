@@ -56,6 +56,16 @@ Route::group(['prefix' => 'administrador', 'middleware' => ['auth', 'administrad
 	Route::get('/', 'administradorController@home');
 });
 
+/////////////RUTAS WEB SERVICES ///////////////////////
+Route::resource('cabeceras', 'WCabeceraController');
+Route::resource('clientes', 'WClienteController');
+Route::resource('detalles', 'WDetalleController');
+Route::resource('facturaspendientes', 'WFacturaspendientesController');
+
+Route::resource('cabeceras.detalles', 'WCabeceraDetallesController', ['only' => ['index']]);
+Route::resource('cabeceras.facturaspendientes', 'WCabeceraFacturasPendientesController', ['only' => ['index']]);
+Route::resource('clientes.cabeceras', 'WClienteCabecerasController', ['only' => ['index']]);
+
 
 
 //Agrupamiento de rutas
