@@ -10,7 +10,7 @@ use App\Empleado;
 class EmpleadoController extends Controller
 {
     public function __construct(){
-      //  $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+      $this->middleware('role:admin');// debe autenticar el usuario para poder usar el controlador
     }
     public function index(){
         $empleados=Empleado::paginate(10);

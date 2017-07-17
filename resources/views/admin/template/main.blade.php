@@ -72,8 +72,10 @@
                                         <li><a href="{{url('tipocliente')}}"><i class="fa fa-users"></i> Tipo Clientes <span class="fa fa-chevron-right"></span></a>
                                         </li>
                                     <!--EMPLEADOS-->  
+                                        @role('admin')
                                         <li><a href="{{url('empleado')}}"><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-right"></span></a>
                                         </li>
+                                        @endrole
                                     <!--FACTURAS PENDIENTES-->  
                                          <li><a href="{{url('facturaspendientes')}}"><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-right"></span></a>
                                         </li>

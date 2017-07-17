@@ -43,11 +43,9 @@ Route::get('facturaspendientes/delete/{id}','FacturaspendientesController@delete
 Route::get('producto/delete/{id}','ProductoController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
 
-
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 
 Route::get('tipousuario/delete/{id}','TipousuarioController@delete') ;
-
 
 Route::group(['prefix' => 'cajero', 'middleware' => ['auth', 'cajero']],function(){
 	Route::get('/', 'cajeroController@index');
