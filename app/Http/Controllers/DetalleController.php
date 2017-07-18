@@ -12,8 +12,9 @@ class DetalleController extends Controller
     public function __construct(){
  		$this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
  	}
- 	public function index(){
+ 	public function index(){ 		
  		$detalles=Detalle::paginate(10);
+ 		
  		return view('detalles.index',compact('detalles'));
  	}
  	public function create(){

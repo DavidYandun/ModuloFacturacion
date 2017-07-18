@@ -9,7 +9,7 @@
 
 <div class="container">
 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="detalle/create"><button class="btn btn-success"><i class="glyphicon glyphicon-edit"> Nuevo</i></button></a></p>
+          <p><a href="detalle/create"><button class="btn btn-success"><i class="glyphicon glyphicon-edit"> Nuevo</i></button></a></p>
         </div>
     <!--<div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -74,7 +74,14 @@
         </div>
     </div>
 </div>
+
+
 @endsection
+<script language="javascript">
+    function fValorTotal() {
+        document.getElementById("valor_total").value = (parseFloat(document.getElementById("cantidad").value) * parseFloat(document.getElementById("valor_unitario").value))-parseFloat(document.getElementById("descuento").value);
+    }
+</script>
 
 @push('scripts')
 <script type="text/javascript">
