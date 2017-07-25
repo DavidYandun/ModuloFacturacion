@@ -37,6 +37,11 @@
   border: 4px solid rgba(0, 90, 120, 0.9);
   border-radius: 8px;
 }
+.register-form {
+  background: rgba(0, 90, 120, 0.7);
+  border: 4px solid rgba(0, 90, 120, 0.9);
+  border-radius: 8px;
+}
 
 .title {
   background: rgba(0, 90, 120, 0.9);
