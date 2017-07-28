@@ -6,8 +6,14 @@
 @section('contenido')
 <div class="container">
     <div class="row">
+<<<<<<< HEAD
        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo</i></button>
+=======
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <p><a href="cabecera/create"><button class="btn btn-success"> Nuevo</button></a></p>
+          
+>>>>>>> creacionfactura
         </div>
     </div>
     <div class="row">
@@ -28,8 +34,7 @@
                                     <th>Sub Total</th>
                                     <th>Iva</th>
                                     <th>Descuento</th>
-                                    <th>Total</th>
-                                    
+                                    <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
                                 <!--{{$codcliente=$c->IDCLIENTE}}-->
@@ -51,9 +56,7 @@
                                     <td>{{ $c->SUBTOTAL}}</td>
                                     <td>{{ $c->IVA}}</td>
                                     <td>{{ $c->DESCUENTO}}</td>
-                                    <td>{{ $c->TOTAL}}</td>
-                                    
-                                    
+                                    <td>{{ $c->TOTAL}}</td>                                                                                
                                    </tr>
                                 @endforeach
                             </table>
@@ -193,6 +196,14 @@
 </div>
 
 @endsection
+<script type="text/javascript">
+    function fIva() {
+    document.getElementById("IVA").value = (parseFloat(document.getElementById("SUBTOTAL").value)*12)/100;
+    document.getElementById("TOTAL").value = parseFloat(document.getElementById("SUBTOTAL").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
+    }
+
+ </script>
+
 <script type="text/javascript">
     function fIva() {
     document.getElementById("IVA").value = (parseFloat(document.getElementById("SUBTOTAL").value)*12)/100;

@@ -25,6 +25,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
+
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
 Route::resource('detalle','DetalleController');
