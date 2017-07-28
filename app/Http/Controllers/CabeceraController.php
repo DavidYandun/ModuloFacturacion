@@ -18,7 +18,9 @@ class CabeceraController extends Controller
     }
     public function index(){
         $cabecera=Cabecera::paginate(10);
-        return view('cabecera.index',compact('cabecera'));
+        $cliente= Cliente::all();
+        $caja= Caja::all();
+        return view('cabecera.index',compact('cabecera'),compact('cliente','caja'));
     }
     public function create(){
         $cliente= Cliente::all();
