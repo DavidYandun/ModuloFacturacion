@@ -25,11 +25,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
+
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
 Route::resource('detalle','DetalleController');
 Route::resource('empleado','EmpleadoController');
-Route::resource('facturaspendientes','FacturaspendientesController');
+Route::resource('facturaspendiente','FacturaspendientesController');
 Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
 Route::resource('tipousuario','TipousuarioController');
@@ -41,7 +42,7 @@ Route::get('caja/delete/{id}','CajaController@delete') ;
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
 Route::get('detalle/delete/{id}','DetalleController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
-Route::get('facturaspendientes/delete/{id}','FacturaspendientesController@delete') ;
+Route::get('facturaspendiente/delete/{id}','FacturaspendientesController@delete') ;
 Route::get('producto/delete/{id}','ProductoController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
 

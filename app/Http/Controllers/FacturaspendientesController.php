@@ -28,7 +28,7 @@ class FacturaspendientesController extends Controller
  		Facturaspendientes::create($request->all());
  		//$prductos=Producto::paginate(10);
  	//	return view('detalles.index',compact('detalles'));
- 		return Redirect::to('facturaspendientes');
+ 		return Redirect::to('facturaspendiente');
  	}
 
  	
@@ -48,6 +48,6 @@ class FacturaspendientesController extends Controller
  	
  	public function delete($id){
         Facturaspendientes::destroy($id);
-        return Redirect::to('facturaspendientes');
+        return Redirect::to('facturaspendiente');
     }
 }
