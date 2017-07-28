@@ -13,8 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="{{asset('js/jquery-2.1.4.js')}}"></script>
+     
     <script type="{{asset('js/app.js')}}"></script>
-    @stack('scripts')
+   
+    
+
     <style>
         body {
   background: rgba(6, 41, 61, 1);

@@ -32,10 +32,7 @@ class CabeceraRequest extends FormRequest
             
             //"FECHA"=>"required|date(dd-mm-aaaa)",
             
-            "SUBTOTAL"=>"required|numeric",
-            "IVA"=>"required|numeric",
-            "DESCUENTO"=>"required|numeric",
-            "TOTAL"=>"required|numeric"            
+           
         ];
      }else{ 
         return[
@@ -43,10 +40,7 @@ class CabeceraRequest extends FormRequest
             "IDCAJA"=>"required|integer|min:1|max:11",
             
             //"FECHA"=>"required|date(dd-mm-aaaa)",
-            "SUBTOTAL"=>"required|numeric",
-            "IVA"=>"required|numeric",
-            "DESCUENTO"=>"required|numeric",
-            "TOTAL"=>"required|numeric"            
+          
         ];
      }
     }
