@@ -10,8 +10,6 @@
      
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="cabecera/create"><button class="btn btn-success"> Nuevo</button></a></p>
-          
-
         </div>
     </div>
     <div class="row">
@@ -41,11 +39,11 @@
                                     ?>
                                 <tr>
                                     <td align="center">
-                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash"></i></a>
+                                     <a class="btn btn-info" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-print"></i></a>
                                         
                                     </td>
                                     <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>

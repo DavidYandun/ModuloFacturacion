@@ -99,24 +99,24 @@ class CabeceraController extends Controller
         return Redirect::to('cabecera');
     } 
 
- /*       public function show($id)
+        public function show($id)
     {
         $cabecera=DB::table('cabecera as c')
-            ->join('clientes as p','c.IDCLIENTE','=','p.IDCLIENTE')
-            ->join('caja as e','c.IDCAJA','=','e.IDCAJA')
-            ->join('detalle as di','c.IDCABECERA','=','di.IDCABECERA')
-            ->select('c.IDCABECERA','p.NOMBRE','c.IDCAJA','c.NUMERO','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO',DB::raw('sum(di.CANTIDAD*VALOR_UNITARIO)-di.DESCUENTO as total'))
-            ->where('c.IDCABECERA','=','$id')
+            ->join('clientes as cli','c.IDCLIENTE','=','cli.IDCLIENTE')
+            ->join('caja as caj','c.IDCAJA','=','caj.IDCAJA')
+            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO','c.TOTAL')
+            ->where('c.IDCABECERA',$id)
             ->first(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
 
         $detalles=DB::table('detalle as d')
             ->join('productos as p','d.IDPRODUCTO','=','p.IDPRODUCTO')
-            ->select('p.NOMBREP as producto','d.CANTIDAD','d.VALOR_UNITARIO','d.DESCUENTO','d.VALOR_TOTAL')
+            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.DESCUENTO','d.VALOR_TOTAL')
             ->where('d.IDCABECERA','=',$id)
             ->get();
-        return view("cabecera.show",["cabecera"=>$cabecera,"detalle"=>$detalles]);
+        return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
+        
     }
-*/
+
     public function destroy($id)
     {
         $cabecera=Ingreso::findOrFail($id);
