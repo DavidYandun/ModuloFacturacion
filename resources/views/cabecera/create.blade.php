@@ -229,7 +229,10 @@ subtotal=0;
  	}
 
  	function eliminar(index){
- 		TOTAL=TOTAL-valor_total[index];
+ 		TOTAL=TOTAL-valor_total[index];    
+        subtotal=TOTAL/1.12;
+        iva=TOTAL-subtotal;
+
  		    $("#TOTAL").html("$/. " + TOTAL);
             $("#to").html("$/. " + TOTAL);
             $("#SUBTOTAL").html("$/. " + subtotal);
