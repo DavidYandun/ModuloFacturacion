@@ -34,31 +34,15 @@ class CabeceraController extends Controller
         $cabecera=Cabecera::paginate(10);
         $cliente= Cliente::all();
         $caja= Caja::all();
-<<<<<<< HEAD
+
         return view('cabecera.index',compact('cabecera'),compact('cliente','caja'));
-=======
+
         $producto=Producto::All();
        return view('cabecera.index',compact('cabecera'));
     }
 
-/*    public function index(Request $request)
-    {
-        if ($request)
-        {
-            $query=trim($request->get('searchText'));
-            $cabecera=DB::table('cabecera as c');
-            ->join('clientes as p','c.IDCLIENTE','=','p.IDCLIENTE');
-            ->join('caja as e','c.IDCAJA','=','e.IDCAJA');
-            ->join('detalle as di','c.IDCABECERA','=','di.IDCABECERA');
-            ->select('c.IDCABECERA','p.NOMBRE','c.IDCAJA','c.NUMERO','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO',DB::raw('sum(di.CANTIDAD*VALOR_UNITARIO)-di.DESCUENTO as total'));            
-            ->orderBy('c.IDCABECERA','desc');
-            ->groupBy('c.IDCABECERA','c.FECHA','p.NOMBRE','e.IDCAJA','c.SUBTOTAL','c.IVA','c.DESCUENTO','c.TOTAL');
-            ->paginate(7);
-            return view('cabecera.index',["cabecera"=>$cabecera,"searchText"=>$query]);
-        }
->>>>>>> creacionfactura
-    }
-*/
+  
+
     public function create(){
         $cliente= Cliente::all();
         $caja= Caja::all();
@@ -69,13 +53,13 @@ class CabeceraController extends Controller
 
 
     public function store(CabeceraRequest $request){
-        try{
+       
          DB::beginTransaction();
        $cabecera=new Cabecera;
      
             $cabecera->IDCLIENTE=$request->get('IDCLIENTE');
             $cabecera->IDCAJA=$request->get('IDCAJA');
-            $cabecera->NUMERO=$request->get('NUMERO');
+            $cabecera->NUMERO=0;
 
             $mytime = Carbon::now('America/Guayaquil');
             $cabecera->FECHA=$mytime->toDateTimeString();
@@ -111,11 +95,7 @@ class CabeceraController extends Controller
 
         DB::commit();
     
-       }catch(\Exception $e)
-       {     
        
-          DB::rollback();
-        }
         return Redirect::to('cabecera');
     } 
 

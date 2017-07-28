@@ -6,14 +6,12 @@
 @section('contenido')
 <div class="container">
     <div class="row">
-<<<<<<< HEAD
-       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo</i></button>
-=======
+
+     
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="cabecera/create"><button class="btn btn-success"> Nuevo</button></a></p>
           
->>>>>>> creacionfactura
+
         </div>
     </div>
     <div class="row">
