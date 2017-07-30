@@ -58,7 +58,7 @@ Productos
 		<div class="form-group">
 			<label for="VALOR" class="col-lg-2 control-label">Precio <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR" id="VALOR" class="form-control" type="number" value="{{old('VALOR')}}" required>
+				<input name="VALOR" id="VALOR" class="form-control" type="decimal" value="{{old('VALOR')}}" required>
 			</div>
 		</div>
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

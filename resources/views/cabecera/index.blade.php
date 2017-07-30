@@ -47,15 +47,13 @@
                                     ?>
                                 <tr>
                                     <td align="center">
-<<<<<<< HEAD
                                     
                                      <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
                                     
                                         
                                     </td>
-                                    <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
-=======
+                                    <td align="center">                                        
+
                                     @if($c->ESTADO=="A")
                                      <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
@@ -65,11 +63,7 @@
                                       @endif
                                     </td>
                                     <td align="center">
-                                    
-                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil">DETALLE</i></a>
-                                        
-                                    
->>>>>>> validacionesmaestrodetalle
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>

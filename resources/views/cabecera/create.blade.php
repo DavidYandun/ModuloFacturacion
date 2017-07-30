@@ -115,8 +115,8 @@
      <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #A9D0F5">
                         <th>Opciones</th>
-                        <th>Producto</th>
                         <th>Cantidad</th>
+                        <th>Producto</th>                        
                         <th>Valor Unitario</th>                       
                         <th>Valor Total</th>
                     </thead>
@@ -182,6 +182,12 @@ subtotal=0;
  iva=0;
  $("#guardar").hide();
 $("#pidproducto").change(mostrarValores);
+function mostrarValores(){
+    datosProducto=document.getElementById('pidproducto').value.split('_');
+    document.getElementById("pstock").value=(datosProducto[1]);
+    document.getElementById("pvalor_unitario").value=(datosProducto[2]);
+    
+}
 //$("#IDCLIENTE").change(mostrarValor);
 /* function existe(idproducto){
     if(cont>0){
@@ -217,12 +223,7 @@ $("#pidproducto").change(mostrarValores);
     }
  }*/
  
-function mostrarValores(){
-    datosProducto=document.getElementById('pidproducto').value.split('_');
-    document.getElementById("pstock").value=(datosProducto[1]);
-    document.getElementById("pvalor_unitario").value=(datosProducto[2]);
-    
-}
+
  /*function existe() {
 
 
@@ -244,19 +245,17 @@ function mostrarValores(){
 function agregar(){    
         datosProducto=document.getElementById('pidproducto').value.split('_');
  		IDPRODUCTO=(datosProducto[0]);
-        STOCK=$("#pstock").val();        
+        STOCK=parseFloat($("#pstock").val());        
  		PRODUCTO=$("#pidproducto option:selected").text(); 		
- 		CANTIDAD=$("#pcantidad").val();        		
+ 		CANTIDAD=parseFloat($("#pcantidad").val());        		
  		VALOR_UNITARIO=$("#pvalor_unitario").val();		
  		DESCUENTO=$("#pdescuento").val(); 
         		
             if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="" && STOCK!="")        
         {
-
             
-            //if((CANTIDAD)=<(STOCK)){
 
-
+            if((STOCK)>=(CANTIDAD)){
             valor_total[cont]=CANTIDAD*VALOR_UNITARIO;          
             TOTAL=(TOTAL+valor_total[cont]);
             subtotal=TOTAL/1.12;
@@ -265,8 +264,8 @@ function agregar(){
 
             var fila='<tr class="selected" id="fila'+cont+'">\n\
             <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
-            <td><input type="hidden" name="IDPRODUCTO[]" value="'+IDPRODUCTO+'" readonly="readonly">'+PRODUCTO+'</td>\n\
             <td><input type="hidden" name="CANTIDAD[]" value="'+CANTIDAD+'" readonly="readonly">'+CANTIDAD+'</td>\n\
+            <td><input type="hidden" name="IDPRODUCTO[]" value="'+IDPRODUCTO+'" readonly="readonly">'+PRODUCTO+'</td>\n\
             <td><input type="hidden" name="VALOR_UNITARIO[]" value="'+VALOR_UNITARIO+'"readonly="readonly">'+VALOR_UNITARIO+'</td>\n\
             <td><input type="hidden" name="VALOR_TOTAL[]" value="'+valor_total[cont]+'"readonly="readonly">'+valor_total[cont]+'</td></tr>'                      
             cont++;
@@ -283,9 +282,11 @@ function agregar(){
              limpiar();         
              evaluar();
             $('#detalles').append(fila);
-           // }else{
-             //alert("La cantidad a vender supera el Stock");
-            //}
+            }
+           else
+        {
+            alert("Error");
+        }
         }
         else
         {
@@ -310,16 +311,10 @@ function agregar(){
  	}
 
  	function eliminar(index){
-<<<<<<< HEAD
- 		TOTAL=TOTAL-valor_total[index];    
-        subtotal=TOTAL/1.12;
-        iva=TOTAL-subtotal;
-
-=======
  		TOTAL=TOTAL-valor_total[index];
         subtotal=TOTAL/1.12;
         iva=TOTAL-subtotal;
->>>>>>> validacionesmaestrodetalle
+
  		    $("#TOTAL").html("$/. " + TOTAL);
             $("#to").html("$/. " + TOTAL);
             $("#SUBTOTAL").html("$/. " + subtotal);

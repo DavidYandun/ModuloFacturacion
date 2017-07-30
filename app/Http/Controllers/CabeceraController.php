@@ -104,13 +104,13 @@ class CabeceraController extends Controller
         $cabecera=DB::table('cabecera as c')
             ->join('clientes as cli','c.IDCLIENTE','=','cli.IDCLIENTE')
             ->join('caja as caj','c.IDCAJA','=','caj.IDCAJA')
-            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO','c.TOTAL')
+            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.TOTAL')
             ->where('c.IDCABECERA',$id)
             ->first(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
 
         $detalles=DB::table('detalle as d')
             ->join('productos as p','d.IDPRODUCTO','=','p.IDPRODUCTO')
-            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.DESCUENTO','d.VALOR_TOTAL')
+            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.VALOR_TOTAL')
             ->where('d.IDCABECERA','=',$id)
             ->get();
         return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
@@ -143,11 +143,11 @@ class CabeceraController extends Controller
         $cabecera->update();
         return Redirect::to('cabecera');
     }
-    public function show($id){
+   /* public function show($id){
         $cabecera=Cabecera::find($id);
         $detalle=Detalle::all();
          return view('cabecera.show',compact('cabecera','detalle'));
-    }
+    }*/
     public function edit($id){
         $cabecera=Cabecera::find($id);       
          $cliente= Cliente::all();
@@ -177,15 +177,15 @@ class CabeceraController extends Controller
         $cabecera->update();
         return Redirect::to('cabecera');
     }
-<<<<<<< HEAD
+
      
    
-=======
 
-    public function delete($id){        
+
+    /*public function delete($id){        
             Cabecera::destroy($id);
-        return Redirect::to('cabecera');
+        return Redirect::to('cabecera');*/
 
->>>>>>> validacionesmaestrodetalle
+
  }
-    }
+    
