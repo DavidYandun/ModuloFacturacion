@@ -121,7 +121,7 @@ class CabeceraController extends Controller
     public function destroy($id)
     {
         $cabecera=Ingreso::findOrFail($id);
-        $cabecera->Estado='C';
+        $cabecera->ESTADO='I';
         $cabecera->update();
         return Redirect::to('cabecera');
     }
@@ -154,15 +154,9 @@ class CabeceraController extends Controller
             return Redirect::to('cabecera');
     }
     public function actualizar($id){
-         echo "hola";
-        $factura=Cabecera::find($id);
-        if (($factura->ESTADO)=="A") {
-            $factura->ESTADO=="I";
-            $factura->save();
-            }else{
-             $factura->ESTADO=="A"; 
-             $factura->save();            
-        }        
+          $cabecera=Cabecera::findOrFail($id);
+        $cabecera->ESTADO='I';
+        $cabecera->update();
         return Redirect::to('cabecera');
     }
 

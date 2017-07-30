@@ -29,12 +29,11 @@
 
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
         <div class="form-group">
-            <label for="IDCLIENTE" >Id Cliente <font color="red">*</font></label>         
+            <label >Id Cliente <font color="red">*</font></label>         
                 
                 <select name="IDCLIENTE" id="IDCLIENTE" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
-                @foreach ($cliente as $cli)
-                
+                @foreach ($cliente as $cli)                
                 <option value="{{ $cli->IDCLIENTE }}" data-subtext="{{ $cli->CEDULA }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
                 @endforeach
                 </select>
@@ -63,7 +62,7 @@
                     <label>Producto</label>
 
                     <select name="pidproducto" class="form-control selectpicker" id="pidproducto" data-live-search="true" data-show-subtext="true">
-                    <option value="">selecciona un Producto</option>
+                    <option value="" selected="true">selecciona un Producto</option>
                         @foreach ($producto as $pro)   
                         @if (($pro->STOCK) > 0)          
                          <option value="{{ $pro->IDPRODUCTO }}_{{ $pro->STOCK }}_{{ $pro->VALOR }}" data-subtext="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}</option>
@@ -89,6 +88,23 @@
                     <input type="number" disabled name="pstock" id="pstock" class="form-control" placeholder="Stock">
                 </div>
             </div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div class="form-group">
+            <label>Tipo de PAgo<font color="red">*</font></label>         
+                
+                <select name="IDTIPO" id="IDTIPO" disabled="false" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                <option value="" selected>selecciona tipo de pago</option>
+                @foreach ($cliente as $cli) 
+                 <!--{{$codcliente=$cli->IDTIPO}}-->
+                                    <?php
+                                        $nombretipo = App\Tipocliente::find($codcliente);
+                                    ?>               
+                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->DETALLE }}</option>
+                @endforeach
+                </select>
+
+            </div>
+        </div>
             
              <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
      <div class="form-group">      
@@ -166,6 +182,7 @@ subtotal=0;
  iva=0;
  $("#guardar").hide();
 $("#pidproducto").change(mostrarValores);
+//$("#IDCLIENTE").change(mostrarValor);
 /* function existe(idproducto){
     if(cont>0){
         $("#detalles tbody tr").each(function () {
@@ -179,33 +196,50 @@ $("#pidproducto").change(mostrarValores);
         }
     }
     return false;
+ }
+ function mostrarValor(){
+    datoscliente=document.getElementById('IDCLIENTE').value.split('_');
+   if((datoscliente[1])=="1"){ 
+    alert("Elproducto");  
+    document.getElementById('IDTIPO').disabled=true;                
+    
+    }
+    
+    
+    
+}
+ /*function activartipo(){
+    alert("La cantidad a vender supera el Stock");
+    datoscliente=document.getElementBy('IDCLIENTE').value.split('_');
+
+        if((datoscliente[1])=="2"){        
+        $("#IDTIPO").attr('disabled', true);
+    }
  }*/
  
 function mostrarValores(){
-
     datosProducto=document.getElementById('pidproducto').value.split('_');
     document.getElementById("pstock").value=(datosProducto[1]);
     document.getElementById("pvalor_unitario").value=(datosProducto[2]);
     
 }
- function existe(IDPRODUCTO) {
+ /*function existe() {
 
 
     if (cont > 0) {
         $("#detalles tbody tr").each(function () {
             /* Obtener todas las celdas */             
-            var celdas = $(this).find('td');            
+            /*var celdas = $(this).find('td');            
              console.log($(celdas[1]).val()+", "+IDPRODUCTO);
-             $producto=$(celdas[2]).val();
-             alert("Elproducto"+ $producto);
+             $producto=$(celdas[2]).val();             
             
-            if ($(celdas[1]).val() === IDPRODUCTO) {
+            /*if ($(celdas[1]).val() === IDPRODUCTO) {
                 return true;
             }
         });
     }
     return false;
-}
+}*/
 
 function agregar(){    
         datosProducto=document.getElementById('pidproducto').value.split('_');
@@ -218,7 +252,9 @@ function agregar(){
         		
             if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="" && STOCK!="")        
         {
-           // if(STOCK>=CANTIDAD){
+
+            
+            //if((CANTIDAD)=<(STOCK)){
 
 
             valor_total[cont]=CANTIDAD*VALOR_UNITARIO;          
@@ -247,7 +283,7 @@ function agregar(){
              limpiar();         
              evaluar();
             $('#detalles').append(fila);
-            //}else{
+           // }else{
              //alert("La cantidad a vender supera el Stock");
             //}
         }
@@ -263,11 +299,7 @@ function agregar(){
 
  	function limpiar(){
  		$("#pcantidad").val("");
- 		$("#pvalor_unitario").val("");
- 		$("#pvalor_total").val("");
- 		$("#pdescuento").val("");
-        $("#pidproducto").val(0);
-        $("#pstock").val(""); 
+ 		mostrarValores();
  	}
  	function evaluar(){
  		if (TOTAL>0){
