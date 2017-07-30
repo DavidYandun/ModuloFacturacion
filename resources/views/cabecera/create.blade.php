@@ -84,7 +84,7 @@
             </div>            
             <div class="col-lg-2 col-sm-2 col-md-2  col-xs-12">
                 <div class="form-group">
-                    <label for="DESCUENTO">Stock</label>
+                    <label for="STOCK">Stock</label>
                     <input type="number" disabled name="pstock" id="pstock" class="form-control" placeholder="Stock">
                 </div>
             </div>
@@ -249,7 +249,7 @@ function agregar(){
  		PRODUCTO=$("#pidproducto option:selected").text(); 		
  		CANTIDAD=parseFloat($("#pcantidad").val());        		
  		VALOR_UNITARIO=$("#pvalor_unitario").val();		
- 		DESCUENTO=$("#pdescuento").val(); 
+ 	//	DESCUENTO=$("#pdescuento").val(); 
         		
             if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="" && STOCK!="")        
         {

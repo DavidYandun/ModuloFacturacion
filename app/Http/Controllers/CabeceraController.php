@@ -58,14 +58,14 @@ class CabeceraController extends Controller
      
             $cabecera->IDCLIENTE=$request->get('IDCLIENTE');
             $cabecera->IDCAJA=$request->get('IDCAJA');
-            $cabecera->NUMERO=0;
+          //  $cabecera->NUMERO=0;
             $cabecera->ESTADO=$request->get('ESTADO');
 
             $mytime = Carbon::now('America/Guayaquil');
             $cabecera->FECHA=$mytime->toDateTimeString();
             
             $cabecera->SUBTOTAL=$request->get('SUBTOTAL');            
-            $cabecera->DESCUENTO=0;
+          //  $cabecera->DESCUENTO=0;
             $cabecera->IVA=$request->get('IVA');
             $cabecera->TOTAL=$request->get('TOTAL');          
             $cabecera->save();
@@ -75,7 +75,7 @@ class CabeceraController extends Controller
          $cantidad = $request->get('CANTIDAD');
          $valor_unitario = $request->get('VALOR_UNITARIO');
          //$descuento = $request->get('DESCUENTO');
-         $valor_total = $request->get('TOTAL');
+         $valor_total = $request->get('VALOR_TOTAL');
          
          $cont = 0;
         
