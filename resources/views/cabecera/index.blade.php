@@ -41,11 +41,19 @@
                                     ?>
                                 <tr>
                                     <td align="center">
-                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash"></i></a>
-                                        
+                                    @if($c->ESTADO=="A")
+                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ACTIVO</i></a>
+                                     <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
+                                     @endif
+                                     @if($c->ESTADO=="I") 
+                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">INACTIVO</i></a>
+                                      @endif
                                     </td>
                                     <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@edit',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    
+                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil">DETALLE</i></a>
+                                        
+                                    
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>

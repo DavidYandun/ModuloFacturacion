@@ -10,6 +10,6 @@ protected $table='cabecera';
 protected $primaryKey='IDCABECERA';
 public $timestamps=false;
 protected $fillable=[
-	"IDCLIENTE","IDCAJA","FECHA","SUBTOTAL","IVA","DESCUENTO","TOTAL"
+	"IDCLIENTE","IDCAJA","FECHA","SUBTOTAL","IVA","TOTAL","ESTADO"
 	];
 }

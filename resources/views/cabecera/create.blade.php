@@ -31,11 +31,11 @@
         <div class="form-group">
             <label for="IDCLIENTE" >Id Cliente <font color="red">*</font></label>         
                 
-                <select name="IDCLIENTE" id="IDCLIENTE" class="form-control selectpicker" data-live-search="true">
+                <select name="IDCLIENTE" id="IDCLIENTE" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)
                 
-                <option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->IDCLIENTE }}" data-subtext="{{ $cli->CEDULA }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
                 @endforeach
                 </select>
 
@@ -61,15 +61,17 @@
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
                 <div class="form-group">
                     <label>Producto</label>
-                    <select name="pidproducto" class="form-control selectpicker" id="pidproducto" data-live-search="true">
-                        @foreach ($producto as $pro)                
-                <option value="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}
-                </option>
+
+                    <select name="pidproducto" class="form-control selectpicker" id="pidproducto" data-live-search="true" data-show-subtext="true">
+                    <option value="">selecciona un Producto</option>
+                        @foreach ($producto as $pro)   
+                        @if (($pro->STOCK) > 0)          
+                         <option value="{{ $pro->IDPRODUCTO }}_{{ $pro->STOCK }}_{{ $pro->VALOR }}" data-subtext="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}</option>
+                 @endif   
                 @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+            </div><div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
      <div class="form-group">
       <label for="CANTIDAD">Cantidad</label>
       <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="Cantidad">
@@ -78,19 +80,19 @@
             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                 <div class="form-group">
                     <label for="VALOR_UNITARIO">Valor unitario</label>
-                    <input type="number" name="pvalor_unitario" id="pvalor_unitario" class="form-control" placeholder="Valor_Unitario">
+                    <input type="number" disabled name="pvalor_unitario" id="pvalor_unitario" class="form-control" placeholder="Valor_Unitario">
                 </div>
             </div>            
             <div class="col-lg-2 col-sm-2 col-md-2  col-xs-12">
                 <div class="form-group">
-                    <label for="DESCUENTO">Descuento</label>
-                    <input type="number" name="pdescuento" id="pdescuento" class="form-control" placeholder="Descuento">
+                    <label for="DESCUENTO">Stock</label>
+                    <input type="number" disabled name="pstock" id="pstock" class="form-control" placeholder="Stock">
                 </div>
             </div>
             
              <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
      <div class="form-group">      
-      <button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
+      <button type="button" id="bt_add"  class="btn btn-primary">Agregar</button>
      </div>
     </div>
             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
@@ -99,30 +101,26 @@
                         <th>Opciones</th>
                         <th>Producto</th>
                         <th>Cantidad</th>
-                        <th>Valor Unitario</th>
-                        <th>Descuento</th>                        
+                        <th>Valor Unitario</th>                       
                         <th>Valor Total</th>
                     </thead>
                     <tfoot>
                     	<tr>
-                    		<td colspan="4"></td>
+                    		<td colspan="3"></td>
                         	<td>SubTotal</td>
                         	<td><input type="hidden" id="SUBTOTAL" name="SUBTOTAL"></input><h4 id="subto">/. 0.00</h4></td>
                         </tr>
                         <tr>
-                        <td colspan="4"></td>
+                        <td colspan="3"></td>
                         	<td>IVA</td>
                         	<td><input type="hidden" id="IVA" name="IVA"></input><h4 id="iva">/. 0.00</h4></td>
                         </tr>
-                        <tr>
-                        <td colspan="4"></td>
-                        	<td>Descuento</td>
-                        	<td><input type="hidden" id="DESCUENTO" name="DESCUENTO"></input><h4 id="descuento"></h4></td>
-                        </tr>
+                       
                     	<tr>
-                    	<td colspan="4"></td>
+                    	<td colspan="3"></td>
                         	<td>Total</td>
-                        	<td><input type="hidden" id="TOTAL" name="TOTAL"></input><h4 id="to">$/. 0.00</h4></td>
+                        	<td><input type="hidden" id="TOTAL" name="TOTAL"></input><h4 id="to">$/ 0.00</h4></td>
+                             <input type="hidden" id="ESTADO" name="ESTADO" value="A">                          
                         </tr>
                       </tfoot>
                         
@@ -145,6 +143,9 @@
             </div>
         </div>
   </div>
+  
+
+
 {!!Form::close()!!}
  
 
@@ -157,60 +158,106 @@
     });
 });
 
+
 var cont=0;
 TOTAL=0;
 valor_total=[];
 subtotal=0;
  iva=0;
  $("#guardar").hide();
+$("#pidproducto").change(mostrarValores);
+/* function existe(idproducto){
+    if(cont>0){
+        $("#detalles tbody tr").each(function () {
+            var celdas=($this).find('td');
+            console.log($celdas[1].val+", "+idproducto);
+            if($(celdas[1].val()==idproducto)){
+                return true;
+            }
+
+            });
+        }
+    }
+    return false;
+ }*/
+ 
+function mostrarValores(){
+
+    datosProducto=document.getElementById('pidproducto').value.split('_');
+    document.getElementById("pstock").value=(datosProducto[1]);
+    document.getElementById("pvalor_unitario").value=(datosProducto[2]);
+    
+}
+ function existe(IDPRODUCTO) {
 
 
+    if (cont > 0) {
+        $("#detalles tbody tr").each(function () {
+            /* Obtener todas las celdas */             
+            var celdas = $(this).find('td');            
+             console.log($(celdas[1]).val()+", "+IDPRODUCTO);
+             $producto=$(celdas[2]).val();
+             alert("Elproducto"+ $producto);
+            
+            if ($(celdas[1]).val() === IDPRODUCTO) {
+                return true;
+            }
+        });
+    }
+    return false;
+}
 
- 	function agregar(){
-
- 		IDPRODUCTO=$("#pidproducto").val(); 		
+function agregar(){    
+        datosProducto=document.getElementById('pidproducto').value.split('_');
+ 		IDPRODUCTO=(datosProducto[0]);
+        STOCK=$("#pstock").val();        
  		PRODUCTO=$("#pidproducto option:selected").text(); 		
- 		CANTIDAD=$("#pcantidad").val(); 		
- 		VALOR_UNITARIO=$("#pvalor_unitario").val(); 		
- 		DESCUENTO=$("#pdescuento").val(); 	
-
- 		if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="") 			
- 		{
- 			valor_total[cont]=(CANTIDAD*VALOR_UNITARIO)-DESCUENTO; 			
- 			TOTAL=(TOTAL+valor_total[cont]);
- 			subtotal=TOTAL/1.12;
- 			iva=TOTAL-subtotal;
+ 		CANTIDAD=$("#pcantidad").val();        		
+ 		VALOR_UNITARIO=$("#pvalor_unitario").val();		
+ 		DESCUENTO=$("#pdescuento").val(); 
+        		
+            if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="" && STOCK!="")        
+        {
+           // if(STOCK>=CANTIDAD){
 
 
- 			var fila='<tr class="selected" id="fila'+cont+'">\n\
- 			<td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
- 			<td><input type="hidden" name="IDPRODUCTO[]" value="'+IDPRODUCTO+'" readonly="readonly">'+PRODUCTO+'</td>\n\
- 			<td><input type="number" name="CANTIDAD[]" value="'+CANTIDAD+'" readonly="readonly"></td>\n\
- 			<td><input type="number" name="VALOR_UNITARIO[]" value="'+VALOR_UNITARIO+'"readonly="readonly"></td>\n\
- 			<td><input type="number" name="DESCUENTO[]" value="'+DESCUENTO+'"readonly="readonly"></td>\n\
- 			<td><input type="number" name="VALOR_TOTAL[]" value="'+valor_total[cont]+'"readonly="readonly"></td></tr>' 				 		
- 			cont++;
+            valor_total[cont]=CANTIDAD*VALOR_UNITARIO;          
+            TOTAL=(TOTAL+valor_total[cont]);
+            subtotal=TOTAL/1.12;
+            iva=TOTAL-subtotal;
 
- 			limpiar();
- 			 document.getElementById("TOTAL").value=(TOTAL);
- 			 document.getElementById("SUBTOTAL").value=(subtotal);
- 			  document.getElementById("IVA").value=(iva);
 
- 			$("#TOTAL").html("$/. " + TOTAL);
- 			$("#to").html("$/. " + TOTAL);
- 			$("#SUBTOTAL").html("$/. " + subtotal);
- 			$("#IVA").html("$/. " + iva);
- 			$("#subto").html("$/. " + subtotal);
- 			$("#iva").html("$/. " + iva);
- 			
- 			
- 			evaluar();
- 			$('#detalles').append(fila);
- 		}
- 		else
- 		{
- 			alert("Error al ingresar el detalle del ingreso, revise los datos del PRODUCTO");
- 		}
+            var fila='<tr class="selected" id="fila'+cont+'">\n\
+            <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
+            <td><input type="hidden" name="IDPRODUCTO[]" value="'+IDPRODUCTO+'" readonly="readonly">'+PRODUCTO+'</td>\n\
+            <td><input type="hidden" name="CANTIDAD[]" value="'+CANTIDAD+'" readonly="readonly">'+CANTIDAD+'</td>\n\
+            <td><input type="hidden" name="VALOR_UNITARIO[]" value="'+VALOR_UNITARIO+'"readonly="readonly">'+VALOR_UNITARIO+'</td>\n\
+            <td><input type="hidden" name="VALOR_TOTAL[]" value="'+valor_total[cont]+'"readonly="readonly">'+valor_total[cont]+'</td></tr>'                      
+            cont++;
+           
+            document.getElementById("TOTAL").value=(TOTAL);
+            document.getElementById("SUBTOTAL").value=(subtotal);
+            document.getElementById("IVA").value=(iva);
+            $("#TOTAL").html("$/. " + TOTAL);
+            $("#to").html("$/. " + TOTAL);
+            $("#SUBTOTAL").html("$/. " + subtotal);
+            $("#IVA").html("$/. " + iva);
+            $("#subto").html("$/. " + subtotal);
+            $("#iva").html("$/. " + iva);
+             limpiar();         
+             evaluar();
+            $('#detalles').append(fila);
+            //}else{
+             //alert("La cantidad a vender supera el Stock");
+            //}
+        }
+        else
+        {
+            alert("Error al ingresar el detalle del ingreso, revise los datos del PRODUCTO");
+        }
+        
+        
+    
  	}
 
 
@@ -219,6 +266,8 @@ subtotal=0;
  		$("#pvalor_unitario").val("");
  		$("#pvalor_total").val("");
  		$("#pdescuento").val("");
+        $("#pidproducto").val(0);
+        $("#pstock").val(""); 
  	}
  	function evaluar(){
  		if (TOTAL>0){
@@ -230,6 +279,8 @@ subtotal=0;
 
  	function eliminar(index){
  		TOTAL=TOTAL-valor_total[index];
+        subtotal=TOTAL/1.12;
+        iva=TOTAL-subtotal;
  		    $("#TOTAL").html("$/. " + TOTAL);
             $("#to").html("$/. " + TOTAL);
             $("#SUBTOTAL").html("$/. " + subtotal);

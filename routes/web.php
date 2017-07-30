@@ -17,13 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'CabeceraController@create');
 
 //Route::resource('producto','ProductoController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
 
 Route::resource('caja','CajaController');
@@ -36,6 +36,8 @@ Route::resource('tipocliente','TipoclienteController');
 Route::resource('tipousuario','TipousuarioController');
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
+Route::get('cabecera/show/{id}','CabeceraController@show') ;
+Route::get('cabecera/update/{id}','CabeceraController@actualizar') ;
 Route::get('caja/delete/{id}','CajaController@delete') ;
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
 Route::get('detalle/delete/{id}','DetalleController@delete') ;
