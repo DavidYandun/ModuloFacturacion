@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Cabecera</div>
+                <div class="panel-heading"><h2>Facturas</h2></div>
                 <div class="panel-body">
                 
                 <div class="container">
@@ -37,8 +37,7 @@
                                     <th>Caja</th>
                                     <th>Fecha</th>
                                     <th>Sub Total</th>
-                                    <th>Iva</th>
-                                    <th>Descuento</th>
+                                    <th>Iva</th>                                    
                                     <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
@@ -48,6 +47,7 @@
                                     ?>
                                 <tr>
                                     <td align="center">
+<<<<<<< HEAD
                                     
                                      <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
                                     
@@ -55,6 +55,21 @@
                                     </td>
                                     <td align="center">
                                         <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+=======
+                                    @if($c->ESTADO=="A")
+                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
+                                     <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
+                                     @endif
+                                     @if($c->ESTADO=="I") 
+                                     <h5>ANULADA</h5>
+                                      @endif
+                                    </td>
+                                    <td align="center">
+                                    
+                                        <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-pencil">DETALLE</i></a>
+                                        
+                                    
+>>>>>>> validacionesmaestrodetalle
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
@@ -62,7 +77,6 @@
                                     <td>{{ $c->FECHA}}</td>
                                     <td>{{ $c->SUBTOTAL}}</td>
                                     <td>{{ $c->IVA}}</td>
-                                    <td>{{ $c->DESCUENTO}}</td>
                                     <td>{{ $c->TOTAL}}</td>                                                                                
                                    </tr>
                                 @endforeach

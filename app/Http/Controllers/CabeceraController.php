@@ -45,7 +45,7 @@ class CabeceraController extends Controller
     public function create(){
         $cliente= Cliente::all();
         $caja= Caja::all();
-        $producto=Producto::All();
+        $producto=Producto::All();        
         return view('cabecera.create',compact('cliente','caja','producto'));      
     }   
    
@@ -59,6 +59,7 @@ class CabeceraController extends Controller
             $cabecera->IDCLIENTE=$request->get('IDCLIENTE');
             $cabecera->IDCAJA=$request->get('IDCAJA');
             $cabecera->NUMERO=0;
+            $cabecera->ESTADO=$request->get('ESTADO');
 
             $mytime = Carbon::now('America/Guayaquil');
             $cabecera->FECHA=$mytime->toDateTimeString();
@@ -73,7 +74,7 @@ class CabeceraController extends Controller
          $idproducto = $request->get('IDPRODUCTO');
          $cantidad = $request->get('CANTIDAD');
          $valor_unitario = $request->get('VALOR_UNITARIO');
-         $descuento = $request->get('DESCUENTO');
+         //$descuento = $request->get('DESCUENTO');
          $valor_total = $request->get('TOTAL');
          
          $cont = 0;
@@ -86,7 +87,7 @@ class CabeceraController extends Controller
              $detalle->IDPRODUCTO= $idproducto[$cont];
              $detalle->CANTIDAD= $cantidad[$cont];
              $detalle->VALOR_UNITARIO= $valor_unitario[$cont];
-             $detalle->DESCUENTO= $descuento[$cont];
+             //$detalle->DESCUENTO= $descuento[$cont];
              $detalle->VALOR_TOTAL= $valor_total[$cont];                          
              $detalle->save();
              $cont=$cont+1;                        
@@ -138,13 +139,17 @@ class CabeceraController extends Controller
     public function destroy($id)
     {
         $cabecera=Ingreso::findOrFail($id);
-        $cabecera->Estado='C';
+        $cabecera->ESTADO='I';
         $cabecera->update();
         return Redirect::to('cabecera');
     }
-    public function edit($id){
+    public function show($id){
         $cabecera=Cabecera::find($id);
-       
+        $detalle=Detalle::all();
+         return view('cabecera.show',compact('cabecera','detalle'));
+    }
+    public function edit($id){
+        $cabecera=Cabecera::find($id);       
          $cliente= Cliente::all();
         $caja= Caja::all();
         return view('cabecera.edit',compact('cabecera','cliente','caja'));
@@ -162,14 +167,25 @@ class CabeceraController extends Controller
 
 
     public function update(CabeceraRequest $request, $id){
-            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$request->all());
+        
+            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$cabecera->ESTADO=$request->get('ESTADO'));
             return Redirect::to('cabecera');
     }
-
-    public function delete($id){
-        Cabecera::destroy($id);
+    public function actualizar($id){
+          $cabecera=Cabecera::findOrFail($id);
+        $cabecera->ESTADO='I';
+        $cabecera->update();
         return Redirect::to('cabecera');
     }
+<<<<<<< HEAD
      
    
+=======
+
+    public function delete($id){        
+            Cabecera::destroy($id);
+        return Redirect::to('cabecera');
+
+>>>>>>> validacionesmaestrodetalle
  }
+    }
