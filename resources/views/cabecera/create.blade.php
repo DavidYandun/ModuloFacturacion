@@ -141,7 +141,7 @@
             <div class="form-group">
                 <input name="_token" value="{{ csrf_token() }}" type="hidden"></input>
                 <button class="btn btn-primary" type="submit">Guardar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
+                <a href="cabecera/create" class="btn btn-danger" type="reset">Cancelar</a>
             </div>
         </div>
   </div>
