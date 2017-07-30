@@ -22,6 +22,8 @@ use App\Cliente;
 use App\Caja;
 use App\Producto;
 
+use PDF;
+
 class CabeceraController extends Controller
 {
    public function __construct(){
@@ -37,11 +39,8 @@ class CabeceraController extends Controller
 
         return view('cabecera.index',compact('cabecera'),compact('cliente','caja'));
 
-        $producto=Producto::All();
-       return view('cabecera.index',compact('cabecera'));
     }
-
-  
+    
 
     public function create(){
         $cliente= Cliente::all();
@@ -114,8 +113,27 @@ class CabeceraController extends Controller
             ->where('d.IDCABECERA','=',$id)
             ->get();
         return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
+            
         
     }
+  /*  public function pdf($id){
+        $cabecera=DB::table('cabecera as c')
+            ->join('clientes as cli','c.IDCLIENTE','=','cli.IDCLIENTE')
+            ->join('caja as caj','c.IDCAJA','=','caj.IDCAJA')
+            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO','c.TOTAL')
+            ->where('c.IDCABECERA',$id)
+            ->first();
+            $detalles=DB::table('detalle as d')
+            ->join('productos as p','d.IDPRODUCTO','=','p.IDPRODUCTO')
+            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.DESCUENTO','d.VALOR_TOTAL')
+            ->where('d.IDCABECERA','=',$id)
+            ->get();
+            $view = view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
+            $pdf= \App::make('dompdf.wrapper');
+            $pdf->loadHTML($view);
+
+            return $pdf->stream('detalles');
+    }*/
 
     public function destroy($id)
     {
@@ -152,4 +170,6 @@ class CabeceraController extends Controller
         Cabecera::destroy($id);
         return Redirect::to('cabecera');
     }
+     
+   
  }

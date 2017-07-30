@@ -10,6 +10,7 @@
      
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="cabecera/create"><button class="btn btn-success"> Nuevo</button></a></p>
+
         </div>
     </div>
     <div class="row">
@@ -17,6 +18,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Cabecera</div>
                 <div class="panel-body">
+                
+                <div class="container">
+                <label>Listar Facturas por: </label>
+                    <a href="{{url('cabecera')}}" class="btn btn-success">TODO</a>
+                    <a href="{{url('cabecera')}}" class="btn btn-success">PRODUCTO</a>
+                    <button class="btn btn-success">PRODUCTO</button>
+                    <button class="btn btn-success">FECHA</button>
+                </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="table-responsive">
@@ -39,7 +48,9 @@
                                     ?>
                                 <tr>
                                     <td align="center">
-                                     <a class="btn btn-info" href="{{URL::action('CabeceraController@delete',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-print"></i></a>
+                                    
+                                     <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
+                                    
                                         
                                     </td>
                                     <td align="center">

@@ -50,12 +50,14 @@ Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 
 Route::get('tipousuario/delete/{id}','TipousuarioController@delete') ;
 
-Route::group(['prefix' => 'cajero', 'middleware' => ['auth', 'cajero']],function(){
-	Route::get('/', 'cajeroController@index');
-});
-Route::group(['prefix' => 'administrador', 'middleware' => ['auth', 'administrador']],function(){
-	Route::get('/', 'administradorController@home');
-});
+
+
+//Route::group(['prefix' => 'cajero', 'middleware' => ['auth', 'cajero']],function(){
+//	Route::get('/', 'cajeroController@index');
+//});
+//Route::group(['prefix' => 'administrador', 'middleware' => ['auth', 'administrador']],function(){
+//	Route::get('/', 'administradorController@home');
+//});
 
 /////////////RUTAS WEB SERVICES ///////////////////////
 Route::resource('cabeceras', 'WCabeceraController');

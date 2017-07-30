@@ -3,7 +3,7 @@
 
 
         
-                    
+        
         <div class="container">
             <div class="container " style="background:#2E9AFE; color:#000000;">
             <div class="col-lg-9" align="center" ><h3>EMPRESA X</h3>
@@ -39,7 +39,7 @@
     <div class="table-responsive">
 
      <table class="table table-striped table-bordered table-condensed table-hover">
-                                <thead>
+                                <thead style="background:#2E9AFE; color:#000000;">
                                     <th>Cantidad</th>
                                     <th>Detalle de producto</th>
                                     <th>V.Unitario</th>
@@ -76,8 +76,15 @@
 </div>
 
 </div>
+<div id="HTMLtoPDF">
+<h2>hola mundo</h2>
+</div>
+<a href="#" onclick="HTMLtoPDF()">Download PDF</a>     
+
      
-     
-  
+  <script src="js/jspdf.js"></script>
+    <script src="js/jquery-2.1.3.js"></script>
+    <script src="js/pdfFromHTML.js"></script>
+    
 
 @endsection 
