@@ -62,19 +62,25 @@
                                 
                                     <!--CABECERA-->
                                         <li><a href="{{url('cabecera')}}"><i class="fa fa-gg"></i>Cabecera <span class="fa fa-chevron-right"></span></a></li>
-                                    <!--DETALLE-->   
+                                    <!--DETALLE--> 
+                                    @role('admin')  
                                         <li><a href="{{url('detalle')}}"><i class="fa fa-tasks"></i>Detalle <span class="fa fa-chevron-right"></span></a></li>
+                                    @endrole
                                     <!--PRODUCTOS-->   
                                         <li><a href="{{url('producto')}}"><i class="fa fa-bitbucket"></i>Productos <span class="fa fa-chevron-right"></span></a></li>    
-                                    <!--CAJA-->   
+                                    <!--CAJA-->  
+                                    @role('admin') 
                                         <li><a href="{{url('caja')}}"><i class="fa fa-delicious"></i> Caja <span class="fa fa-chevron-right"></span></a>
                                         </li>
+                                    @endrole
                                     <!--CLIENTES-->  
                                         <li><a href="{{url('cliente')}}"><i class="fa fa-bars"></i>Clientes <span class="fa fa-chevron-right"></span></a>
                                         </li>
-                                    <!--TIPOCLIENTE-->  
+                                    <!--TIPOCLIENTE--> 
+                                    @role('admin')  
                                         <li><a href="{{url('tipocliente')}}"><i class="fa fa-users"></i> Tipo Clientes <span class="fa fa-chevron-right"></span></a>
                                         </li>
+                                    @endrole
                                     <!--EMPLEADOS-->  
                                         @role('admin')
                                         <li><a href="{{url('empleado')}}"><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-right"></span></a>
