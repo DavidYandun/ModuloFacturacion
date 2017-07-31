@@ -21,8 +21,9 @@ use Illuminate\Support\Collections;
 use App\Cliente;
 use App\Caja;
 use App\Producto;
+use Barryvdh\DomPDF\Facade as PDF;
 
-use PDF;
+
 
 class CabeceraController extends Controller
 {
@@ -58,14 +59,14 @@ class CabeceraController extends Controller
      
             $cabecera->IDCLIENTE=$request->get('IDCLIENTE');
             $cabecera->IDCAJA=$request->get('IDCAJA');
-            $cabecera->NUMERO=0;
+          //  $cabecera->NUMERO=0;
             $cabecera->ESTADO=$request->get('ESTADO');
 
             $mytime = Carbon::now('America/Guayaquil');
             $cabecera->FECHA=$mytime->toDateTimeString();
             
             $cabecera->SUBTOTAL=$request->get('SUBTOTAL');            
-            $cabecera->DESCUENTO=0;
+          //  $cabecera->DESCUENTO=0;
             $cabecera->IVA=$request->get('IVA');
             $cabecera->TOTAL=$request->get('TOTAL');          
             $cabecera->save();
@@ -75,7 +76,7 @@ class CabeceraController extends Controller
          $cantidad = $request->get('CANTIDAD');
          $valor_unitario = $request->get('VALOR_UNITARIO');
          //$descuento = $request->get('DESCUENTO');
-         $valor_total = $request->get('TOTAL');
+         $valor_total = $request->get('VALOR_TOTAL');
          
          $cont = 0;
         
@@ -155,6 +156,14 @@ class CabeceraController extends Controller
         return view('cabecera.edit',compact('cabecera','cliente','caja'));
 
     }
+     public function ExportPDF($id)
+{
+    $cabecera = Cabecera::find($id)->first();
+    $detalles = Detalle::find($id);
+    $pdf = PDF::loadView('cabecera.show', compact('cabecera','detalles'));
+    return $pdf->download('cabecera.pdf');
+
+}
 
 
       /*public function edit($id){
@@ -179,7 +188,10 @@ class CabeceraController extends Controller
     }
 
      
-   
+  /* public function ultimafactura(){
+    $price = DB::table('cabecera')->max('IDCABECERA');
+    return view('price');
+   }
 
 
     /*public function delete($id){        

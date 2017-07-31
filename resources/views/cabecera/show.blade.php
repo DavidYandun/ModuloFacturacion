@@ -75,16 +75,5 @@
                             </table>                       
 </div>
 
-</div>
-<div id="HTMLtoPDF">
-<h2>hola mundo</h2>
-</div>
-<a href="#" onclick="HTMLtoPDF()">Download PDF</a>     
-
-     
-  <script src="js/jspdf.js"></script>
-    <script src="js/jquery-2.1.3.js"></script>
-    <script src="js/pdfFromHTML.js"></script>
-    
 
 @endsection 
