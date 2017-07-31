@@ -63,13 +63,7 @@
 
 		</div>
 		
-		<!--DESCUENTO-->
-		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">Descuento<font color="#76D7C4"> (opcional)</font></label>
-			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="0" onkeyup="fValorTotal();" placeholder="0.00">
-			</div>
-		</div>
+		
 		<!--VALOR_TOTAL-->
 		
 		<div class="form-group">

@@ -19,47 +19,28 @@
                 <div class="panel-heading"><h2>Facturas</h2></div>
                 <div class="panel-body">
                 
-                
-                <!--BUSQUEDA-->
-                <div class="container" style="background:#CEF6F5 ">
-                <div class="col-lg-2">
+                <div class="container">
                 <label>Listar Facturas por: </label>
-                </div>
-                <!--Todo-->
-                <div class="col-lg-2">
-                    <a href="{{url('cabecera')}}" class="btn btn-success">Todas las Facturas</a>
-                </div>
-                <!--FIN Todo-->
-
-                <!--POR CLIENTES-->
-                <div class="col-lg-2">
-                
                 <?php $client = App\Cliente::all();?>
-                        <input type="button" value="Listar por Cliente" onclick="$('#capa').css('display', 'block')" class="btn btn-success">
+                    
+    
+                        <input type="button" value="Por Cliente" onclick="$('#capa').css('display', 'block')" class="btn btn-success">
                         <div id="capa" style="display: none;padding: 10px;">
-                        <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
-                            <option>Seleccione un cliente</option>
+                        
+                        <select id="seleccion" onchange="capturar()"> 
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->IDCLIENTE}}" data-subtext="{{ $cli->CEDULA }}">
+                                <option value="{{$cli->IDCLIENTE}}">
                                     {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
                                 </option>
                             @endforeach
                         </select>                
+                        
                         </div>
+                    <a href="{{url('cabecera')}}" class="btn btn-success">TODO</a>
+                    <a href="{{url('cabecera')}}" class="btn btn-success">PRODUCTO</a>
+                    <button class="btn btn-success">PRODUCTO</button>
+                    <button class="btn btn-success">FECHA</button>
                 </div>
-                <!--FIN POR CLIENTES-->
-                <!--FECHAS-->
-                <div class="col-lg-2">
-                        <input type="button" value="Listar por Fecha" onclick="$('#capa1').css('display', 'block')" class="btn btn-success">
-                        <div id="capa1" style="display: none;padding: 10px;">
-                        <input type="date" name="">
-                        </div>
-                </div>
-                <!--FIN FECHAS-->
-                </div>
-        <!--FIN BUSQUEDA-->
-
-                
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="table-responsive">
@@ -97,7 +78,7 @@
                                       @endif
                                     </td>
                                     <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@ExportPDF',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
@@ -274,6 +255,7 @@
         });
     });
 </script>
+
 <script type="text/javascript">
     function capturar(){
         var cod=document.getElementById("seleccion").value;
@@ -281,4 +263,5 @@
     }
     
 </script>
+
 @endpush

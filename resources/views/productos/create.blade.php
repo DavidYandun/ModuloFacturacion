@@ -47,13 +47,7 @@ Productos
 				<input name="DESCRIPCION" id="DESCRIPCION" class="form-control" type="text" value="{{old('DESCRIPCION')}}" required>
 			</div>
 		</div>
-		<!--DESCUENTO-->
-		<div class="form-group">
-			<label for="DESCUENTO" class="col-lg-2 control-label">Descuento <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="DESCUENTO" id="DESCUENTO" class="form-control" type="number" value="{{old('DESCUENTO')}}" required>
-			</div>
-		</div>
+		
 		<!--VALOR-->
 		<div class="form-group">
 			<label for="VALOR" class="col-lg-2 control-label">Precio <font color="red">*</font></label>

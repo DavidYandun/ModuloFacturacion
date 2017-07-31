@@ -38,7 +38,6 @@ Productos
                                     <th>Stock</th>
                                     <th>Nombre</th>
                                     <th>Descripción</th>
-                                    <th>Descuento</th>
                                     <th>Precio</th>
                                     
                                 </thead>
@@ -54,7 +53,6 @@ Productos
                                     <td>{{ $p->STOCK}}</td>
                                     <td>{{ $p->NOMBREP}}</td>
                                     <td>{{ $p->DESCRIPCION}}</td>
-                                    <td>{{ $p->DESCUENTO}}</td>
                                     <td>{{ $p->VALOR}}</td>
                                     
                                 </tr>

@@ -1,9 +1,8 @@
 @extends('admin.template.main')
+@section ('title')
+   Consulta factura
+@endsection
 @section('contenido')
-
-
-        
-        
         <div class="container">
             <div class="container " style="background:#2E9AFE; color:#000000;">
             <div class="col-lg-9" align="center" ><h3>EMPRESA X</h3>
