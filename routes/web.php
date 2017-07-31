@@ -35,6 +35,8 @@ Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
 Route::resource('tipousuario','TipousuarioController');
 
+Route::resource('vistafecha','VistaclienteController');
+Route::resource('vistacliente','VistaclienteController');
 Route::resource('nuevafactura','NuevafacturaController');
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;

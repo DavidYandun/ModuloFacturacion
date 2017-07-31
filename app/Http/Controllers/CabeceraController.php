@@ -179,7 +179,10 @@ class CabeceraController extends Controller
     }
 
      
-   
+  /* public function ultimafactura(){
+    $price = DB::table('cabecera')->max('IDCABECERA');
+    return view('price');
+   }
 
 
     /*public function delete($id){        

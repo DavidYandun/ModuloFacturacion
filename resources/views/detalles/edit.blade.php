@@ -71,13 +71,7 @@
 				<input name="VALOR_UNITARIO" id="valor_unitario" class="form-control" type="number" value="{{$detalle->VALOR_UNITARIO}}" required onkeyup="fValorTotal();">
 			</div>
 		</div>
-		<!--DESCUENTO-->
-		<div class="form-group">
-			<label for="descuento" class="col-lg-2 control-label">Descuento <font color="#76D7C4"> (opcional)</font></label>
-			<div class="col-lg-10">
-				<input name="DESCUENTO" id="descuento" class="form-control" type="number" value="{{$detalle->DESCUENTO}}" onkeyup="fValorTotal();">
-			</div>
-		</div>
+		
 		<!--VALOR_TOTAL-->
 		<div class="form-group">
 			<label for="valor_total" class="col-lg-2 control-label">Valor Total <font color="red">*</font></label>

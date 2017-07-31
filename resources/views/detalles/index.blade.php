@@ -39,7 +39,7 @@
                                     <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Valor Unitario</th>
-                                    <th>Descuento</th>
+                                    
                                     <th>Valor Total</th>
                                     
                                 </thead>
@@ -60,7 +60,6 @@
                                     <td>{{ $prod->NOMBREP}}</td>
                                     <td>{{ $d->CANTIDAD}}</td>
                                     <td>{{ $d->VALOR_UNITARIO}}</td>
-                                    <td>{{ $d->DESCUENTO}}</td>
                                     <td>{{ $d->VALOR_TOTAL}}</td>
                                 </tr>
                                 @endforeach
@@ -79,7 +78,7 @@
 @endsection
 <script language="javascript">
     function fValorTotal() {
-        document.getElementById("valor_total").value = (parseFloat(document.getElementById("cantidad").value) * parseFloat(document.getElementById("valor_unitario").value))-parseFloat(document.getElementById("descuento").value);
+        document.getElementById("valor_total").value = (parseFloat(document.getElementById("cantidad").value) * parseFloat(document.getElementById("valor_unitario").value));
     }
 </script>
 
@@ -95,5 +94,13 @@
         modal.find(".modal-body form").attr('action',action);
         });
     });
+</script>
+
+<script type="text/javascript">
+    function capturar(){
+        var cod=document.getElementById("seleccion").value;
+        window.location = "vistacliente/"+cod;
+    }
+    
 </script>
 @endpush
