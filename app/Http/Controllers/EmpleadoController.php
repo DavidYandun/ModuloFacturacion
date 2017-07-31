@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use App\Http\Requests\EmpleadoRequest;
 use App\Empleado;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class EmpleadoController extends Controller
 {
@@ -18,7 +20,14 @@ class EmpleadoController extends Controller
     }
     public function create(){
         return view('empleados.create');
-    }   
+    }  
+    public function ExportPDF()
+    {
+        $empleados=Empleado::all();
+        $pdf = PDF::loadView('empleados.show',compact('empleados') );
+        return $pdf->download('empleados.pdf');
+    } 
+
 
     public function store(EmpleadoRequest $request){
         Empleado::create($request->all());
@@ -36,6 +45,7 @@ class EmpleadoController extends Controller
         Empleado::destroy($id);
         return Redirect::to('empleado');
     }
+
  }
 
 

@@ -26,6 +26,13 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
 
+Route::get('/export/pdf',
+    [
+        'as' => 'export.pdf',
+        'uses' => 'EmpleadoController@ExportPDF'
+    ]);
+
+
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
 Route::resource('detalle','DetalleController');
@@ -89,3 +96,4 @@ Route::get('delete/{id}','CajaController@destroy') ;
 
 Route::get('delete/{id}','TipousuarioController@destroy') ;*/
 
+	
