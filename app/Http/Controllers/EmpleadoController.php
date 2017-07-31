@@ -1,6 +1,10 @@
 <?php
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 use App\Licencie;
+=======
+
+>>>>>>> reportepdf
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -20,6 +24,7 @@ class EmpleadoController extends Controller
     }
     public function create(){
         return view('empleados.create');
+<<<<<<< HEAD
     } 
     
 
@@ -35,6 +40,15 @@ class EmpleadoController extends Controller
 
 
 
+=======
+    }  
+    public function ExportPDF()
+    {
+        $empleados=Empleado::all();
+        $pdf = PDF::loadView('empleados.show',compact('empleados') );
+        return $pdf->download('empleados.pdf');
+    } 
+>>>>>>> reportepdf
 
 
     public function store(EmpleadoRequest $request){
@@ -53,6 +67,7 @@ class EmpleadoController extends Controller
         Empleado::destroy($id);
         return Redirect::to('empleado');
     }
+
  }
 
 
