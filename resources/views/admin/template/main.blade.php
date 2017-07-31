@@ -54,7 +54,7 @@
                                 <li><a><i class="fa fa-calculator"></i> VENTAS<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav-child_menu">
                                     <!--Nueva Factura-->
-                                        <li><a href="{{url('nuevafactura')}}"><i class="fa fa-gg"></i>Nueva Factura <span class="fa fa-chevron-right"></span></a></li>
+                                      <li><a href="{{url('cabecera')}}"><i class="fa fa-gg"></i>Facturación <span class="fa fa-chevron-right"></span></a></li>
                                 </ul>
                                 </li>
                                 <li><a><i class="glyphicon glyphicon-tasks"></i> CRUDS <span class="fa fa-chevron-down"></span></a>
@@ -208,8 +208,6 @@
         <!-- Custom Theme Scripts -->
         <script src="{{asset('build/js/custom.min.js')}}"></script>
 
-        <script src="js/jspdf.js"></script>
-    <script src="js/jquery-2.1.3.js"></script>
-    <script src="js/pdfFromHTML.js"></script>
+
 </body>
 </html>
