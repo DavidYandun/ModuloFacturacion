@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers;
-<<<<<<< HEAD
-use App\Licencie;
-=======
 
->>>>>>> reportepdf
+use App\Licencie;
+
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -24,31 +24,26 @@ class EmpleadoController extends Controller
     }
     public function create(){
         return view('empleados.create');
-<<<<<<< HEAD
     } 
     
 
          
-    public function ExportPDF($id)
+ /*   public function ExportPDF($id)
 {
     $empleados = Empleado::find($id)->first();
     $pdf = PDF::loadView('empleados.show', compact('empleados'));
     return $pdf->download('empleados.pdf');
 
-}
+}*/
 
 
-
-
-=======
-    }  
+      
     public function ExportPDF()
     {
         $empleados=Empleado::all();
         $pdf = PDF::loadView('empleados.show',compact('empleados') );
         return $pdf->download('empleados.pdf');
     } 
->>>>>>> reportepdf
 
 
     public function store(EmpleadoRequest $request){

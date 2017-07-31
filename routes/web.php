@@ -26,21 +26,16 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('cabecera','CabeceraController');
 
-<<<<<<< HEAD
 
-Route::get('/export/pdf/{id}',
-=======
+
+
 Route::get('/export/pdf',
->>>>>>> reportepdf
     [
         'as' => 'export.pdf',
         'uses' => 'EmpleadoController@ExportPDF'
     ]);
 
-<<<<<<< HEAD
-=======
 
->>>>>>> reportepdf
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
 Route::resource('detalle','DetalleController');
