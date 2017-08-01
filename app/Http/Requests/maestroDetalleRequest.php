@@ -23,8 +23,8 @@ class maestroDetalleRequest extends FormRequest
      */
     public function rules()
     {
-        if(Input::has('IDCABECERA')){
-            $id=Input::Get('IDCABECERA');
+        if(Input::has('idcabecera')){
+            $id=Input::Get('idcabecera');
         return [
             "IDCLIENTE"=>"required|integer|min:1|max:1000",
             "IDCAJA"=>"required|integer|min:1|max:11",

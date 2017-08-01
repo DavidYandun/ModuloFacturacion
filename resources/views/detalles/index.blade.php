@@ -46,21 +46,21 @@
                               @foreach ($detalles as $d)
                                 <tr>
                                     <td align="center">
-                                        <a class="btn btn-danger" href="{{URL::action('DetalleController@delete',$d->IDDETALLE)}}"><i class="glyphicon glyphicon-trash" ></i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('DetalleController@delete',$d->iddetalle)}}"><i class="glyphicon glyphicon-trash" ></i></a>
                                     </td>
                                     <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('DetalleController@edit',$d->IDDETALLE)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('DetalleController@edit',$d->iddetalle)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                     </td>
                                 
-                                    <td>{{ $d->IDCABECERA}}</td>
-                                    <!--{{$idproducto=$d->IDPRODUCTO}}-->
+                                    <td>{{ $d->idcabecera}}</td>
+                                    <!--{{$idproducto=$d->idproducto}}-->
                                     <?php
                                         $prod = App\Producto::find($idproducto);
                                     ?>
-                                    <td>{{ $prod->NOMBREP}}</td>
-                                    <td>{{ $d->CANTIDAD}}</td>
-                                    <td>{{ $d->VALOR_UNITARIO}}</td>
-                                    <td>{{ $d->VALOR_TOTAL}}</td>
+                                    <td>{{ $prod->nombrep}}</td>
+                                    <td>{{ $d->cantidad}}</td>
+                                    <td>{{ $d->valor_unitario}}</td>
+                                    <td>{{ $d->valor_total}}</td>
                                 </tr>
                                 @endforeach
                             </table>

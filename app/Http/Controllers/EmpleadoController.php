@@ -55,7 +55,7 @@ class EmpleadoController extends Controller
         return view('empleados.edit',compact('empleado'));
     }
     public function update(EmpleadoRequest $request, $id){
-            Empleado::updateOrCreate(['IDEMPLEADO'=>$id],$request->all());
+            Empleado::updateOrCreate(['idempleado'=>$id],$request->all());
             return Redirect::to('empleado');
     }
    public function delete($id){

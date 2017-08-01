@@ -39,7 +39,7 @@ class CajaController extends Controller
  	}
  	
  	public function update(CajaRequest $request, $id){
- 			Caja::updateOrCreate(['IDCAJA'=>$id],$request->all());
+ 			Caja::updateOrCreate(['idcaja'=>$id],$request->all());
  			//$tipocliente->tipocliente=$request->get('DETALLE');
  			
  			return Redirect::to('caja');

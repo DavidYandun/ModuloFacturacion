@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="facturaspendientes/create"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="facturaspendiente/create"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
     </div>
     <!--@if ($message = Session::get('mensaje'))
@@ -36,14 +36,14 @@
                                 </thead>
                               @foreach ($facturaspendientes as $d)
                                 <tr>
-                                    <td>{{ $d->IDPENDIENTE}}</td>
-                                    <td>{{ $d->IDCABECERA}}</td>
-                                    <td>{{ $d->ABONO}}</td>
-                                    <td>{{ $d->SALDO}}</td>
+                                    <td>{{ $d->idpendiente}}</td>
+                                    <td>{{ $d->idcabecera}}</td>
+                                    <td>{{ $d->abono}}</td>
+                                    <td>{{ $d->saldo}}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{URL::action('FacturaspendientesController@edit',$d->IDPENDIENTE)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('FacturaspendientesController@edit',$d->idpendiente)}}"><i class="fa fa-pencil-square-o" > Editar</i></a>
 
-                                        <a class="btn btn-danger" href="{{URL::action('FacturaspendientesController@delete',$d->IDPENDIENTE)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('FacturaspendientesController@delete',$d->idpendiente)}}"><i class="fa fa-trash-o" > Eliminar</i></a>
 
 
                                     </td>

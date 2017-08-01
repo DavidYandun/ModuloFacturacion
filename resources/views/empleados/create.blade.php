@@ -22,11 +22,11 @@
 		<form action="{{url('empleado')}}" method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-	<!--CEDULA-->
+	<!--cedula-->
 		<div class="form-group col-lg-12">
-			<label for="CEDULA" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
+			<label for="cedula" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="CEDULA" id="CEDULA" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{old('CEDULA')}}" required maxlength="10" minlength="10" placeholder="Ingrese su cédula" onchange="ValidarCedula(this.form.CEDULA.value, this.form.boton)">
+				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{old('cedula')}}" required maxlength="10" minlength="10" placeholder="Ingrese su cédula" onchange="Validarcedula(this.form.cedula.value, this.form.boton)">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej:1234567890</font></label>
@@ -34,19 +34,19 @@
 		</div>
 	<!--NOMBRE-->
 		<div class="form-group col-lg-12">
-			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
+			<label for="nombre" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="NOMBRE" id="NOMBRE" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" type="text" value="{{old('NOMBRE')}}" required maxlength="25" placeholder="Ingrese su nombre">
+				<input name="nombre" id="nombre" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" type="text" value="{{old('nombre')}}" required maxlength="25" placeholder="Ingrese su nombre">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: Juan/JUAN</font></label>
 			</div>
 		</div>
-	<!--APELLIDO-->
+	<!--apellido-->
 		<div class="form-group col-lg-12">
-			<label for="APELLIDO" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
+			<label for="apellido" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="APELLIDO" id="APELLIDO" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" type="text" value="{{old('APELLIDO')}}" required maxlength="25" placeholder="Ingrese su apellido">
+				<input name="apellido" id="apellido" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" type="text" value="{{old('apellido')}}" required maxlength="25" placeholder="Ingrese su apellido">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: Perez/PEREZ</font></label>
@@ -54,9 +54,9 @@
 		</div>
 <!--NACIMIENTO-->
 		<div class="form-group col-lg-12">
-			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
+			<label for="nacimiento" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{old('NACIMIENTO')}}"  required min="1900-01-01" max="2017-12-31" >
+				<input name="nacimiento" id="nacimiento" class="form-control" type="date" value="{{old('nacimiento')}}"  required min="1900-01-01" max="2017-12-31" >
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: 1991-01-01</font></label>
@@ -64,9 +64,9 @@
 		</div>
 	<!--CIUDAD-->
 		<div class="form-group col-lg-12">
-			<label for="CIUDAD" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
+			<label for="ciudad" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{old('CIUDAD')}}" required placeholder="Ingrese su ciudad de residencia">
+				<input name="ciudad" id="ciudad" class="form-control" type="text" value="{{old('ciudad')}}" required placeholder="Ingrese su ciudad de residencia">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: Ibarra</font></label>
@@ -74,28 +74,28 @@
 		</div>
 	<!--DIRECCION-->
 		<div class="form-group col-lg-12">
-			<label for="DIRECCION" class="col-lg-2 control-label">Dirección <font color="red">*</font></label>
+			<label for="direccion" class="col-lg-2 control-label">Dirección <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="DIRECCION" id="DIRECCION" class="form-control" type="text" value="{{old('DIRECCION')}}" required placeholder="Ingrese su domicilio">
+				<input name="direccion" id="direccion" class="form-control" type="text" value="{{old('direccion')}}" required placeholder="Ingrese su domicilio">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: Av. 17 de Julio</font></label>
 			</div>
 		</div>
-	<!--TELEFONO-->
+	<!--telefono-->
 		<div class="form-group col-lg-12">
-			<label for="TELEFONO" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
+			<label for="telefono" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="TELEFONO" id="TELEFONO" class="form-control" type="tel" pattern="0[0-9]{9}" value="{{old('TELEFONO')}}" required maxlength="10" minlength="10" placeholder="Ingrese su número de teléfono">
+				<input name="telefono" id="telefono" class="form-control" type="tel" pattern="0[0-9]{9}" value="{{old('telefono')}}" required maxlength="10" minlength="10" placeholder="Ingrese su número de teléfono">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: 062987987</font></label>
 			</div>
 		</div>
 		<div class="form-group">
-      <label for="ESTADO" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
+      <label for="estado" class="col-lg-2 control-label">Estado <font color="red">*</font></label>
       <div class="col-lg-6" class="col-xs-5 selectContainer">
-        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{old('ESTADO')}}" required onchange="crear(this.value)">
+        <select name="estado" id="estado" class="form-control" type="text" value="{{old('estado')}}" required onchange="crear(this.value)">
         <option value="">Seleccione un Estado</option>
         <option value="A">Activo</option>
         <option value="I">Inactivo</option>

@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+id@extends('admin.template.main')
 
 @section ('title')
    Clientes
@@ -28,7 +28,7 @@ Tipo Clientes
 		<div class="form-group">
 			<label for="detalle" class="col-lg-2 control-label">Id Tipo <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="DETALLE" id="detalle" class="form-control" type="text" value="{{old('DETALLE')}}" required minlength="2" maxlength="2">
+				<input name="detalle" id="detalle" class="form-control" type="text" value="{{old('detalle')}}" required minlength="2" maxlength="2">
 			</div>
 		</div>
 				

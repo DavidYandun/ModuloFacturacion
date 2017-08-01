@@ -23,15 +23,15 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="form-group">
-			<label for="IDUSUARIO" class="col-lg-2 control-label">ID Usuario <font color="red">*</font></label>
+			<label for="idusuario" class="col-lg-2 control-label">ID Usuario <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDUSUARIO" id="IDUSUARIO" class="form-control" type="number" value="{{old('IDUSUARIO')}}" required>
+				<input name="idusuario" id="idusuario" class="form-control" type="number" value="{{old('idusuario')}}" required>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
+			<label for="numero" class="col-lg-2 control-label">Número <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NUMERO" id="NUMERO" class="form-control" type="number" value="{{old('NUMERO')}}" required placeholder="ejemplo: 8">
+				<input name="numero" id="numero" class="form-control" type="number" value="{{old('numero')}}" required placeholder="ejemplo: 8">
 			</div>
 		</div>
 

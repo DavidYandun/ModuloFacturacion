@@ -43,7 +43,7 @@ class DetalleController extends Controller
  		return view('detalles.show',['detalle'=>Detalle::findOrFail($id)]);
  	}
  	public function update(DetalleRequest $request, $id){
- 			Detalle::updateOrCreate(['IDDETALLE'=>$id],$request->all());
+ 			Detalle::updateOrCreate(['iddetalle'=>$id],$request->all());
  			return Redirect::to('detalle');
  	}
  	

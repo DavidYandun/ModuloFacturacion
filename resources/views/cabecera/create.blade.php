@@ -31,10 +31,10 @@
         <div class="form-group">
             <label >Id Cliente <font color="red">*</font></label>         
                 
-                <select name="IDCLIENTE" id="IDCLIENTE" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                <select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)                
-                <option value="{{ $cli->IDCLIENTE }}" data-subtext="{{ $cli->CEDULA }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->idcliente }}" data-subtext="{{ $cli->cedula }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
                 @endforeach
                 </select>
 
@@ -43,11 +43,11 @@
 
         <div class="form-group">
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-            <label for="IDCAJA">Id Caja <font color="red">*</font></label>            
-                <select name="IDCAJA" id="IDCAJA" class="form-control">
+            <label for="idcaja">Id Caja <font color="red">*</font></label>            
+                <select name="idcaja" id="idcaja" class="form-control">
                 <option value="">selecciona un caja</option>
                 @foreach ($caja as $caj)
-                <option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+                <option value="{{ $caj->idcaja }}">{{ $caj->numero }}</option>
                 @endforeach
                 </select>
 
@@ -64,22 +64,22 @@
                     <select name="pidproducto" class="form-control selectpicker" id="pidproducto" data-live-search="true" data-show-subtext="true">
                     <option value="" selected="true">selecciona un Producto</option>
                         @foreach ($producto as $pro)   
-                        @if (($pro->STOCK) > 0)          
-                         <option value="{{ $pro->IDPRODUCTO }}_{{ $pro->STOCK }}_{{ $pro->VALOR }}" data-subtext="{{ $pro->IDPRODUCTO }}">{{ $pro->NOMBREP }}</option>
+                        @if (($pro->stock) > 0)          
+                         <option value="{{ $pro->idproducto}}_{{ $pro->stock}}_{{ $pro->valor}}" data-subtext="{{ $pro->idproducto }}">{{ $pro->nombrep }}</option>
                  @endif   
                 @endforeach
                     </select>
                 </div>
             </div><div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
      <div class="form-group">
-      <label for="CANTIDAD">Cantidad</label>
-      <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="Cantidad">
+      <label for="cantidad">cantidad</label>
+      <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="cantidad">
      </div>
     </div>
             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                 <div class="form-group">
-                    <label for="VALOR_UNITARIO">Valor unitario</label>
-                    <input type="number" disabled name="pvalor_unitario" id="pvalor_unitario" class="form-control" placeholder="Valor_Unitario">
+                    <label for="valor_unitario">Valor unitario</label>
+                    <input type="text" disabled name="pvalor_unitario" id="pvalor_unitario" class="form-control" placeholder="Valor_Unitario">
                 </div>
             </div>            
             <div class="col-lg-2 col-sm-2 col-md-2  col-xs-12">
@@ -95,11 +95,11 @@
                 <select name="IDTIPO" id="IDTIPO" disabled="false" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="" selected>selecciona tipo de pago</option>
                 @foreach ($cliente as $cli) 
-                 <!--{{$codcliente=$cli->IDTIPO}}-->
+                 <!--{{$codcliente=$cli->idtipo}}-->
                                     <?php
                                         $nombretipo = App\Tipocliente::find($codcliente);
                                     ?>               
-                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->DETALLE }}</option>
+                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->detalle }}</option>
                 @endforeach
                 </select>
 
@@ -115,7 +115,7 @@
      <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #A9D0F5">
                         <th>Opciones</th>
-                        <th>Cantidad</th>
+                        <th>cantidad</th>
                         <th>Producto</th>                        
                         <th>Valor Unitario</th>                       
                         <th>Valor Total</th>
@@ -124,19 +124,19 @@
                     	<tr>
                     		<td colspan="3"></td>
                         	<td>SubTotal</td>
-                        	<td><input type="hidden" id="SUBTOTAL" name="SUBTOTAL"></input><h4 id="subto">/. 0.00</h4></td>
+                        	<td><input type="hidden" id="subtotal" name="subtotal"></input><h4 id="subto">/. 0.00</h4></td>
                         </tr>
                         <tr>
                         <td colspan="3"></td>
                         	<td>IVA</td>
-                        	<td><input type="hidden" id="IVA" name="IVA"></input><h4 id="iva">/. 0.00</h4></td>
+                        	<td><input type="hidden" id="iva" name="iva"></input><h4 id="iva">/. 0.00</h4></td>
                         </tr>
                        
                     	<tr>
                     	<td colspan="3"></td>
                         	<td>Total</td>
-                        	<td><input type="hidden" id="TOTAL" name="TOTAL"></input><h4 id="to">$/ 0.00</h4></td>
-                             <input type="hidden" id="ESTADO" name="ESTADO" value="A">                          
+                        	<td><input type="hidden" id="total" name="total"></input><h4 id="to">$/ 0.00</h4></td>
+                             <input type="hidden" id="estado" name="estado" value="A">                          
                         </tr>
                       </tfoot>
                         
@@ -176,10 +176,10 @@
 
 
 var cont=0;
-TOTAL=0;
+total=0;
 valor_total=[];
 subtotal=0;
- iva=0;
+iva=0;
  $("#guardar").hide();
 $("#pidproducto").change(mostrarValores);
 function mostrarValores(){
@@ -188,95 +188,43 @@ function mostrarValores(){
     document.getElementById("pvalor_unitario").value=(datosProducto[2]);
     
 }
-//$("#IDCLIENTE").change(mostrarValor);
-/* function existe(idproducto){
-    if(cont>0){
-        $("#detalles tbody tr").each(function () {
-            var celdas=($this).find('td');
-            console.log($celdas[1].val+", "+idproducto);
-            if($(celdas[1].val()==idproducto)){
-                return true;
-            }
-
-            });
-        }
-    }
-    return false;
- }
- function mostrarValor(){
-    datoscliente=document.getElementById('IDCLIENTE').value.split('_');
-   if((datoscliente[1])=="1"){ 
-    alert("Elproducto");  
-    document.getElementById('IDTIPO').disabled=true;                
-    
-    }
-    
-    
-    
-}
- /*function activartipo(){
-    alert("La cantidad a vender supera el Stock");
-    datoscliente=document.getElementBy('IDCLIENTE').value.split('_');
-
-        if((datoscliente[1])=="2"){        
-        $("#IDTIPO").attr('disabled', true);
-    }
- }*/
- 
-
- /*function existe() {
-
-
-    if (cont > 0) {
-        $("#detalles tbody tr").each(function () {
-            /* Obtener todas las celdas */             
-            /*var celdas = $(this).find('td');            
-             console.log($(celdas[1]).val()+", "+IDPRODUCTO);
-             $producto=$(celdas[2]).val();             
-            
-            /*if ($(celdas[1]).val() === IDPRODUCTO) {
-                return true;
-            }
-        });
-    }
-    return false;
-}*/
 
 function agregar(){    
         datosProducto=document.getElementById('pidproducto').value.split('_');
- 		IDPRODUCTO=(datosProducto[0]);
+        idproducto=(datosProducto[0]);
         STOCK=parseFloat($("#pstock").val());        
- 		PRODUCTO=$("#pidproducto option:selected").text(); 		
- 		CANTIDAD=parseFloat($("#pcantidad").val());        		
- 		VALOR_UNITARIO=$("#pvalor_unitario").val();		
- 	//	DESCUENTO=$("#pdescuento").val(); 
-        		
-            if(IDPRODUCTO!="" && CANTIDAD!="" && CANTIDAD>0 && VALOR_UNITARIO!="" && STOCK!="")        
+        PRODUCTO=$("#pidproducto option:selected").text();      
+        cantidad=parseFloat($("#pcantidad").val());             
+        valor_unitario=$("#pvalor_unitario").val(); 
+         
+    //  DESCUENTO=$("#pdescuento").val(); 
+                
+            if(idproducto!="" && cantidad!="" && cantidad>0 && valor_unitario!="" && STOCK!="")        
         {
             
 
-            if((STOCK)>=(CANTIDAD)){
-            valor_total[cont]=CANTIDAD*VALOR_UNITARIO;          
-            TOTAL=(TOTAL+valor_total[cont]);
-            subtotal=TOTAL/1.12;
-            iva=TOTAL-subtotal;
-
+            if((STOCK)>=(cantidad)){
+            valor_total[cont]=cantidad*valor_unitario;          
+            total=(total+valor_total[cont]);
+            subtotal=total/1.12;
+            iva=total-subtotal;
+            alert("Error"+iva);   
 
             var fila='<tr class="selected" id="fila'+cont+'">\n\
             <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
-            <td><input type="hidden" name="CANTIDAD[]" value="'+CANTIDAD+'" readonly="readonly">'+CANTIDAD+'</td>\n\
-            <td><input type="hidden" name="IDPRODUCTO[]" value="'+IDPRODUCTO+'" readonly="readonly">'+PRODUCTO+'</td>\n\
-            <td><input type="hidden" name="VALOR_UNITARIO[]" value="'+VALOR_UNITARIO+'"readonly="readonly">'+VALOR_UNITARIO+'</td>\n\
-            <td><input type="hidden" name="VALOR_TOTAL[]" value="'+valor_total[cont]+'"readonly="readonly">'+valor_total[cont]+'</td></tr>'                      
+            <td><input type="hidden" name="cantidad[]" value="'+cantidad+'" readonly="readonly">'+cantidad+'</td>\n\
+            <td><input type="hidden" name="idproducto[]" value="'+idproducto+'" readonly="readonly">'+PRODUCTO+'</td>\n\
+            <td><input type="hidden" name="valor_unitario[]" value="'+valor_unitario+'"readonly="readonly">'+valor_unitario+'</td>\n\
+            <td><input type="hidden" name="valor_total[]" value="'+valor_total[cont]+'"readonly="readonly">'+valor_total[cont]+'</td></tr>'                      
             cont++;
            
-            document.getElementById("TOTAL").value=(TOTAL);
-            document.getElementById("SUBTOTAL").value=(subtotal);
-            document.getElementById("IVA").value=(iva);
-            $("#TOTAL").html("$/. " + TOTAL);
-            $("#to").html("$/. " + TOTAL);
-            $("#SUBTOTAL").html("$/. " + subtotal);
-            $("#IVA").html("$/. " + iva);
+            document.getElementById("total").value=(total);
+            document.getElementById("subtotal").value=(subtotal);
+            document.getElementById("iva").value=(iva);
+            $("#total").html("$/. " + total);
+            $("#to").html("$/. " + total);
+            $("#subtotal").html("$/. " + subtotal);
+            $("#iva").html("$/. " + iva);
             $("#subto").html("$/. " + subtotal);
             $("#iva").html("$/. " + iva);
              limpiar();         
@@ -295,35 +243,89 @@ function agregar(){
         
         
     
- 	}
+    }
 
 
- 	function limpiar(){
- 		$("#pcantidad").val("");
- 		mostrarValores();
- 	}
- 	function evaluar(){
- 		if (TOTAL>0){
- 			$("#guardar").show();
- 		}else{
- 			$("#guardar").hide();
- 		}
- 	}
+    function limpiar(){
+        $("#pcantidad").val("");
+        mostrarValores();
+    }
+    function evaluar(){
+        if (total>0){
+            $("#guardar").show();
+        }else{
+            $("#guardar").hide();
+        }
+    }
 
- 	function eliminar(index){
- 		TOTAL=TOTAL-valor_total[index];
-        subtotal=TOTAL/1.12;
-        iva=TOTAL-subtotal;
+    function eliminar(index){
+        total=total-valor_total[index];
+        subtotal=total/1.12;
+        iva=total-subtotal;
 
- 		    $("#TOTAL").html("$/. " + TOTAL);
-            $("#to").html("$/. " + TOTAL);
-            $("#SUBTOTAL").html("$/. " + subtotal);
-            $("#IVA").html("$/. " + iva);
+            $("#total").html("$/. " + total);
+            $("#to").html("$/. " + total);
+            $("#subtotal").html("$/. " + subtotal);
+            $("#iva").html("$/. " + iva);
             $("#subto").html("$/. " + subtotal);
-            $("#iva").html("$/. " + iva); 		
- 		$("#fila" +index).remove();
- 		evaluar();
- 	}
+            $("#iva").html("$/. " + iva);       
+        $("#fila" +index).remove();
+        evaluar();
+    }
+//$("#idcliente").change(mostrarValor);
+/* function existe(idproducto){
+    if(cont>0){
+        $("#detalles tbody tr").each(function () {
+            var celdas=($this).find('td');
+            console.log($celdas[1].val+", "+idproducto);
+            if($(celdas[1].val()==idproducto)){
+                return true;
+            }
+
+            });
+        }
+    }
+    return false;
+ }
+ function mostrarValor(){
+    datoscliente=document.getElementById('idcliente').value.split('_');
+   if((datoscliente[1])=="1"){ 
+    alert("Elproducto");  
+    document.getElementById('IDTIPO').disabled=true;                
+    
+    }
+    
+    
+    
+}
+ /*function activartipo(){
+    alert("La cantidad a vender supera el Stock");
+    datoscliente=document.getElementBy('idcliente').value.split('_');
+
+        if((datoscliente[1])=="2"){        
+        $("#IDTIPO").attr('disabled', true);
+    }
+ }*/
+ 
+
+ /*function existe() {
+
+
+    if (cont > 0) {
+        $("#detalles tbody tr").each(function () {
+            /* Obtener todas las celdas */             
+            /*var celdas = $(this).find('td');            
+             console.log($(celdas[1]).val()+", "+idproducto);
+             $producto=$(celdas[2]).val();             
+            
+            /*if ($(celdas[1]).val() === idproducto) {
+                return true;
+            }
+        });
+    }
+    return false;
+}*/
+
  </script>
  @endpush
 @endsection 

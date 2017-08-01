@@ -32,13 +32,13 @@
                               <tbody>
                                 @foreach($empleados as $det)
                         <tr>
-                            <td align="center">{{$det->CEDULA}}</td>
-                            <td align="center">{{$det->NOMBRE}}</td>
-                            <td align="right">{{$det->NACIMIENTO}}</td>
-                            <td align="right">{{$det->CIUDAD}}</td>
-                            <td align="right">{{$det->DIRECCION}}</td>
-                            <td align="right">{{$det->TELEFONO}}</td>
-                            <td align="right">{{$det->ESTADO}}</td>
+                            <td align="center">{{$det->cedula}}</td>
+                            <td align="center">{{$det->nombre}}</td>
+                            <td align="right">{{$det->nacimiento}}</td>
+                            <td align="right">{{$det->ciudad}}</td>
+                            <td align="right">{{$det->direccion}}</td>
+                            <td align="right">{{$det->telefono}}</td>
+                            <td align="right">{{$det->estado}}</td>
 
                         </tr>
                                 @endforeach

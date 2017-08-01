@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Empleado extends Model
 {
 protected $table='empleados';
-protected $primaryKey='IDEMPLEADO';
+protected $primaryKey='idempleado';
 public $timestamps=false;
 protected $fillable=[
-	"CEDULA","NOMBRE","APELLIDO","NACIMIENTO","CIUDAD","DIRECCION","TELEFONO","ESTADO"
+	"cedula","nombre","apellido","nacimiento","ciudad","direccion","telefono","estado"
 	];
 }

@@ -37,15 +37,15 @@
                               @foreach ($caja as $c)
                                 <tr>
                                 <td align="center">
-                                        <a class="btn btn-danger" href="{{URL::action('CajaController@delete',$c->IDCAJA)}}"><i class="glyphicon glyphicon-trash" ></i></a>
+                                        <a class="btn btn-danger" href="{{URL::action('CajaController@delete',$c->idcaja)}}"><i class="glyphicon glyphicon-trash" ></i></a>
                                 </td>
                                  <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('CajaController@edit',$c->IDCAJA)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('CajaController@edit',$c->idcaja)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                 </td>
                                 
-                                    <td>{{ $c->IDCAJA}}</td>
-                                    <td>{{ $c->IDUSUARIO}}</td>
-                                    <td>{{ $c->NUMERO}}</td>
+                                    <td>{{ $c->idcaja}}</td>
+                                    <td>{{ $c->idusuario}}</td>
+                                    <td>{{ $c->numero}}</td>
                                    
 
                                    </tr>
@@ -71,9 +71,9 @@ $(document).ready(function () {
     $('#modalEliminarCaja').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var action = button.data('action');
-        var IDCAJA = button.data('IDCAJA');
+        var idcaja = button.data('idcaja');
         var modal = $(this);
-        modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar a la Caja con IDCAJA " + IDCAJA + "?");
+        modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar a la Caja con IDCAJA " + idcaja + "?");
         modal.find(".modal-body form").attr('action', action);
     });
 });

@@ -34,7 +34,7 @@ class ClienteController extends Controller
 
  	}
  	public function update(CLienteRequest $request, $id){
- 			Cliente::updateOrCreate(['IDCLIENTE'=>$id],$request->all());
+ 			Cliente::updateOrCreate(['idcliente'=>$id],$request->all());
  			return Redirect::to('cliente');
  	}
 

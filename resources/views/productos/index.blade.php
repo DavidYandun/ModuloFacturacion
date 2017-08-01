@@ -50,18 +50,18 @@ Productos
                                 <tr>
                                 @role('admin')
                                     <td align="center">
-                                        <a class="btn btn-danger" href="{{URL::action('ProductoController@delete',$p->IDPRODUCTO)}}">Eliminar</a>
+                                        <a class="btn btn-danger" href="{{URL::action('ProductoController@delete',$p->idproducto)}}">Eliminar</a>
                                     </td>
                                     <td align="center">
-                                        <a class="btn btn-info" href="{{URL::action('ProductoController@edit',$p->IDPRODUCTO)}}">Editar</a>
+                                        <a class="btn btn-info" href="{{URL::action('ProductoController@edit',$p->idproducto)}}">Editar</a>
                                     </td>
 
                                 @endrole
-                                    <td>{{ $p->IDPRODUCTO}}</td>
-                                    <td>{{ $p->STOCK}}</td>
-                                    <td>{{ $p->NOMBREP}}</td>
-                                    <td>{{ $p->DESCRIPCION}}</td>
-                                    <td>{{ $p->VALOR}}</td>
+                                    <td>{{ $p->idproducto}}</td>
+                                    <td>{{ $p->stock}}</td>
+                                    <td>{{ $p->nombrep}}</td>
+                                    <td>{{ $p->descripcion}}</td>
+                                    <td>{{ $p->valor}}</td>
                                     
                                 </tr>
                                 @endforeach
