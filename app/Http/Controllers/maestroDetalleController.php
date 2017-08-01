@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 class maestroDetalleController extends Controller
 {
-	public function _construct()
-	{
-
-	}
+	public function __construct(){
+    $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+    }
 	public function index(Request $request)
 	{
 		if ($request)

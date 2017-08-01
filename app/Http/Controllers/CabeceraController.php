@@ -28,7 +28,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 class CabeceraController extends Controller
 {
    public function __construct(){
-    //  $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+    $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
     }
 
     #Función index
