@@ -27,25 +27,25 @@ class EmpleadoRequest extends FormRequest
       if(Input::has('IDEMPLEADO')){
             $id=Input::get('IDEMPLEADO');
             return [                
-                "CEDULA"=>"unique:empleados,CEDULA|min:10|max:10",
-                "NOMBRE"=>"required|min:3|max:25",
-                "APELLIDO"=>"required|min:3|max:25",
-                "NACIMIENTO"=>"required|date", 
-                "CIUDAD"=>"required|min:3|max:25",
-                "DIRECCION"=>"required|min:3|max:25",
-                "TELEFONO"=>"required|alpha_num|min:10|max:10",               
-                "ESTADO"=>"required|alpha_num|size:1"
+                "cedula"=>"unique:empleados,cedula|min:10|max:10",
+                "nombre"=>"required|min:3|max:25",
+                "apellido"=>"required|min:3|max:25",
+                "nacimiento"=>"required|date", 
+                "ciudad"=>"required|min:3|max:25",
+                "direccion"=>"required|min:3|max:25",
+                "telefono"=>"required|alpha_num|min:10|max:10",               
+                "estado"=>"required|alpha_num|size:1"
             ];
          }else{
         return [             
-                "CEDULA"=>"unique:empleados,CEDULA|min:10|max:13",
-                "NOMBRE"=>"required|min:3|max:25",
-                "APELLIDO"=>"required|min:3|max:25",
-                "NACIMIENTO"=>"required|date", 
-                "CIUDAD"=>"required|min:3|max:25",
-                "DIRECCION"=>"required|min:3|max:25",
-                "TELEFONO"=>"required|alpha_num|min:10|max:10",                
-                "ESTADO"=>"required|alpha_num|size:1"
+                "cedula"=>"unique:empleados,cedula|min:10|max:13",
+                "nombre"=>"required|min:3|max:25",
+                "apellido"=>"required|min:3|max:25",
+                "nacimiento"=>"required|date", 
+                "ciudad"=>"required|min:3|max:25",
+                "direccion"=>"required|min:3|max:25",
+                "telefono"=>"required|alpha_num|min:10|max:10",                
+                "estado"=>"required|alpha_num|size:1"
          ];
         }
     }

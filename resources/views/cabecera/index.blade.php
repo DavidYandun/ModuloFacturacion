@@ -40,7 +40,7 @@
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->IDCLIENTE}}" data-subtext="{{ $cli->CEDULA }}">
+                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->CEDULA }}">
                                     {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
                                 </option>
                             @endforeach
@@ -65,7 +65,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
-                                    <th colspan="3">Opciones</th>
+                                    <th colspan="2">Opciones</th>
                                     <th>Número</th>
                                     <th>Cliente</th>
                                     <th>Caja</th>
@@ -75,7 +75,7 @@
                                     <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
-                                <!--{{$codcliente=$c->IDCLIENTE}}-->
+                                <!--{{$codcliente=$c->idcliente}}-->
                                     <?php
                                         $nombreCliente = App\Cliente::find($codcliente);
                                     ?>
@@ -88,24 +88,29 @@
                                     </td>
                                     <td align="center">                                        
 
-                                    @if($c->ESTADO=="A")
-                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
-                                     <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
+                                    @if($c->estado=="A")
+                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
+                                     <input type="hidden" id="estado" name="estado" value="I"> 
                                      @endif
-                                     @if($c->ESTADO=="I") 
+                                     @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
                                       @endif
                                     </td>
+<<<<<<< HEAD
                                     <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
+=======
+                                   
+                                    <td>{{ $c->idcabecera}}</td>
+>>>>>>> 1a059516c4920aebcc00eb94fc452f07f57ac43e
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
-                                    <td>{{ $c->IDCAJA}}</td>
-                                    <td>{{ $c->FECHA}}</td>
-                                    <td>{{ $c->SUBTOTAL}}</td>
-                                    <td>{{ $c->IVA}}</td>
-                                    <td>{{ $c->TOTAL}}</td>                                                                                
+                                    <td>{{ $c->idcaja}}</td>
+                                    <td>{{ $c->fecha}}</td>
+                                    <td>{{ $c->subtotal}}</td>
+                                    <td>{{ $c->iva}}</td>
+                                    <td>{{ $c->total}}</td>                                                                                
                                    </tr>
                                 @endforeach
                             </table>
@@ -149,22 +154,22 @@
         <div class="row">
 
         <div class="form-group">
-            <label for="IDCABECERA" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Número <font color="red">*</font></label>
+            <label for="idcabecera" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Número <font color="red">*</font></label>
 
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                <input name="IDCABECERA" id="IDCABECERA" class="form-control"  value="{{old('IDCABECERA')}}" type="number" placeholder="00001234">
+                <input name="idcabecera" id="idcabecera" class="form-control"  value="{{old('idcabecera')}}" type="number" placeholder="00001234">
             </div>
         </div>  
 
         <div class="form-group">
-            <label for="IDCLIENTE" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Cliente <font color="red">*</font></label>
+            <label for="idcliente" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Cliente <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                 
-                <select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
+                <select name="idcliente" id="idcliente" class="form-control">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)
                 
-                <option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->idcliente }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
                 @endforeach
                 </select>
 
@@ -172,13 +177,13 @@
         </div>
 
         <div class="form-group">
-            <label for="IDCAJA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Caja <font color="red">*</font></label>
+            <label for="idcaja" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Caja <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                 
-                <select name="IDCAJA" id="IDCAJA" class="form-control">
+                <select name="idcaja" id="idcaja" class="form-control">
                 <option value="">selecciona un caja</option>
                 @foreach ($caja as $caj)
-                <option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+                <option value="{{ $caj->idcaja }}">{{ $caj->NUMERO }}</option>
                 @endforeach
                 </select>
 
@@ -188,23 +193,23 @@
         
 
         <div class="form-group">
-            <label for="FECHA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Fecha <font color="red">*</font></label>
+            <label for="fecha" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Fecha <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                <input name="FECHA" id="FECHA" class="form-control"  value="<?php echo date('Y-m-d'); ?>" value="{{old('FECHA')}}" OnFocus="this.blur()">
+                <input name="fecha" id="fecha" class="form-control"  value="<?php echo date('Y-m-d'); ?>" value="{{old('fecha')}}" OnFocus="this.blur()">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="SUBTOTAL" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Sub Total <font color="red">*</font></label>
+            <label for="subtotal" class="col-lg-2  col-md-12 col-sm-12 col-xs-12 control-label">Sub Total <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                <input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="number"  value="{{old('SUBTOTAL')}}" required placeholder="0.00" onkeyup="fIva();">
+                <input name="subtotal" id="subtotal" class="form-control" type="number"  value="{{old('subtotal')}}" required placeholder="0.00" onkeyup="fIva();">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="IVA" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Iva <font color="red">*</font></label>
+            <label for="iva" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Iva <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                <input name="IVA" id="IVA" class="form-control" type="number" value="{{old('IVA')}}" required type="number" placeholder="0.00" onkeyup="fIva();" OnFocus="this.blur()">
+                <input name="iva" id="iva" class="form-control" type="number" value="{{old('iva')}}" required type="number" placeholder="0.00" onkeyup="fIva();" OnFocus="this.blur()">
             </div>
         </div>
 
@@ -219,7 +224,7 @@
         <div class="form-group">
             <label for="TOTAL" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Total <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-                <input name="TOTAL" id="TOTAL" class="form-control" type="number" placeholder="0.00" value="{{old('TOTAL')}}" required OnFocus="this.blur()">
+                <input name="total" id="total" class="form-control" type="number" placeholder="0.00" value="{{old('total')}}" required OnFocus="this.blur()">
             </div>
         </div>
         </div>
@@ -247,16 +252,16 @@
 @endsection
 <script type="text/javascript">
     function fIva() {
-    document.getElementById("IVA").value = (parseFloat(document.getElementById("SUBTOTAL").value)*12)/100;
-    document.getElementById("TOTAL").value = parseFloat(document.getElementById("SUBTOTAL").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
+    document.getElementById("IVA").value = (parseFloat(document.getElementById("subtotal").value)*12)/100;
+    document.getElementById("total").value = parseFloat(document.getElementById("subtotal").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
     }
 
  </script>
 
 <script type="text/javascript">
     function fIva() {
-    document.getElementById("IVA").value = (parseFloat(document.getElementById("SUBTOTAL").value)*12)/100;
-    document.getElementById("TOTAL").value = parseFloat(document.getElementById("SUBTOTAL").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
+    document.getElementById("IVA").value = (parseFloat(document.getElementById("subtotal").value)*12)/100;
+    document.getElementById("total").value = parseFloat(document.getElementById("subtotal").value) + parseFloat(document.getElementById("IVA").value)-parseFloat(document.getElementById("DESCUENTO").value);
     }
 
  </script>

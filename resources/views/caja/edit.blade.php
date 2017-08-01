@@ -19,22 +19,22 @@
 			@endif
 		</div>
 	</div>
-		<form method="POST" action="http://localhost:8000/caja/{{$caja->IDCAJA}}" accept-charset="UTF-8">
+		<form method="POST" action="http://localhost:8000/caja/{{$caja->idcaja}}" accept-charset="UTF-8">
 		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
-		<input type="hidden" name="IDCAJA" value="{{$caja->IDCAJA}}">
+		<input type="hidden" name="idcaja" value="{{$caja->idcaja}}">
 		
 		<div class="form-group">
-			<label for="IDUSUARIO" class="col-lg-2 control-label">Id Usuario <font color="red">*</font></label>
+			<label for="idusuario" class="col-lg-2 control-label">Id Usuario <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDUSUARIO" id="IDUSUARIO" class="form-control" type="number" value="{{$caja->IDUSUARIO}}" required>
+				<input name="idusuario" id="idusuario" class="form-control" type="number" value="{{$caja->idusuario}}" required>
 			</div>
 		</div>
 
 	<div class="form-group">
-			<label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
+			<label for="numero" class="col-lg-2 control-label">Número <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NUMERO" id="NUMERO" class="form-control" type="number" value="{{$caja->NUMERO}}" required>
+				<input name="numero" id="numero" class="form-control" type="number" value="{{$caja->numero}}" required>
 			</div>
 		</div>
 

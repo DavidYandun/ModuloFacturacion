@@ -27,8 +27,8 @@ class CabeceraRequest extends FormRequest
         if(Input::has('IDCABECERA')){
             $id=Input::Get('IDCABECERA');
         return [
-            "IDCLIENTE"=>"required|integer|min:1|max:1000",
-            "IDCAJA"=>"required|integer|min:1|max:11",
+            "idcliente"=>"required|integer|min:1|max:1000",
+            "idcaja"=>"required|integer|min:1|max:11",
             
             //"FECHA"=>"required|date(dd-mm-aaaa)",
             
@@ -36,8 +36,8 @@ class CabeceraRequest extends FormRequest
         ];
      }else{ 
         return[
-            "IDCLIENTE"=>"required|integer|min:1|max:1000",
-            "IDCAJA"=>"required|integer|min:1|max:11",
+            "idcliente"=>"required|integer|min:1|max:1000",
+            "idcaja"=>"required|integer|min:1|max:11",
             
             //"FECHA"=>"required|date(dd-mm-aaaa)",
           

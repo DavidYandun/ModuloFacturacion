@@ -19,67 +19,67 @@
 			@endif
 		</div>
 	</div>
-		<form method="POST" action="http://localhost:8000/empleado/{{$empleado->IDEMPLEADO}}" accept-charset="UTF-8">
+		<form method="POST" action="http://localhost:8000/empleado/{{$empleado->idempleado}}" accept-charset="UTF-8">
 		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
-		<input type="hidden" name="IDEMPLEADO" value="{{$empleado->IDEMPLEADO}}">
+		<input type="hidden" name="idempleado" value="{{$empleado->idempleado}}">
 			
 
 	<div class="form-group">
-			<label for="CEDULA" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
+			<label for="cedula" class="col-lg-2 control-label">Cédula <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CEDULA" id="CEDULA" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$empleado->CEDULA}}" required maxlength="10" minlength="10" disabled>
+				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$empleado->cedula}}" required maxlength="10" minlength="10" disabled>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="NOMBRE" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
+			<label for="nombre" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NOMBRE" id="NOMBRE" class="form-control"
+				<input name="nombre" id="nombre" class="form-control"
 				pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}"
 
-				 type="text" value="{{$empleado->NOMBRE}}" required maxlength="25">
+				 type="text" value="{{$empleado->nombre}}" required maxlength="25">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="APELLIDO" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
+			<label for="apellido" class="col-lg-2 control-label">Apellido <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="APELLIDO" id="APELLIDO" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}" type="text" value="{{$empleado->APELLIDO}}" required maxlength="25">
+				<input name="apellido" id="apellido" class="form-control" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú]{2,11}" type="text" value="{{$empleado->apellido}}" required maxlength="25">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="NACIMIENTO" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
+			<label for="nacimiento" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NACIMIENTO" id="NACIMIENTO" class="form-control" type="date" value="{{$empleado->NACIMIENTO}}" required min="1985-01-01" max="2017-12-31">
+				<input name="nacimiento" id="nacimiento" class="form-control" type="date" value="{{$empleado->nacimiento}}" required min="1985-01-01" max="2017-12-31">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="CIUDAD" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
+			<label for="ciudad" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="CIUDAD" id="CIUDAD" class="form-control" type="text" value="{{$empleado->CIUDAD}}">
+				<input name="ciudad" id="ciudad" class="form-control" type="text" value="{{$empleado->ciudad}}">
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label for="DIRECCION" class="col-lg-2 control-label">Dirección <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="DIRECCION" id="DIRECCION" class="form-control" type="text" value="{{$empleado->DIRECCION}}" >
+				<input name="direccion" id="direccion" class="form-control" type="text" value="{{$empleado->direccion}}" >
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="TELEFONO" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
+			<label for="telefono" class="col-lg-2 control-label">Teléfono <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TELEFONO" id="TELEFONO" class="form-control" type="text" pattern="09[0-9]{8}" value="{{$empleado->TELEFONO}}" required maxlength="10" minlength="10">
+				<input name="telefono" id="telefono" class="form-control" type="text" pattern="09[0-9]{8}" value="{{$empleado->telefono}}" required maxlength="10" minlength="10">
 			</div>
 		</div>
 	
 	<div class="form-group">
-      <label for="ESTADO" class="col-lg-2 control-label">Estado<font color="red">*</font></label>
+      <label for="estado" class="col-lg-2 control-label">Estado<font color="red">*</font></label>
       <div class="col-lg-10">
-        <select name="ESTADO" id="ESTADO" class="form-control" type="text" value="{{$empleado->ESTADO}}" required required onchange="crear(this.value)">
+        <select name="estado" id="estado" class="form-control" type="text" value="{{$empleado->estado}}" required required onchange="crear(this.value)">
         <option value="A">Activo</option>
         <option value="I">Inactivo</option>
         </select>

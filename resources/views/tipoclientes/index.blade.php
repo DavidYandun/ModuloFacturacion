@@ -27,7 +27,8 @@ Tipo Clientes
     @endif-->
     <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-           <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo</i></button>
+           <<button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo</i></button>
+          
         </div>
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -49,14 +50,14 @@ Tipo Clientes
                                 <td>
                                     <a class="btn btn-primary" href="{{URL::action('TipoclienteController@edit',$tc->IDTIPO)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                 </td>
-                                @if($tc->DETALLE=='EF')
+                                @if($tc->detalle=='EF')
                                     <td>EFECTIVO</td>
                                 @endif
-                                @if($tc->DETALLE=='CR')
+                                @if($tc->detalle=='CR')
                                     <td>CREDITO</td>
                                 @endif
-                                    @if($tc->DETALLE!='CR'&& $tc->DETALLE!='EF')
-                                    <td>{{$tc->DETALLE}}</td>
+                                    @if($tc->detalle!='CR'&& $tc->detalle!='EF')
+                                    <td>{{$tc->detalle}}</td>
                                 @endif
                                    </tr>
                                 @endforeach
@@ -98,7 +99,7 @@ Tipo Clientes
         <div class="form-group">
             <label for="detalle" class="col-lg-2 control-label">Id Tipo <font color="red">*</font></label>
             <div class="col-lg-10">
-                <input name="DETALLE" id="detalle" class="form-control" type="text" value="{{old('DETALLE')}}" required minlength="2" maxlength="2">
+                <input name="detalle" id="detalle" class="form-control" type="text" value="{{old('DETALLE')}}" required minlength="2" maxlength="2">
             </div>
         </div>
                 

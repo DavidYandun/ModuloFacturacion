@@ -20,17 +20,17 @@
 		</div>
 	</div>
 
-	<form method="POST" action="http://localhost:8000/facturaspendientes/{{$facturaspendiente->IDPENDIENTE}}" accept-charset="UTF-8">
+	<form method="POST" action="http://localhost:8000/facturaspendientes/{{$facturaspendiente->idpendiente}}" accept-charset="UTF-8">
 <input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
-		<input type="hidden" name="IDPENDIENTE" value="{{$facturaspendiente->IDPENDIENTE}}">
-		<!--IDCABECERA-->
+		<input type="hidden" name="idpendiente" value="{{$facturaspendiente->idpendiente}}">
+		<!--idcabecera-->
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<select name="IDCABECERA" id="IDCABECERA" class="form-control">
+				<select name="idcabecera" id="idcabecera" class="form-control">
 				@foreach ($cabecera as $cab)
-				<option value="{{ $cab->IDCABECERA }}">{{ $cab->NUMERO }}</option>
+				<option value="{{ $cab->idcabecera }}">{{ $cab->NUMERO }}</option>
 				@endforeach
 				</select>
 			</div>
@@ -38,9 +38,9 @@
 
 		<!--ABONO-->
 		<div class="form-group">
-			<label for="abono" class="col-lg-2 control-label">abono <font color="red">*</font></label>
+			<label for="abono" class="col-lg-2 control-label">Abono <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="ABONO" id="abono" class="form-control" type="text" value="{{$facturaspendiente->ABONO}}" required>
+				<input name="abono" id="abono" class="form-control" type="text" value="{{$facturaspendiente->abono}}" required>
 			</div>
 		</div>
 	
@@ -48,7 +48,7 @@
 		<div class="form-group">
 			<label for="saldo" class="col-lg-2 control-label">saldo <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="SALDO" id="saldo" class="form-control" type="text" value="{{$facturaspendiente->SALDO}}" required>
+				<input name="saldo" id="saldo" class="form-control" type="text" value="{{$facturaspendiente->saldo}}" required>
 			</div>
 		</div>
 

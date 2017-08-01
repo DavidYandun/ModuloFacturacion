@@ -57,39 +57,39 @@ class CabeceraController extends Controller
          DB::beginTransaction();
        $cabecera=new Cabecera;
      
-            $cabecera->IDCLIENTE=$request->get('IDCLIENTE');
-            $cabecera->IDCAJA=$request->get('IDCAJA');
-          //  $cabecera->NUMERO=0;
-            $cabecera->ESTADO=$request->get('ESTADO');
+            $cabecera->idcliente=$request->get('idcliente');
+            $cabecera->idcaja=$request->get('idcaja');
+           // $cabecera->NUMERO=0;
+            $cabecera->estado=$request->get('estado');
 
             $mytime = Carbon::now('America/Guayaquil');
-            $cabecera->FECHA=$mytime->toDateTimeString();
+            $cabecera->fecha=$mytime->toDateTimeString();
             
-            $cabecera->SUBTOTAL=$request->get('SUBTOTAL');            
-          //  $cabecera->DESCUENTO=0;
-            $cabecera->IVA=$request->get('IVA');
-            $cabecera->TOTAL=$request->get('TOTAL');          
+            $cabecera->subtotal=$request->get('subtotal');            
+            //$cabecera->DESCUENTO=0;
+            $cabecera->iva=$request->get('iva');
+            $cabecera->total=$request->get('total');          
             $cabecera->save();
 
                    
-         $idproducto = $request->get('IDPRODUCTO');
-         $cantidad = $request->get('CANTIDAD');
-         $valor_unitario = $request->get('VALOR_UNITARIO');
+         $idproducto = $request->get('idproducto');
+         $cantidad = $request->get('cantidad');
+         $valor_unitario = $request->get('valor_unitario');
          //$descuento = $request->get('DESCUENTO');
-         $valor_total = $request->get('VALOR_TOTAL');
+         $valor_total = $request->get('valor_total');
          
          $cont = 0;
         
          while($cont<count($idproducto)){
 
              $detalle = new Detalle();
-             $detalle->IDCABECERA= $cabecera->IDCABECERA; 
+             $detalle->idcabecera= $cabecera->idcabecera; 
 
-             $detalle->IDPRODUCTO= $idproducto[$cont];
-             $detalle->CANTIDAD= $cantidad[$cont];
-             $detalle->VALOR_UNITARIO= $valor_unitario[$cont];
+             $detalle->idproducto= $idproducto[$cont];
+             $detalle->cantidad= $cantidad[$cont];
+             $detalle->valor_unitario= $valor_unitario[$cont];
              //$detalle->DESCUENTO= $descuento[$cont];
-             $detalle->VALOR_TOTAL= $valor_total[$cont];                          
+             $detalle->valor_total= $valor_total[$cont];                          
              $detalle->save();
              $cont=$cont+1;                        
          }       
@@ -103,16 +103,16 @@ class CabeceraController extends Controller
         public function show($id)
     {
         $cabecera=DB::table('cabecera as c')
-            ->join('clientes as cli','c.IDCLIENTE','=','cli.IDCLIENTE')
-            ->join('caja as caj','c.IDCAJA','=','caj.IDCAJA')
-            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.TOTAL')
-            ->where('c.IDCABECERA',$id)
+            ->join('clientes as cli','c.idcliente','=','cli.idcliente')
+            ->join('caja as caj','c.idcaja','=','caj.idcaja')
+            ->select('c.idcabecera','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.idcaja','c.fecha','c.subtotal','c.iva','c.total')
+            ->where('c.idcabecera',$id)
             ->first(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
 
         $detalles=DB::table('detalle as d')
-            ->join('productos as p','d.IDPRODUCTO','=','p.IDPRODUCTO')
-            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.VALOR_TOTAL')
-            ->where('d.IDCABECERA','=',$id)
+            ->join('productos as p','d.idproducto','=','p.idproducto')
+            ->select('p.NOMBREP','d.cantidad','d.valor_unitario','d.valor_total')
+            ->where('d.idcabecera','=',$id)
             ->get();
         return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
             
@@ -120,15 +120,15 @@ class CabeceraController extends Controller
     }
   /*  public function pdf($id){
         $cabecera=DB::table('cabecera as c')
-            ->join('clientes as cli','c.IDCLIENTE','=','cli.IDCLIENTE')
-            ->join('caja as caj','c.IDCAJA','=','caj.IDCAJA')
-            ->select('c.IDCABECERA','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.IDCAJA','c.FECHA','c.SUBTOTAL','c.IVA','c.DESCUENTO','c.TOTAL')
-            ->where('c.IDCABECERA',$id)
+            ->join('clientes as cli','c.idcliente','=','cli.idcliente')
+            ->join('caja as caj','c.idcaja','=','caj.idcaja')
+            ->select('c.idcabecera','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.idcaja','c.fecha','c.subtotal','c.iva','c.DESCUENTO','c.total')
+            ->where('c.idcabecera',$id)
             ->first();
             $detalles=DB::table('detalle as d')
-            ->join('productos as p','d.IDPRODUCTO','=','p.IDPRODUCTO')
-            ->select('p.NOMBREP','d.CANTIDAD','d.VALOR_UNITARIO','d.DESCUENTO','d.VALOR_TOTAL')
-            ->where('d.IDCABECERA','=',$id)
+            ->join('productos as p','d.idproducto','=','p.idproducto')
+            ->select('p.NOMBREP','d.cantidad','d.valor_unitario','d.DESCUENTO','d.valor_total')
+            ->where('d.idcabecera','=',$id)
             ->get();
             $view = view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
             $pdf= \App::make('dompdf.wrapper');
@@ -140,7 +140,7 @@ class CabeceraController extends Controller
     public function destroy($id)
     {
         $cabecera=Ingreso::findOrFail($id);
-        $cabecera->ESTADO='I';
+        $cabecera->estado='I';
         $cabecera->update();
         return Redirect::to('cabecera');
     }
@@ -177,19 +177,19 @@ class CabeceraController extends Controller
 
     public function update(CabeceraRequest $request, $id){
         
-            Cabecera::updateOrCreate(['IDCABECERA'=>$id],$cabecera->ESTADO=$request->get('ESTADO'));
+            Cabecera::updateOrCreate(['idcabecera'=>$id],$cabecera->estado=$request->get('estado'));
             return Redirect::to('cabecera');
     }
     public function actualizar($id){
           $cabecera=Cabecera::findOrFail($id);
-        $cabecera->ESTADO='I';
+        $cabecera->estado='I';
         $cabecera->update();
         return Redirect::to('cabecera');
     }
 
      
   /* public function ultimafactura(){
-    $price = DB::table('cabecera')->max('IDCABECERA');
+    $price = DB::table('cabecera')->max('idcabecera');
     return view('price');
    }
 

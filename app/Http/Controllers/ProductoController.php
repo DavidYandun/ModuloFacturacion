@@ -30,7 +30,7 @@ class ProductoController extends Controller
 
  	}
  	public function update(ProductoRequest $request, $id){
- 			Producto::updateOrCreate(['IDPRODUCTO'=>$id],$request->all());
+ 			Producto::updateOrCreate(['idproducto'=>$id],$request->all());
  			return Redirect::to('producto');
  	}
 

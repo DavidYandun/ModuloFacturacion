@@ -8,11 +8,11 @@ class Producto extends Model
 {
     protected $table ="productos";
 
-    protected $primaryKey ="IDPRODUCTO";
+    protected $primaryKey ="idproducto";
 
     public $timestamps=false;
 
     protected $fillable=[
-    "STOCK","NOMBREP","DESCRIPCION","VALOR"
+    "stock","nombrep","descripcion","valor"
     ];
 }

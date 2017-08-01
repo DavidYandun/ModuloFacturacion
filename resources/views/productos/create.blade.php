@@ -30,29 +30,29 @@ Productos
 		<!--STOCK-->
 			<label for="STOCK" class="col-lg-2 control-label">Stock <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="STOCK" id="STOCK" class="form-control" type="number" value="{{old('STOCK')}}" required>
+				<input name="stock" id="stock" class="form-control" type="number" value="{{old('stock')}}" required>
 			</div>
 		</div>
 		<!--NOMBREP-->
 		<div class="form-group">
-			<label for="NOMBREP" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
+			<label for="nombrep" class="col-lg-2 control-label">Nombre <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="NOMBREP" id="NOMBREP" class="form-control" type="text" value="{{old('NOMBREP')}}" required>
+				<input name="nombrep" id="nombrep" class="form-control" type="text" value="{{old('nombrep')}}" required>
 			</div>
 		</div>
 		<!--DESCRIPCION-->
 		<div class="form-group">
-			<label for="DESCRIPCION" class="col-lg-2 control-label">Descripción <font color="red">*</font></label>
+			<label for="descripcion" class="col-lg-2 control-label">Descripción <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="DESCRIPCION" id="DESCRIPCION" class="form-control" type="text" value="{{old('DESCRIPCION')}}" required>
+				<input name="descripcion" id="descripcion" class="form-control" type="text" value="{{old('descripcion')}}" required>
 			</div>
 		</div>
 		
 		<!--VALOR-->
 		<div class="form-group">
-			<label for="VALOR" class="col-lg-2 control-label">Precio <font color="red">*</font></label>
+			<label for="valor" class="col-lg-2 control-label">Precio <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="VALOR" id="VALOR" class="form-control" type="decimal" value="{{old('VALOR')}}" required>
+				<input name="valor" id="valor" class="form-control" type="decimal" value="{{old('valor')}}" required>
 			</div>
 		</div>
 		<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

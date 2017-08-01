@@ -22,29 +22,29 @@ Cabecera
 			@endif
 		</div>
 	</div>
-		<form method="POST" action="http://localhost:8000/cabecera/{{$cabecera->IDCABECERA}}" accept-charset="UTF-8">
+		<form method="POST" action="http://localhost:8000/cabecera/{{$cabecera->idcabecera}}" accept-charset="UTF-8">
 		<input name="_method" type="hidden" value="PATCH">
 		{{ csrf_field() }}
-		<input type="hidden" name="IDCABECERA" value="{{$cabecera->IDCABECERA}}">
+		<input type="hidden" name="idcabecera" value="{{$cabecera->idcabecera}}">
 		<!--NUMERO-->
 		<div class="form-group">
 			<label for="NUMERO" class="col-lg-2 control-label">Número <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IDCABECERA" id="IDCABECERA" class="form-control" type="number" value="{{$cabecera->IDCABECERA}}" disabled>
+				<input name="idcabecera" id="idcabecera" class="form-control" type="number" value="{{$cabecera->idcabecera}}" disabled>
 			</div>
 		<!--ID CLIENTE-->
 
 		<div class="form-group">
-			<label for="IDCLIENTE" class="col-lg-2 control-label">Cliente <font color="red">*</font></label>
+			<label for="idcliente" class="col-lg-2 control-label">Cliente <font color="red">*</font></label>
 			<div class="col-lg-10">
 				
-				<select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
+				<select name="idcliente" id="idcliente" class="form-control">
 				@foreach ($cliente as $cli)
-				@if($cli->IDCLIENTE == $cabecera->IDCLIENTE)
-						<option selected='true' value="{{$cli->IDCLIENTE}}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+				@if($cli->idcliente == $cabecera->idcliente)
+						<option selected='true' value="{{$cli->idcliente}}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
 					@endif
-				@if($cli->IDCLIENTE != $cabecera->IDCLIENTE)
-				<option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+				@if($cli->idcliente != $cabecera->idcliente)
+				<option value="{{ $cli->idcliente }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
 				@endif
 				@endforeach
 				</select>
@@ -53,16 +53,16 @@ Cabecera
 		</div>
 		<!--ID CAJA-->
 		<div class="form-group">
-			<label for="IDCAJA" class="col-lg-2 control-label">Id Caja <font color="red">*</font></label>
+			<label for="idcaja" class="col-lg-2 control-label">Id Caja <font color="red">*</font></label>
 			<div class="col-lg-10">
 				
-				<select name="IDCAJA" id="IDCAJA" class="form-control">
+				<select name="idcaja" id="idcaja" class="form-control">
 				@foreach ($caja as $caj)
-				@if ($caj->IDCAJA == $cabecera->IDCAJA)
-				<option selected='true' value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@if ($caj->idcaja == $cabecera->idcaja)
+				<option selected='true' value="{{ $caj->idcaja }}">{{ $caj->NUMERO }}</option>
 				@endif
-				@if ($caj->IDCAJA != $cabecera->IDCAJA)
-				<option value="{{ $caj->IDCAJA }}">{{ $caj->NUMERO }}</option>
+				@if ($caj->idcaja != $cabecera->idcaja)
+				<option value="{{ $caj->idcaja }}">{{ $caj->NUMERO }}</option>
 				@endif
 				@endforeach
 				</select>
@@ -71,24 +71,24 @@ Cabecera
 		</div>
 		
 		</div>
-		<!--FECHA-->
+		<!--fecha-->
 		<div class="form-group">
-			<label for="FECHA" class="col-lg-2 control-label">Fecha <font color="red">*</font></label>
+			<label for="fecha" class="col-lg-2 control-label">fecha <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="FECHA" id="FECHA" class="form-control" value="{{$cabecera->FECHA}}" 	 value="{{$cabecera->FECHA}}" required>
+				<input name="fecha" id="fecha" class="form-control" value="{{$cabecera->fecha}}" 	 value="{{$cabecera->fecha}}" required>
 			</div>
 		</div>
-		<!--SUBTOTAL-->
+		<!--subtotal-->
 		<div class="form-group">
-			<label for="SUBTOTAL" class="col-lg-2 control-label">Subtotal <font color="red">*</font></label>
+			<label for="subtotal" class="col-lg-2 control-label">subtotal <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="SUBTOTAL" id="SUBTOTAL" class="form-control" type="decimal" value="{{$cabecera->SUBTOTAL}}" required>
+				<input name="subtotal" id="subtotal" class="form-control" type="decimal" value="{{$cabecera->subtotal}}" required>
 			</div>
-			<!--IVA-->
+			<!--iva-->
 		<div class="form-group">
-			<label for="IVA" class="col-lg-2 control-label">IVA <font color="red">*</font></label>
+			<label for="iva" class="col-lg-2 control-label">IVA <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="IVA" id="IVA" class="form-control" type="decimal" value="{{$cabecera->IVA}}" required >
+				<input name="iva" id="iva" class="form-control" type="decimal" value="{{$cabecera->iva}}" required >
 			</div>
 		</div>
 		<!--DESCUENTO-->
@@ -100,9 +100,9 @@ Cabecera
 		</div>
 			<!--Total-->
 		<div class="form-group">
-			<label for="TOTAL" class="col-lg-2 control-label">Total <font color="red">*</font></label>
+			<label for="total" class="col-lg-2 control-label">Total <font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="TOTAL" id="TOTAL" class="form-control" type="decimal" value="{{$cabecera->TOTAL}}" required>
+				<input name="total" id="total" class="form-control" type="decimal" value="{{$cabecera->total}}" required>
 			</div>
 		</div>
 

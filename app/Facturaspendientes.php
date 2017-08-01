@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Facturaspendientes extends Model
 {
   protected $table='facturas_pendientes';
-  protected $primaryKey='IDPENDIENTE';
+  protected $primaryKey='idpendiente';
   public $timestamps=false;
   protected $fillable=[
-  "IDCABECERA","ABONO","SALDO"
+  "idcabecera","abono","saldo"
   ];
 }

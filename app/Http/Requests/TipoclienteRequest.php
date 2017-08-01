@@ -25,14 +25,14 @@ class TipoclienteRequest extends FormRequest
      */
     public function rules()
     {
-         if(Input::has('IDTIPO')){
-            $id=Input::get('IDTIPO');
+         if(Input::has('idtipo')){
+            $id=Input::get('idtipo');
             return [   
-            "DETALLE"=>"required|min:1|max:2"
+            "detalle"=>"required|min:1|max:2"
              ];
          }else{
         return [    
-         "DETALLE"=>"required|min:1|max:2"               
+         "detalle"=>"required|min:1|max:2"               
          ];
         }
     }
