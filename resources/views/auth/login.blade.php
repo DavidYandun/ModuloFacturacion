@@ -7,7 +7,7 @@
             <div class="panel panel-default form-container flip">
                 
                     <form class="login-form" role="form" method="POST" action="{{ route('login') }}">
-                    <h3 class="title">Hola ;D</h3>
+                    <h3 class="title">LOGIN :D</h3>
                         {{ csrf_field() }}
                       <div class="col-md-6">
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" id="username">

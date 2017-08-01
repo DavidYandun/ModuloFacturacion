@@ -2,8 +2,14 @@
 
 namespace App;
 
-use Zizaco\Entrust\EntrustRole;
+use Illuminate\Database\Eloquent\Model;
 
-class Role extends EntrustRole
+class Role extends Model
 {
+protected $table='roles';
+protected $primarykey='id';
+public $timestamps=false;
+protected $fillable=[
+	"name","display_name","description","created_at","updated_at"
+	];
 }

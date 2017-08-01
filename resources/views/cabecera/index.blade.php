@@ -96,8 +96,15 @@
                                      <h5>ANULADA</h5>
                                       @endif
                                     </td>
+<<<<<<< HEAD
                                    
                                     <td>{{ $c->idcabecera}}</td>
+=======
+                                    <td align="center">
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>
+                                    <td>{{ $c->IDCABECERA}}</td>
+>>>>>>> creacionusuarios
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
