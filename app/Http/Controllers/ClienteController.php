@@ -24,7 +24,7 @@ class ClienteController extends Controller
  	}	
  	public function store(ClienteRequest $request){
  		Cliente::create($request->all());
- 		return Redirect::to('cliente');
+ 		return Redirect::to('clientes');
  	}
 
  	public function edit($id){

@@ -81,14 +81,11 @@
                                     ?>
                                 <tr>
                                     <td align="center">
-                                    
-                                     <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
-                                    
-                                        
+                                    <a class="btn btn-danger" href="{{URL::action('CabeceraController@ExportPDF',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-print">IMPRIMIR</i></a>                                                                                                            
                                     </td>
                                     <td align="center">                                        
 
-                                    @if($c->ESTADO=="A")
+                                   @if($c->ESTADO=="A")
                                      <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
                                      @endif
@@ -97,7 +94,8 @@
                                       @endif
                                     </td>
                                     <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@ExportPDF',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>

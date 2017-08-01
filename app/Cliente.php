@@ -10,6 +10,8 @@ protected $table='clientes';
 protected $primaryKey='IDCLIENTE';
 public $timestamps=false;
 protected $fillable=[
-	"IDTIPO","CEDULA","NOMBRE","APELLIDO","NACIMIENTO","CIUDAD","DIRECCION","TELEFONO","EMAIL","ESTADO"
+
+
+	"IDTIPO","CEDULA","NOMBRE","APELLIDO","NACIMIENTO","CIUDAD","DIRECCION",'TELEFONO',"EMAIL","ESTADO"
 	];
 }

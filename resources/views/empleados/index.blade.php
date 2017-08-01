@@ -45,9 +45,7 @@
                                @foreach ($empleados as $c)
                                 <tr>
                                     <td align="center">
-                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
-                                    
-                                    <a class="btn btn-primary" href="{{URL::action('EmpleadoController@ExportPDF',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->IDEMPLEADO)}}"><i class="glyphicon glyphicon-pencil" ></i></a>                                                                    
                                     </td>
                                     <td>{{ $c->CEDULA}}</td>
                                     <td>{{ $c->NOMBRE}}</td>

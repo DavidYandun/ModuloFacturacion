@@ -23,7 +23,7 @@
 		<!--form action="{{url('cliente')}}" method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}"-->
 
-		<form action="{{url('cliente')}}" method="POST">
+		<form action="{{url('cliente')}}" method="POST" id="formulario">
 		{{ csrf_field() }}
 		<div class="form-group">
 
@@ -44,7 +44,7 @@
 				</select>
 			</div>
 			<div class="col lg-4">
-				<label><font color="gray">.</font></label>
+				<label><font color="gray">EFECTIVO/CREDITO</font></label>
 			</div>
 		</div>
 	<!--CEDULA-->
@@ -138,9 +138,9 @@
         <option value="A">Activo</option>
         <option value="I">Inactivo</option>
         </select>
-      </div>
+      </div>     
       <div class="col lg-4">
-				<label><font color="gray">.</font></label>
+				<label><font color="gray">ACTIVO/INACTIVO</font></label>
 			</div>
     </div>
 
@@ -159,4 +159,96 @@
 @endsection
 @push('scripts')
 <script src="{{asset('js\validaciones.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#formulario').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            cedula_ruc: {
+                validators: {
+                    stringLength: {
+                        min: 10,
+                        message: 'Ingrese su cédula correctamente'
+                    }
+                }
+            },
+            nombres: {
+                validators: {
+                    stringLength: {
+                        min: 7,
+                        message: 'Escriba sus 2 Nombres'
+                    }
+                }
+            },
+            apellidos: {
+                validators: {
+                    stringLength: {
+                        min: 7,
+                        message: 'Escriba sus 2 Apellidos'
+                    }
+                }
+            },
+            ciudadNac: {
+                validators: {
+                    stringLength: {
+                        min: 3,
+                        message: 'Escriba su Ciudad de Nacimiento'
+                    }
+                }
+            },
+            direccion: {
+                validators: {
+                    stringLength: {
+                        min: 10,
+                        message: 'Escriba su dirección de Domicilio'
+                    }
+                }
+            },
+             telefono: {
+                validators: {
+                    stringLength: {
+                        min: 10,
+                        message: 'Escriba su Número Telefónico'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: 'Su Email no es válido, Ejm: usuario@dominio.com'
+                    }
+                }
+            },
+            fechaNac: {
+                validators: {
+                    date: {
+                        format: 'DD/MM/YYYY',
+                        message: 'La fecha no es válida'
+                    }
+                }
+            },
+            idUser: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El usuario es requerido'
+                        }
+                    }
+                },
+            estado: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El estado es Requerido'
+                        }
+                    }
+                }
+        }
+    });
+});
+</script>
+
 @endpush

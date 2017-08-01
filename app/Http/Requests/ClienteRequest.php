@@ -25,32 +25,33 @@ class ClienteRequest extends FormRequest
     public function rules()
 
     {
+
         if(Input::has('IDCLIENTE')){
             $id=Input::get('IDCLIENTE');
-            return [
-                "IDTIPO"=>"required|integer|min:1|max:11",
-                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:10",
-                "NOMBRE"=>"required|min:3|max:25",
-                "APELLIDO"=>"required|min:3|max:25",
+            return [         
+                "IDTIPO"=>"required|integer|exists:tipo_cliente,IDTIPO",              
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:10".$id.",IDCLIENTE",
+                "NOMBRE"=>"required|string|min:3|max:25",
+                "APELLIDO"=>"required|string|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 
-                "CIUDAD"=>"required|min:3|max:25",
-                "DIRECCION"=>"required|min:3|max:25",
-                "TELEFONO"=>"required|alpha_num|min:10|max:10",
-                "EMAIL"=>"required|min:3|max:50",
-                "ESTADO"=>"required|alpha_num|size:1"
+                "CIUDAD"=>"required|string|min:3|max:25",
+                "DIRECCION"=>"required|string|min:3|max:25",
+                "TELEFONO"=>"required|alpha_num|min:9|max:10",
+                "EMAIL"=>"required|min:3|max:50",                
+                "ESTADO"=>"required|in:A,I"
             ];
          }else{
         return [
-             "IDTIPO"=>"required|integer|min:1|max:11",
-                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:13",
-                "NOMBRE"=>"required|min:3|max:25",
-                "APELLIDO"=>"required|min:3|max:25",
+              "IDTIPO"=>"required|integer|exists:tipo_cliente,IDTIPO",              
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:10",
+                "NOMBRE"=>"required|string|min:3|max:25",
+                "APELLIDO"=>"required|string|min:3|max:25",
                 "NACIMIENTO"=>"required|date", 
-                "CIUDAD"=>"required|min:3|max:25",
+                "CIUDAD"=>"required|string|min:3|max:25",
                 "DIRECCION"=>"required|min:3|max:25",
-                "TELEFONO"=>"required|alpha_num|min:10|max:10",
-                "EMAIL"=>"required|min:3|max:50",
-                "ESTADO"=>"required|alpha_num|size:1"
+                "TELEFONO"=>"required|alpha_num|min:9|max:10",
+                "EMAIL"=>"required|min:3|max:50",                
+                "ESTADO"=>"required|in:A,I"
          ];
 
        

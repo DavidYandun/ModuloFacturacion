@@ -1,24 +1,68 @@
-
-
-
-
-        
-        
-      <div class="col-lg-12" align="center" ><h3>EMPRESA X</h3>
-                <h5>PROPIETARIO</h5>
-                <h6>Dirección: Calle Los Alamos 323 y Rivadeneira</h6>
-                <h6>Telf: 062-987-987 RUC: 999999999</h6>
-                <h4>Reporte de Empleados</h4>
-            </div>
+     <html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Listado de Empleados</title>
+    <style type="text/css">
+        /* estilos para el footer y el numero de pagina */
+        @page { margin: 180px 75px; }
+        #header {
+            position: fixed;
+            left: 0px;
+            top: -170px;
+            right: 0px;
+            height: 50px;        
+            color: #2E2E2E;
+            text-align: center;
+            font-family: "Cambria", Georgia, serif;
+        }
+       
+        .page-break {
+            page-break-after: always;
+        }
+        img.cabeceraImagen{
+            float:left;
+            width: 108px;
+            height: 83px;  
+        }
+        .texto {
+            color: #848484;
+        }
+        #datos {
+            color: #848484;
+             font-family: "Cambria", Georgia, serif;
+        }
+     body {font-family: "Cambria", Georgia, serif;}
+table {     font-family: "Cambria", Georgia, serif;
+    font-size: 12px;    margin-right:50px;     width: 700px; text-align: center;    border-collapse: collapse; }
+th {     font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+    border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; }
+td {    padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff;
+    color: #669;    border-top: 1px solid transparent; }
+tr:hover td { background: #d0dafd; color: #339; }
+    </style>
+</head>
+<body>
+    <!--header para cada pagina-->
+    <div id="header">
+        <img class="cabeceraImagen" src="https://caiutn.files.wordpress.com/2015/05/logo-utn.png?w=480"/><p><b>      UNIVERSIDAD TÉCNICA DEL NORTE<br>
+                FACULTAD DE INGENIERÍA EN CIENCIAS APLICADAS<br>
+                    CARRERA DE INGENIERÍA EN SISTEMAS COMPUTACIONALES<br>
+                    INGERIERÍA DE SOFTWARE
+                </b>
+            </p>
+    </div>
+    
+    <div class="container" align="center" id="datos">
+        <caption >Módulo Facturación</caption>                               
+                <h6>Reporte de Empleados</h6>                
+            </div>         
             
-            </div>
-            </div>
 
             <div class="panel-body col-lg-12">
         <div class="container" align="center">
 
     <table  class="table table-striped table-bordered table-condensed table-hover col-lg-12">
-                                <thead style="background:#2E9AFE; color:#000000;">
+                                <thead>
                                 <tr>
                                     <th>CÉDULA</th>
                                     <th>NOMBRE</th>
@@ -34,11 +78,11 @@
                         <tr>
                             <td align="center">{{$det->CEDULA}}</td>
                             <td align="center">{{$det->NOMBRE}}</td>
-                            <td align="right">{{$det->NACIMIENTO}}</td>
-                            <td align="right">{{$det->CIUDAD}}</td>
-                            <td align="right">{{$det->DIRECCION}}</td>
-                            <td align="right">{{$det->TELEFONO}}</td>
-                            <td align="right">{{$det->ESTADO}}</td>
+                            <td align="center">{{$det->NACIMIENTO}}</td>
+                            <td align="center">{{$det->CIUDAD}}</td>
+                            <td align="center">{{$det->DIRECCION}}</td>
+                            <td align="center">{{$det->TELEFONO}}</td>
+                            <td align="center">{{$det->ESTADO}}</td>
 
                         </tr>
                                 @endforeach
@@ -47,5 +91,7 @@
 </div>
 
 </div>
+</body>
+</html>
 
     
