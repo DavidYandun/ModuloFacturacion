@@ -48,6 +48,7 @@ Route::resource('tipousuario','TipousuarioController');
 Route::resource('vistafecha','VistaclienteController');
 Route::resource('vistacliente','VistaclienteController');
 Route::resource('nuevafactura','NuevafacturaController');
+Route::resource('usuarios','UserController');
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 Route::get('cabecera/update/{id}','CabeceraController@actualizar') ;

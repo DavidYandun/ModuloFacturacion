@@ -86,9 +86,16 @@
                                         <li><a href="{{url('empleado')}}"><i class="fa fa-users"></i> Empleados <span class="fa fa-chevron-right"></span></a>
                                         </li>
                                         @endrole
-                                    <!--FACTURAS PENDIENTES-->  
+                                    <!--FACTURAS PENDIENTES-->
+                                     
                                          <li><a href="{{url('facturaspendiente')}}"><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-right"></span></a>
                                         </li>
+                                    
+                                    <!--FACTURAS PENDIENTES--> 
+                                    @role('admin')
+                                         <li><a href="{{url('usuarios')}}"><i class="fa fa-users"></i> Usuarios <span class="fa fa-chevron-right"></span></a>
+                                        </li>
+                                    @endrole
                                     <!--<li><a><i class="fa fa-file-pdf-o"></i>Otros Reportes <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a href="{{url('reporte')}}" target="_blank">Clientes con sus movimientos</a></li>
