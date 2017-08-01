@@ -97,14 +97,24 @@
                                       @endif
                                     </td>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                                   
+                                    <td>{{ $c->idcabecera}}</td>
+=======
+>>>>>>> c736e1fc64baf2e4d63922a7454b8681eb1a03b3
                                     <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
+<<<<<<< HEAD
 =======
                                    
                                     <td>{{ $c->idcabecera}}</td>
 >>>>>>> 1a059516c4920aebcc00eb94fc452f07f57ac43e
+=======
+>>>>>>> creacionusuarios
+>>>>>>> c736e1fc64baf2e4d63922a7454b8681eb1a03b3
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
