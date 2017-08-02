@@ -28,11 +28,11 @@ use Barryvdh\DomPDF\Facade as PDF;
 class CabeceraController extends Controller
 {
    public function __construct(){
-<<<<<<< HEAD
+
     $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
-=======
+
       $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
->>>>>>> c736e1fc64baf2e4d63922a7454b8681eb1a03b3
+
     }
 
     #Función index

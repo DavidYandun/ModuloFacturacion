@@ -43,26 +43,31 @@ Usuarios
                                     <th>Opciones</th>
                                 </thead>
 
-                              @foreach ($role_user as $ru)
+                              @foreach ($user as $usuario)
                                 
-                                    <?php
-                                        $usuario = App\User::find($ru->user_id);
-                                        $rol = App\Role::find($ru->role_id);
-                                    ?>
                                 <tr>
                                     <td>{{$usuario->id}}</td>
                                     <td>{{$usuario->name}}</td>
                                     <td>{{$usuario->email}}</td>
                                     <td>{{$usuario->created_at}}</td>
                                     <td>{{$usuario->updated_at}}</td>
-                                    <td>{{$rol->display_name}}</td>
+                                     
+                                    
+                                     <td align="center">
+                                        <a class="btn btn-danger" href="{{URL::action('UserController@edit',$usuario->id)}}">Editar</a>
+                                    </td>
+                                    <td align="center">
+                                        <a class="btn btn-info" href="{{URL::action('RoleController@create',$usuario->id)}}">Rol</a>
+                                    
+                                    </td>
+      
                                 </tr>
                                 @endforeach
                             </table>
                         </div>
                         
                     </div>
-                    @include('tipousuarios.delete')
+                  
                 </div>
             </div>
         </div>

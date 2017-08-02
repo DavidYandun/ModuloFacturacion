@@ -43,7 +43,7 @@ Route::resource('empleado','EmpleadoController');
 Route::resource('facturaspendiente','FacturaspendientesController');
 Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
-Route::resource('tipousuario','TipousuarioController');
+//Route::resource('tipousuario','TipousuarioController');
 
 Route::resource('vistafecha','VistaclienteController');
 Route::resource('vistacliente','VistaclienteController');
