@@ -99,6 +99,14 @@ class CabeceraController extends Controller
        
         return Redirect::to('cabecera');
     } 
+    public function ExportPDF($id)
+{
+    $cabecera = Cabecera::find($id)->first();
+    $detalles = Detalle::all();
+    $pdf = PDF::loadView("cabecera.imprimir",["cabecera"=>$cabecera,"detalles"=>$detalles]);
+    return $pdf->download('cabecera.pdf');
+
+}
 
         public function show($id)
     {
@@ -118,7 +126,7 @@ class CabeceraController extends Controller
             
         
     }
-  /*  public function pdf($id){
+    public function pdf($id){
         $cabecera=DB::table('cabecera as c')
             ->join('clientes as cli','c.idcliente','=','cli.idcliente')
             ->join('caja as caj','c.idcaja','=','caj.idcaja')
@@ -135,7 +143,7 @@ class CabeceraController extends Controller
             $pdf->loadHTML($view);
 
             return $pdf->stream('detalles');
-    }*/
+    }
 
     public function destroy($id)
     {
@@ -156,14 +164,7 @@ class CabeceraController extends Controller
         return view('cabecera.edit',compact('cabecera','cliente','caja'));
 
     }
-     public function ExportPDF($id)
-{
-    $cabecera = Cabecera::find($id)->first();
-    $detalles = Detalle::find($id);
-    $pdf = PDF::loadView('cabecera.show', compact('cabecera','detalles'));
-    return $pdf->download('cabecera.pdf');
-
-}
+     
 
 
       /*public function edit($id){

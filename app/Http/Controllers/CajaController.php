@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\CajaRequest;
 use App\Caja;
+use App\Usuario;
 class CajaController extends Controller
 {
     public function __construct(){
@@ -19,7 +20,8 @@ class CajaController extends Controller
 
  	}
  	public function create(){
- 		return view('caja.create');
+ 		$usuario=Usuario::all();
+ 		return view('caja.create',compact('usuario'));
  	}	
 
  	public function store(CajaRequest $request){

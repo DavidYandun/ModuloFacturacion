@@ -34,6 +34,11 @@ Route::get('/export/pdf',
         'as' => 'export.pdf',
         'uses' => 'EmpleadoController@ExportPDF'
     ]);
+Route::get('/export/pdf/{id}',
+    [
+        'as' => 'export.pdf',
+        'uses' => 'CabeceraController@ExportPDF'
+    ]);
 
 
 Route::resource('caja','CajaController');

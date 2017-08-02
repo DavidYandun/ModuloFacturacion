@@ -21,11 +21,17 @@
 	</div>
 		<form action="{{url('caja')}}" method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-		<div class="form-group">
-			<label for="idusuario" class="col-lg-2 control-label">ID Usuario <font color="red">*</font></label>
-			<div class="col-lg-10">
-				<input name="idusuario" id="idusuario" class="form-control" type="number" value="{{old('idusuario')}}" required>
+		
+			<div class="col-lg-6">
+				<select name="idusuario" id="idusuario" class="form-control">
+					<option value="">Seleccione el Usuario</option>
+					@foreach ($usuarios as $tu)												           
+                <option value="{{ $tu->idusuario }}" >{{ $tu->aliasusuario }}</option>
+                @endforeach
+				</select>
+			</div>
+			<div class="col lg-4">
+				<label><font color="gray">*</font></label>
 			</div>
 		</div>
 		<div class="form-group">

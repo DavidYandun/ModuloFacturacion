@@ -51,6 +51,9 @@ Clientes
 			<div class="col-lg-6">
 				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$cliente->cedula}}" required maxlength="10" minlength="10" disabled>
 			</div>
+			<div class="col-lg-6">
+				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{old('cedula')}}" required maxlength="10" minlength="10" placeholder="Ingrese su cédula" onchange="return ValidaCedula(this.form.cedula.value)">
+			</div>
 			<div class="col lg-4">
 				<label><font color="gray">Ej: 1234567890</font></label>
 			</div>

@@ -65,7 +65,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
-                                    <th colspan="2">Opciones</th>
+                                    <th colspan="3">Opciones</th>
                                     <th>Número</th>
                                     <th>Cliente</th>
                                     <th>Caja</th>
@@ -80,14 +80,7 @@
                                         $nombreCliente = App\Cliente::find($codcliente);
                                     ?>
                                 <tr>
-                                    <td align="center">
-                                    
-                                     <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
-                                    
-                                        
-                                    </td>
                                     <td align="center">                                        
-
                                     @if($c->estado=="A")
                                      <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="estado" name="estado" value="I"> 
@@ -95,17 +88,16 @@
                                      @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
                                       @endif
-                                    </td>
-<<<<<<< HEAD
-                                   
-                                    <td>{{ $c->idcabecera}}</td>
-=======
+                                    </td>          
                                     <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@ExportPDF',$c->idcabecera)}}"><i class="glyphicon glyphicon-print">IMPRIMIR</i></a>                                                                                              
                                     </td>
-                                    <td>{{ $c->IDCABECERA}}</td>
->>>>>>> creacionusuarios
-                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
+                                    <td align="center">
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->idcabecera)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+
+                                    </td>
+                                    <td>{{ $c->idcabecera}}</td>
+                                    <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
                                     <td>{{ $c->subtotal}}</td>

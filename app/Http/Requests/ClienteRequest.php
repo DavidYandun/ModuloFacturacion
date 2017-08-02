@@ -25,6 +25,7 @@ class ClienteRequest extends FormRequest
     public function rules()
 
     {
+
         if(Input::has('idcliente')){
             $id=Input::get('idcliente');
             return [
@@ -51,6 +52,7 @@ class ClienteRequest extends FormRequest
                 "telefono"=>"required|alpha_num|min:10|max:10",
                 "email"=>"required|min:3|max:50",
                 "estado"=>"required|alpha_num|size:1"
+
          ];
 
        

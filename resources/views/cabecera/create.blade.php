@@ -129,7 +129,7 @@
                         <tr>
                         <td colspan="3"></td>
                         	<td>IVA</td>
-                        	<td><input type="hidden" id="iva" name="iva"></input><h4 id="iva">/. 0.00</h4></td>
+                        	<td><input type="hidden" id="iva" name="iva"></input><h4 id="iv">/. 0.00</h4></td>
                         </tr>
                        
                     	<tr>
@@ -206,8 +206,9 @@ function agregar(){
             if((STOCK)>=(cantidad)){
             valor_total[cont]=cantidad*valor_unitario;          
             total=(total+valor_total[cont]);
-            subtotal=total/1.12;
-            iva=total-subtotal;
+            //total=total.toFixed(2);
+            subtotal=(total/1.12);
+            iva=(total-subtotal);
             alert("Error"+iva);   
 
             var fila='<tr class="selected" id="fila'+cont+'">\n\
@@ -222,11 +223,11 @@ function agregar(){
             document.getElementById("subtotal").value=(subtotal);
             document.getElementById("iva").value=(iva);
             $("#total").html("$/. " + total);
-            $("#to").html("$/. " + total);
+            $("#to").html("$/. " + (total.toFixed(2)));
             $("#subtotal").html("$/. " + subtotal);
             $("#iva").html("$/. " + iva);
-            $("#subto").html("$/. " + subtotal);
-            $("#iva").html("$/. " + iva);
+            $("#subto").html("$/. " + (subtotal.toFixed(2)));
+            $("#iv").html("$/. " + (iva.toFixed(2)));
              limpiar();         
              evaluar();
             $('#detalles').append(fila);
@@ -264,11 +265,11 @@ function agregar(){
         iva=total-subtotal;
 
             $("#total").html("$/. " + total);
-            $("#to").html("$/. " + total);
+            $("#to").html("$/. " + (total.toFixed(2)));       
             $("#subtotal").html("$/. " + subtotal);
             $("#iva").html("$/. " + iva);
-            $("#subto").html("$/. " + subtotal);
-            $("#iva").html("$/. " + iva);       
+            $("#subto").html("$/. " + (subtotal.toFixed(2)));       
+            $("#iv").html("$/. " + (iva.toFixed(2)));       
         $("#fila" +index).remove();
         evaluar();
     }

@@ -25,27 +25,19 @@ class EmpleadoController extends Controller
     public function create(){
         return view('empleados.create');
     } 
-    
-
-         
  /*   public function ExportPDF($id)
 {
     $empleados = Empleado::find($id)->first();
     $pdf = PDF::loadView('empleados.show', compact('empleados'));
     return $pdf->download('empleados.pdf');
 
-}*/
-
-
-      
+}*/      
     public function ExportPDF()
     {
         $empleados=Empleado::all();
         $pdf = PDF::loadView('empleados.show',compact('empleados') );
         return $pdf->download('empleados.pdf');
     } 
-
-
     public function store(EmpleadoRequest $request){
         Empleado::create($request->all());
         return Redirect::to('empleado');
