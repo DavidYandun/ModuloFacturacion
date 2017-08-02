@@ -40,8 +40,8 @@
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->CEDULA }}">
-                                    {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
+                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->cedula }}">
+                                    {{ $cli->nombre }} {{ $cli->apellido }}
                                 </option>
                             @endforeach
                         </select>                
@@ -65,7 +65,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
-                                    <th colspan="2">Opciones</th>
+                                    <th colspan="3">Opciones</th>
                                     <th>Número</th>
                                     <th>Cliente</th>
                                     <th>Caja</th>
@@ -96,19 +96,14 @@
                                      <h5>ANULADA</h5>
                                       @endif
                                     </td>
-<<<<<<< HEAD
-                                   
-                                    <td>{{ $c->idcabecera}}</td>
-=======
-                                    <td align="center">
+                                   <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
-                                    <td>{{ $c->IDCABECERA}}</td>
->>>>>>> creacionusuarios
-                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
+                                    <td>{{ $c->idcabecera}}</td>
+                                    <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
-                                    <td>{{ $c->subtotal}}</td>
+                                    <td><span maxlength="4">{{ $c->subtotal}}</span></td>
                                     <td>{{ $c->iva}}</td>
                                     <td>{{ $c->total}}</td>                                                                                
                                    </tr>
@@ -169,7 +164,7 @@
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)
                 
-                <option value="{{ $cli->idcliente }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->idcliente }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
                 @endforeach
                 </select>
 

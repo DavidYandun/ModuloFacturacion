@@ -240,7 +240,7 @@ html , body{
 }
 .menu_section h3 {
     padding-left: 15px;
-    color: #fff;
+    color: #aaa;
     text-transform: uppercase;
     letter-spacing: .5px;
     font-weight: bold;
@@ -304,7 +304,7 @@ html , body{
     margin-top: 5px;
     font-size: 10px;
     min-width: inherit;
-    color: #C4CFDA
+    color: #dddddd
 }
 .active a span.fa {
     text-align: right !important;
