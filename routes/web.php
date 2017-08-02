@@ -17,13 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'CabeceraController@create');
 
 //Route::resource('producto','ProductoController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/export/pdf',
+    [
+        'as' => 'export.pdf',
+        'uses' => 'EmpleadoController@ExportPDF'
+    ]);
+
+
 Route::resource('cabecera','CabeceraController');
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
@@ -34,8 +40,14 @@ Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
 Route::resource('tipousuario','TipousuarioController');
 
+Route::resource('vistafecha','VistaclienteController');
+Route::resource('vistacliente','VistaclienteController');
+Route::resource('nuevafactura','NuevafacturaController');
+Route::resource('usuarios','UserController');
+
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 Route::get('caja/delete/{id}','CajaController@delete') ;
+Route::get('cabecera/update/{id}','CabeceraController@actualizar') ;
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
 Route::get('detalle/delete/{id}','DetalleController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;

@@ -34,7 +34,7 @@
                 <select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)                
-                <option value="{{ $cli->idcliente }}" data-subtext="{{ $cli->cedula }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
+                <option value="{{ $cli->idcliente }}_{{ $cli->idtipo }}" data-subtext="{{ $cli->cedula }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
                 @endforeach
                 </select>
 
@@ -99,7 +99,7 @@
                                     <?php
                                         $nombretipo = App\Tipocliente::find($codcliente);
                                     ?>               
-                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->detalle }}</option>
+                <option value="{{ $cli->IDTIPO }}"  id="idt" >{{ $nombretipo->detalle }}</option>
                 @endforeach
                 </select>
 
@@ -272,7 +272,7 @@ function agregar(){
         $("#fila" +index).remove();
         evaluar();
     }
-//$("#idcliente").change(mostrarValor);
+$("#idcliente").change(mostrarValor);
 /* function existe(idproducto){
     if(cont>0){
         $("#detalles tbody tr").each(function () {
@@ -286,13 +286,14 @@ function agregar(){
         }
     }
     return false;
- }
+ }*/
  function mostrarValor(){
     datoscliente=document.getElementById('idcliente').value.split('_');
-   if((datoscliente[1])=="1"){ 
+    idtipo=parseFloat(datoscliente[1]);
+
+   if(idtipo=="1"){ 
     alert("Elproducto");  
-    document.getElementById('IDTIPO').disabled=true;                
-    
+    $("#pstock").attr('disabled', true);      
     }
     
     
