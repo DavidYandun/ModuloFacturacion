@@ -52,14 +52,7 @@ Usuarios
                                     <td>{{$usuario->created_at}}</td>
                                     <td>{{$usuario->updated_at}}</td>
                                      
-                                    
-                                     <td align="center">
-                                        <a class="btn btn-danger" href="{{URL::action('UserController@edit',$usuario->id)}}">Editar</a>
-                                    </td>
-                                    <td align="center">
-                                        <a class="btn btn-info" href="{{URL::action('RoleController@create',$usuario->id)}}">Rol</a>
-                                    
-                                    </td>
+                                  
       
                                 </tr>
                                 @endforeach
