@@ -39,16 +39,16 @@ class WClienteController extends Controller
     public function store(Request $request)
     {
       if (
-        !$request->input('IDTIPO') ||
-        !$request->input('CEDULA') ||
-        !$request->input('NOMBRE') ||
-        !$request->input('APELLIDO')||
-        !$request->input('NACIMIENTO')||
-        !$request->input('CIUDAD')||
-        !$request->input('DIRECCION') ||
-        !$request->input('TELEFONO') ||
-        !$request->input('EMAIL') ||
-        !$request->input('ESTADO'))
+        !$request->input('idtipo') ||
+        !$request->input('cedula') ||
+        !$request->input('nombre') ||
+        !$request->input('apellido')||
+        !$request->input('nacimiento')||
+        !$request->input('ciudad')||
+        !$request->input('direccion') ||
+        !$request->input('telefono') ||
+        !$request->input('email') ||
+        !$request->input('estado'))
       {
         return response()->json(['mensaje' => "No se pudieron procesar los datos", 'codigo'=> 422], 422);
       }
@@ -97,40 +97,40 @@ class WClienteController extends Controller
         return response()->json(['mensaje' => "No se encontro al Cliente", 'codigo'=> 404], 404);
       }
 
-      $NOMBRE = $request->input('NOMBRE');
-      $TELEFONO = $request->input('TELEFONO');
-      $IDTIPO = $request->input('IDTIPO');
-      $CEDULA = $request->input('CEDULA');
-      $APELLIDO = $request->input('APELLIDO');
-      $NACIMIENTO = $request->input('NACIMIENTO');
-      $CIUDAD = $request->input('CIUDAD');
-      $DIRECCION = $request->input('DIRECCION');
-      $EMAIL = $request->input('EMAIL');
-      $ESTADO = $request->input('ESTADO');
-      if (!$NOMBRE ||
-          !$TELEFONO ||
-          !$IDTIPO ||
-          !$CEDULA ||
-          !$APELLIDO ||
-          !$NACIMIENTO ||
-          !$CIUDAD ||
-          !$DIRECCION ||
-          !$EMAIL ||
-          !$ESTADO)
+      $nombre = $request->input('nombre');
+      $telefono = $request->input('telefono');
+      $idtipo = $request->input('idtipo');
+      $cedula = $request->input('cedula');
+      $apellido = $request->input('apellido');
+      $nacimiento = $request->input('nacimiento');
+      $ciudad = $request->input('ciudad');
+      $direccion = $request->input('direccion');
+      $email = $request->input('email');
+      $estado = $request->input('estado');
+      if (!$nombre ||
+          !$telefono ||
+          !$idtipo ||
+          !$cedula ||
+          !$apellido ||
+          !$nacimiento ||
+          !$ciudad ||
+          !$direccion ||
+          !$email ||
+          !$estado)
       {
         return response()->json(['mensaje' => "No pudieron procesar los datos", 'codigo'=> 422], 422);
       }
 
-      $cliente->NOMBRE = $NOMBRE;
-      $cliente->TELEFONO = $TELEFONO;
-      $cliente->IDTIPO = $IDTIPO;
-      $cliente->CEDULA = $CEDULA;
-      $cliente->APELLIDO = $APELLIDO;
-      $cliente->NACIMIENTO = $NACIMIENTO;
-      $cliente->CIUDAD = $CIUDAD;
-      $cliente->DIRECCION = $DIRECCION;
-      $cliente->EMAIL = $EMAIL;
-      $cliente->ESTADO = $ESTADO;
+      $cliente->nombre = $nombre;
+      $cliente->telefono = $telefono;
+      $cliente->idtipo = $idtipo;
+      $cliente->cedula = $cedula;
+      $cliente->apellido = $apellido;
+      $cliente->nacimiento = $nacimiento;
+      $cliente->ciudad = $ciudad;
+      $cliente->direccion = $direccion;
+      $cliente->email = $email;
+      $cliente->estado = $estado;
       $cliente->save();
       return response()->json(['mensaje' =>  "Cliente actualizado"], 200);
     }

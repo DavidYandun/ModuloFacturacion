@@ -94,6 +94,7 @@
                                      @endif
                                      @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
+<<<<<<< HEAD
                                       @endif
                                     </td>
                                    
@@ -104,6 +105,18 @@
                                     </td>
                                     <td>{{ $c->IDCABECERA}}</td>
                          
+=======
+                                      @endif                                
+
+
+                                   
+                                    
+
+                                  
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>                                   
+                 
+>>>>>>> 67dd893275fee43072f9d0c1864aace9f8f85921
                                     <td>{{ $c->idcabecera}}</td>
 
                                     <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>

@@ -102,7 +102,7 @@
                                     <?php
                                         $nombretipo = App\Tipocliente::find($codcliente);
                                     ?>               
-                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->detalle }}</option>
+                <option value="{{ $cli->IDTIPO }}"  id="idt" >{{ $nombretipo->detalle }}</option>
                 @endforeach
                 </select>
 
@@ -210,8 +210,7 @@ function agregar(){
             valor_total[cont]=cantidad*valor_unitario;          
             total=(total+valor_total[cont]);
             subtotal=total/1.12;
-            iva=total-subtotal;
-            alert("Error"+iva);   
+           
 
             var fila='<tr class="selected" id="fila'+cont+'">\n\
             <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
@@ -289,13 +288,14 @@ function agregar(){
         }
     }
     return false;
- }
- function mostrarValor(){
+ }*/
+/* function mostrarValor(){
     datoscliente=document.getElementById('idcliente').value.split('_');
-   if((datoscliente[1])=="1"){ 
-    alert("Elproducto");  
-    document.getElementById('IDTIPO').disabled=true;                
-    
+    idtipo=parseFloat(datoscliente[1]);
+
+   if(idtipo=="1"){ 
+     
+    $("#pstock").attr('disabled', true);      
     }
     
     
