@@ -75,62 +75,32 @@
                                     <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
-                                <!--{{$codcliente=$c->idcliente}}-->
-                                    <?php
-                                        $nombreCliente = App\Cliente::find($codcliente);
-                                    ?>
+                                    <?php $nombreCliente = App\Cliente::find($c->idcliente); ?>
                                 <tr>
+                            <!--BOTON IMPRIMIR-->
                                     <td align="center">
-                                    
                                      <a class="btn btn-info" href="#"><i class="glyphicon glyphicon-print"></i></a>
-                                    
-                                        
                                     </td>
+                            <!--BOTON ANULAR-->
                                     <td align="center">                                        
-
-                                    @if($c->estado=="A")
+                                        @if($c->estado=="A")
                                      <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="estado" name="estado" value="I"> 
-                                     @endif
-                                     @if($c->estado=="I") 
+                                        @endif
+                                        @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
-<<<<<<< HEAD
-                                      @endif
+                                        @endif
                                     </td>
-<<<<<<< HEAD
+                            <!--BOTON MOSTRAR DETALLES-->
                                    <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
+                            <!--DATOS DE FACTURA-->
                                     <td>{{ $c->idcabecera}}</td>
                                     <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
-=======
-                                   
-                                    <td>{{ $c->idcabecera}}</td>
-
-                                    <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
-                                    </td>
-                                    <td>{{ $c->IDCABECERA}}</td>
-                         
-=======
-                                      @endif                                
-
-
-                                   
-                                    
-
-                                  
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
-                                    </td>                                   
-                 
->>>>>>> 67dd893275fee43072f9d0c1864aace9f8f85921
-                                    <td>{{ $c->idcabecera}}</td>
-
-                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
->>>>>>> c54a04804c57b8ffe1d3051227ed135d730d9e4a
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
-                                    <td><span maxlength="4">{{ $c->subtotal}}</span></td>
+                                    <td>{{ $c->subtotal}}</span></td>
                                     <td>{{ $c->iva}}</td>
                                     <td>{{ $c->total}}</td>                                                                                
                                    </tr>
