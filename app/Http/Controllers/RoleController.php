@@ -20,8 +20,10 @@ class UserController extends Controller
 
 	
  	
- 	public function create(){
- 		$user=User::all();
+ 	public function create($id){
+ 		$role_user=Role_user::all();
+ 		$role=Role::all();
+ 		$user=User::find($id);
  		return view('usuarios.create',compact('user'));
  	}	
  	
