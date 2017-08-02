@@ -40,9 +40,9 @@ class WFacturaspendientesController extends Controller
     public function store(Request $request)
     {
       if (
-        !$request->input('IDCABECERA') ||
-        !$request->input('ABONO') ||
-        !$request->input('SALDO'))
+        !$request->input('idcabecera') ||
+        !$request->input('abono') ||
+        !$request->input('saldo'))
       {
         return response()->json(['mensaje' => "No se pudieron procesar los datos", 'codigo'=> 422], 422);
       }
@@ -92,19 +92,19 @@ class WFacturaspendientesController extends Controller
         return response()->json(['mensaje' => "No se encontro la factura pendiente", 'codigo'=> 404], 404);
       }
 
-      $IDCABECERA = $request->input('IDCABECERA');
-      $ABONO = $request->input('ABONO');
-      $SALDO = $request->input('SALDO');
-      if (!$IDCABECERA ||
-          !$ABONO ||
-          !$SALDO)
+      $idcabecera = $request->input('idcabecera');
+      $abono = $request->input('abono');
+      $saldo = $request->input('saldo');
+      if (!$idcabecera ||
+          !$abono ||
+          !$saldo)
       {
         return response()->json(['mensaje' => "No pudieron procesar los datos", 'codigo'=> 422], 422);
       }
 
-      $factura->IDCABECERA = $IDCABECERA;
-      $factura->ABONO = $ABONO;
-      $factura->SALDO = $SALDO;
+      $factura->idcabecera = $idcabecera;
+      $factura->abono = $abono;
+      $factura->saldo = $saldo;
       $factura->save();
       return response()->json(['mensaje' =>  "Factura pendiente actualizada"], 200);
 
@@ -129,16 +129,16 @@ class WFacturaspendientesController extends Controller
 
     public function actualizarFact($idFacturaP, $abono)
     {
-      // return "Hola ".$idCabecera." ".$abono;
+      // return "Hola ".$idcabecera." ".$abono;
       $factura = Facturaspendientes::find($idFacturaP);
 
       // Resto el saldo
-      $saldoActual = $factura->SALDO;
-      $factura->SALDO = $saldoActual - $abono;
+      $saldoActual = $factura->saldo;
+      $factura->saldo = $saldoActual - $abono;
 
       // Sumo el abono
-      $abonito = $factura->ABONO;
-      $factura->ABONO = $abonito + $abono;
+      $abonito = $factura->abono;
+      $factura->abono = $abonito + $abono;
 
 
       $factura->save();

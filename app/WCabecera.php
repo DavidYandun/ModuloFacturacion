@@ -10,7 +10,7 @@ class Cabecera extends Model
   protected $table='cabecera';
 
   // Clave primaria
-  protected $primaryKey='IDCABECERA';
+  protected $primaryKey='idcabecera';
 
   // Ocultar datos inecesarios
   protected $hidden = ['created_at', 'updated_at'];
@@ -18,7 +18,7 @@ class Cabecera extends Model
 
   // atributos de llenado de la tabla
   protected $fillable=[
-  "IDCLIENTE", "IDCAJA","NUMERO","FECHA","SUBTOTAL","IVA","TOTAL"
+  "idcliente", "idcaja","numero","fecha","subtotal","iva","total"
   ];
 
   // Clave foranea a los clientes
@@ -32,10 +32,10 @@ class Cabecera extends Model
 
   // relacion N a *
   public function detalles(){
-    return $this->hasMany('App\Detalle', 'IDCABECERA');
+    return $this->hasMany('App\Detalle', 'idcabecera');
   }
 
   public function facturaspendientes(){
-    return $this->hasMany('App\Facturaspendientes', 'IDCABECERA');
+    return $this->hasMany('App\Facturaspendientes', 'idcabecera');
   }
 }

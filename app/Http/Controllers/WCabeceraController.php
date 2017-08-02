@@ -101,13 +101,13 @@ class WCabeceraController extends Controller
       }
 
       // $idcabecera = $request->input('idCabecera');
-      $idCliente = $request->input('IDCLIENTE');
-      $idCaja = $request->input('IDCAJAD');
+      $idCliente = $request->input('idcliente');
+      $idCaja = $request->input('idcaja');
      
-      $fecha = $request->input('FECHA');
-      $subtotal = $request->input('SUBTOTAL');
-      $iva = $request->input('IVA');
-      $total = $request->input('TOTAL');
+      $fecha = $request->input('fecha');
+      $subtotal = $request->input('subtotal');
+      $iva = $request->input('iva');
+      $total = $request->input('total');
       if (!$idCliente ||
           !$idCaja ||
           !$fecha ||
@@ -119,12 +119,12 @@ class WCabeceraController extends Controller
       }
 
       // $cabecera->IDCABECERA = $idcabecera;
-      $cabecera->IDCLIENTE = $idCliente;
-      $cabecera->IDCAJA = $idCaja;
-      $cabecera->FECHA = $fecha;
-      $cabecera->SUBTOTAL = $subtotal;
-      $cabecera->IVA = $iva;
-      $cabecera->TOTAL = $total;
+      $cabecera->idcliente = $idCliente;
+      $cabecera->idcaja = $idCaja;
+      $cabecera->fecha = $fecha;
+      $cabecera->subtotal = $subtotal;
+      $cabecera->iva = $iva;
+      $cabecera->total = $total;
       $cabecera->save();
       return response()->json(['mensaje' =>  "Cabecera actualizado"], 200);
     }

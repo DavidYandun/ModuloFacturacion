@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Detalle extends Model
 {
   protected $table='detalle';
-  protected $primaryKey='IDDETALLE';
+  protected $primaryKey='iddetalle';
   public $timestamps=false;
   protected $fillable=[
-  "IDCABECERA","IDPRODUCTO","CANTIDAD","VALOR_UNITARIO","VALOR_TOTAL"
+  "idcabecera","idproducto","cantidad","valor_unitario","valor_total"
   ];
 
   public function cabecera () {
