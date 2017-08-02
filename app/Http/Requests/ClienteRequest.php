@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\support\Facades\Input;
+use Illuminate\Http\Request;
 
 class ClienteRequest extends FormRequest
 {
@@ -25,35 +26,35 @@ class ClienteRequest extends FormRequest
     public function rules()
 
     {
-        if(Input::has('idcliente')){
-            $id=Input::get('idcliente');
+        if(Request::has('IDCLIENTE')){
+            $id=Request::get('IDCLIENTE');
             return [
-                "idtipo"=>"required|integer|min:1|max:11",
-                "cedula"=>"unique:clientes,cedula|min:10|max:10",
-                "nombre"=>"required|min:3|max:25",
-                "apellido"=>"required|min:3|max:25",
-                "nacimiento"=>"required|date", 
-                "ciudad"=>"required|min:3|max:25",
-                "direccion"=>"required|min:3|max:25",
-                "telefono"=>"required|alpha_num|min:10|max:10",
-                "email"=>"required|min:3|max:50",
-                "estado"=>"required|alpha_num|size:1"
+                "IDTIPO"=>"required|integer|min:1|max:11",
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:10",
+                "NOMBRE"=>"required|min:3|max:25",
+                "APELLIDO"=>"required|min:3|max:25",
+                "NACIMIENTO"=>"required|date",
+                "CIUDAD"=>"required|min:3|max:25",
+                "DIRECCION"=>"required|min:3|max:25",
+                "TELEFONO"=>"required|alpha_num|min:10|max:10",
+                "EMAIL"=>"required|min:3|max:50",
+                "ESTADO"=>"required|alpha_num|size:1"
             ];
          }else{
         return [
-             "idtipo"=>"required|integer|min:1|max:11",
-                "cedula"=>"unique:clientes,cedula|min:10|max:13",
-                "nombre"=>"required|min:3|max:25",
-                "apellido"=>"required|min:3|max:25",
-                "nacimiento"=>"required|date", 
-                "ciudad"=>"required|min:3|max:25",
-                "direccion"=>"required|min:3|max:25",
-                "telefono"=>"required|alpha_num|min:10|max:10",
-                "email"=>"required|min:3|max:50",
-                "estado"=>"required|alpha_num|size:1"
+             "IDTIPO"=>"required|integer|min:1|max:11",
+                "CEDULA"=>"unique:clientes,CEDULA|min:10|max:13",
+                "NOMBRE"=>"required|min:3|max:25",
+                "APELLIDO"=>"required|min:3|max:25",
+                "NACIMIENTO"=>"required|date",
+                "CIUDAD"=>"required|min:3|max:25",
+                "DIRECCION"=>"required|min:3|max:25",
+                "TELEFONO"=>"required|alpha_num|min:10|max:10",
+                "EMAIL"=>"required|min:3|max:50",
+                "ESTADO"=>"required|alpha_num|size:1"
          ];
 
-       
+
 
         }
     }

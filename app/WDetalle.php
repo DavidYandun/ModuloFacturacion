@@ -10,7 +10,7 @@ class Detalle extends Model
   protected $primaryKey='IDDETALLE';
   public $timestamps=false;
   protected $fillable=[
-  "IDCABECERA","IDPRODUCTO","CANTIDAD","VALOR_UNITARIO","VALOR_TOTAL","DESCUENTO"
+  "IDCABECERA","IDPRODUCTO","CANTIDAD","VALOR_UNITARIO","VALOR_TOTAL"
   ];
 
   public function cabecera () {

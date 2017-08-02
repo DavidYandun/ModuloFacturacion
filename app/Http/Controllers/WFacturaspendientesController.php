@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Facturaspendientes;
+use App\Cabecera;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -109,6 +110,7 @@ class WFacturaspendientesController extends Controller
 
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -123,5 +125,23 @@ class WFacturaspendientesController extends Controller
       }
       $factura->delete();
       return response()->json(['mensaje' =>  "Factura pendiente eliminada"], 200);
+    }
+
+    public function actualizarFact($idFacturaP, $abono)
+    {
+      // return "Hola ".$idCabecera." ".$abono;
+      $factura = Facturaspendientes::find($idFacturaP);
+
+      // Resto el saldo
+      $saldoActual = $factura->SALDO;
+      $factura->SALDO = $saldoActual - $abono;
+
+      // Sumo el abono
+      $abonito = $factura->ABONO;
+      $factura->ABONO = $abonito + $abono;
+
+
+      $factura->save();
+      return response()->json(['mensaje' =>  $factura], 200);
     }
 }

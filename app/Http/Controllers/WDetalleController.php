@@ -43,8 +43,7 @@ class WDetalleController extends Controller
         !$request->input('IDPRODUCTO') ||
         !$request->input('CANTIDAD') ||
         !$request->input('VALOR_UNITARIO')||
-        !$request->input('VALOR_TOTAL')||
-        !$request->input('DESCUENTO'))
+        !$request->input('VALOR_TOTAL')
       {
         return response()->json(['mensaje' => "No se pudieron procesar los datos", 'codigo'=> 422], 422);
       }
@@ -99,12 +98,10 @@ class WDetalleController extends Controller
       $CANTIDAD = $request->input('CANTIDAD');
       $VALOR_UNITARIO = $request->input('VALOR_UNITARIO');
       $VALOR_TOTAL = $request->input('VALOR_TOTAL');
-      $DESCUENTO = $request->input('DESCUENTO');
       if (!$IDCABECERA ||
           !$IDPRODUCTO ||
           !$VALOR_UNITARIO ||
-          !$VALOR_TOTAL ||
-          !$DESCUENTO)
+          !$VALOR_TOTAL 
       {
         return response()->json(['mensaje' => "No pudieron procesar los datos", 'codigo'=> 422], 422);
       }
@@ -114,7 +111,6 @@ class WDetalleController extends Controller
       $detalle->CANTIDAD = $CANTIDAD;
       $detalle->VALOR_UNITARIO = $VALOR_UNITARIO;
       $detalle->VALOR_TOTAL = $VALOR_TOTAL;
-      $detalle->DESCUENTO = $DESCUENTO;
       $detalle->save();
       return response()->json(['mensaje' =>  "Detalle actualizado"], 200);
 

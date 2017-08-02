@@ -18,7 +18,7 @@ class Cabecera extends Model
 
   // atributos de llenado de la tabla
   protected $fillable=[
-  "IDCLIENTE", "IDCAJA","NUMERO","FECHA","SUBTOTAL","IVA","DESCUENTO","TOTAL"
+  "IDCLIENTE", "IDCAJA","NUMERO","FECHA","SUBTOTAL","IVA","TOTAL"
   ];
 
   // Clave foranea a los clientes

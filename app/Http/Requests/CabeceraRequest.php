@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\support\Facades\Input;
+use Illuminate\Http\Request;
 
 class CabeceraRequest extends FormRequest
 {
@@ -24,23 +25,29 @@ class CabeceraRequest extends FormRequest
      */
     public function rules()
 {
-        if(Input::has('IDCABECERA')){
-            $id=Input::Get('IDCABECERA');
+        if(Request::has('IDCABECERA')){
+            $id=Request::Get('IDCABECERA');
         return [
-            "idcliente"=>"required|integer|min:1|max:1000",
-            "idcaja"=>"required|integer|min:1|max:11",
-            
+            "IDCLIENTE"=>"required|integer|min:1|max:1000",
+            "IDCAJA"=>"required|integer|min:1|max:11",
+
             //"FECHA"=>"required|date(dd-mm-aaaa)",
-            
-           
+
+            "SUBTOTAL"=>"required|numeric",
+            "IVA"=>"required|numeric",
+            "DESCUENTO"=>"required|numeric",
+            "TOTAL"=>"required|numeric"
         ];
-     }else{ 
+     }else{
         return[
-            "idcliente"=>"required|integer|min:1|max:1000",
-            "idcaja"=>"required|integer|min:1|max:11",
-            
+            "IDCLIENTE"=>"required|integer|min:1|max:1000",
+            "IDCAJA"=>"required|integer|min:1|max:11",
+
             //"FECHA"=>"required|date(dd-mm-aaaa)",
-          
+            "SUBTOTAL"=>"required|numeric",
+            "IVA"=>"required|numeric",
+            "DESCUENTO"=>"required|numeric",
+            "TOTAL"=>"required|numeric"
         ];
      }
     }

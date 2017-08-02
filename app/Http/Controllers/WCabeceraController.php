@@ -103,19 +103,16 @@ class WCabeceraController extends Controller
       // $idcabecera = $request->input('idCabecera');
       $idCliente = $request->input('IDCLIENTE');
       $idCaja = $request->input('IDCAJAD');
-      $numero = $request->input('NUMERO');
+     
       $fecha = $request->input('FECHA');
       $subtotal = $request->input('SUBTOTAL');
       $iva = $request->input('IVA');
-      $descuento = $request->input('DESCUENTO');
       $total = $request->input('TOTAL');
       if (!$idCliente ||
           !$idCaja ||
-          !$numero ||
           !$fecha ||
           !$subtotal ||
           !$iva ||
-          !$descuento ||
           !$total)
       {
         return response()->json(['mensaje' => "No pudieron procesar los datos", 'codigo'=> 422], 422);
@@ -124,11 +121,9 @@ class WCabeceraController extends Controller
       // $cabecera->IDCABECERA = $idcabecera;
       $cabecera->IDCLIENTE = $idCliente;
       $cabecera->IDCAJA = $idCaja;
-      $cabecera->NUMERO = $numero;
       $cabecera->FECHA = $fecha;
       $cabecera->SUBTOTAL = $subtotal;
       $cabecera->IVA = $iva;
-      $cabecera->DESCUENTO = $descuento;
       $cabecera->TOTAL = $total;
       $cabecera->save();
       return response()->json(['mensaje' =>  "Cabecera actualizado"], 200);
