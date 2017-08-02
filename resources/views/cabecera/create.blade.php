@@ -34,7 +34,7 @@
                 <select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)                
-                <option value="{{ $cli->idcliente }}_{{ $cli->idtipo }}" data-subtext="{{ $cli->cedula }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
+                <option value="{{ $cli->idcliente }}" data-subtext="{{ $cli->cedula }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
                 @endforeach
                 </select>
 
@@ -207,8 +207,7 @@ function agregar(){
             valor_total[cont]=cantidad*valor_unitario;          
             total=(total+valor_total[cont]);
             subtotal=total/1.12;
-            iva=total-subtotal;
-            alert("Error"+iva);   
+           
 
             var fila='<tr class="selected" id="fila'+cont+'">\n\
             <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
@@ -272,7 +271,7 @@ function agregar(){
         $("#fila" +index).remove();
         evaluar();
     }
-$("#idcliente").change(mostrarValor);
+//$("#idcliente").change(mostrarValor);
 /* function existe(idproducto){
     if(cont>0){
         $("#detalles tbody tr").each(function () {
@@ -287,12 +286,12 @@ $("#idcliente").change(mostrarValor);
     }
     return false;
  }*/
- function mostrarValor(){
+/* function mostrarValor(){
     datoscliente=document.getElementById('idcliente').value.split('_');
     idtipo=parseFloat(datoscliente[1]);
 
    if(idtipo=="1"){ 
-    alert("Elproducto");  
+     
     $("#pstock").attr('disabled', true);      
     }
     
