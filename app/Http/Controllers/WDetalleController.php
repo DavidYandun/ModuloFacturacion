@@ -39,12 +39,11 @@ class WDetalleController extends Controller
     public function store(Request $request)
     {
       if (
-        !$request->input('IDCABECERA') ||
-        !$request->input('IDPRODUCTO') ||
-        !$request->input('CANTIDAD') ||
-        !$request->input('VALOR_UNITARIO')||
-        !$request->input('VALOR_TOTAL')||
-        !$request->input('DESCUENTO'))
+        !$request->input('idcabecera') ||
+        !$request->input('idproducto') ||
+        !$request->input('cantidad') ||
+        !$request->input('valor_unitario')||
+        !$request->input('valor_total')
       {
         return response()->json(['mensaje' => "No se pudieron procesar los datos", 'codigo'=> 422], 422);
       }
@@ -94,27 +93,24 @@ class WDetalleController extends Controller
         return response()->json(['mensaje' => "No se encontro el Detalle", 'codigo'=> 404], 404);
       }
 
-      $IDCABECERA = $request->input('IDCABECERA');
-      $IDPRODUCTO = $request->input('IDPRODUCTO');
-      $CANTIDAD = $request->input('CANTIDAD');
-      $VALOR_UNITARIO = $request->input('VALOR_UNITARIO');
-      $VALOR_TOTAL = $request->input('VALOR_TOTAL');
-      $DESCUENTO = $request->input('DESCUENTO');
-      if (!$IDCABECERA ||
-          !$IDPRODUCTO ||
-          !$VALOR_UNITARIO ||
-          !$VALOR_TOTAL ||
-          !$DESCUENTO)
+      $idcabecera = $request->input('idcabecera');
+      $idproducto = $request->input('idproducto');
+      $cantidad = $request->input('cantidad');
+      $valor_unitario = $request->input('valor_unitario');
+      $valor_total = $request->input('valor_total');
+      if (!$idcabecera ||
+          !$idproducto ||
+          !$valor_unitario ||
+          !$valor_total 
       {
         return response()->json(['mensaje' => "No pudieron procesar los datos", 'codigo'=> 422], 422);
       }
 
-      $detalle->IDCABECERA = $IDCABECERA;
-      $detalle->IDPRODUCTO = $IDPRODUCTO;
-      $detalle->CANTIDAD = $CANTIDAD;
-      $detalle->VALOR_UNITARIO = $VALOR_UNITARIO;
-      $detalle->VALOR_TOTAL = $VALOR_TOTAL;
-      $detalle->DESCUENTO = $DESCUENTO;
+      $detalle->idcabecera = $idcabecera;
+      $detalle->idproducto = $idproducto;
+      $detalle->cantidad = $cantidad;
+      $detalle->valor_unitario = $valor_unitario;
+      $detalle->valor_total = $valor_total;
       $detalle->save();
       return response()->json(['mensaje' =>  "Detalle actualizado"], 200);
 

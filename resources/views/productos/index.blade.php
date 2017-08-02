@@ -50,6 +50,7 @@ Productos
                                     <th>Precio</th>
                                     
                                 </thead>
+
                                @foreach ($productos as $p)
                                 <tr>
                                 @role('admin')
@@ -65,7 +66,8 @@ Productos
                                     <td>{{ $p->stock}}</td>
                                     <td>{{ $p->nombrep}}</td>
                                     <td>{{ $p->descripcion}}</td>
-                                    <td>{{ $p->valor}}</td>
+                                    <td>{{ $p->valor}}</td>                                    
+                                </tr>
                                     
                                 </tr>
                                 @endforeach

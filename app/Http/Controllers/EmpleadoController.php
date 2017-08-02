@@ -27,16 +27,6 @@ class EmpleadoController extends Controller
     } 
     
 
-         
- /*   public function ExportPDF($id)
-{
-    $empleados = Empleado::find($id)->first();
-    $pdf = PDF::loadView('empleados.show', compact('empleados'));
-    return $pdf->download('empleados.pdf');
-
-}*/
-
-
       
     public function ExportPDF()
     {

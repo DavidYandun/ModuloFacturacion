@@ -23,12 +23,6 @@ Route::get('home', 'CabeceraController@create');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('cabecera','CabeceraController');
-
-
-
-
 Route::get('/export/pdf',
     [
         'as' => 'export.pdf',
@@ -36,14 +30,15 @@ Route::get('/export/pdf',
     ]);
 
 
+Route::resource('cabecera','CabeceraController');
 Route::resource('caja','CajaController');
 Route::resource('cliente','ClienteController');
 Route::resource('detalle','DetalleController');
 Route::resource('empleado','EmpleadoController');
-Route::resource('facturaspendiente','FacturaspendientesController');
+Route::resource('facturaspendientes','FacturaspendientesController');
 Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
-Route::resource('tipousuario','TipousuarioController');
+//Route::resource('tipousuario','TipousuarioController');
 
 Route::resource('vistafecha','VistaclienteController');
 Route::resource('vistacliente','VistaclienteController');
@@ -51,12 +46,12 @@ Route::resource('nuevafactura','NuevafacturaController');
 Route::resource('usuarios','UserController');
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
-Route::get('cabecera/update/{id}','CabeceraController@actualizar') ;
 Route::get('caja/delete/{id}','CajaController@delete') ;
+Route::get('cabecera/update/{id}','CabeceraController@actualizar') ;
 Route::get('cliente/delete/{id}','ClienteController@delete') ;
 Route::get('detalle/delete/{id}','DetalleController@delete') ;
 Route::get('empleado/delete/{id}','EmpleadoController@delete') ;
-Route::get('facturaspendiente/delete/{id}','FacturaspendientesController@delete') ;
+Route::get('facturaspendientes/delete/{id}','FacturaspendientesController@delete') ;
 Route::get('producto/delete/{id}','ProductoController@delete') ;
 Route::get('tipocliente/delete/{id}','TipoclienteController@delete') ;
 
@@ -64,24 +59,25 @@ Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 
 Route::get('tipousuario/delete/{id}','TipousuarioController@delete') ;
 
-
-
-//Route::group(['prefix' => 'cajero', 'middleware' => ['auth', 'cajero']],function(){
-//	Route::get('/', 'cajeroController@index');
-//});
-//Route::group(['prefix' => 'administrador', 'middleware' => ['auth', 'administrador']],function(){
-//	Route::get('/', 'administradorController@home');
-//});
+// Route::group(['prefix' => 'cajero', 'middleware' => ['auth', 'cajero']],function(){
+// 	Route::get('/', 'cajeroController@index');
+// });
+// Route::group(['prefix' => 'administrador', 'middleware' => ['auth', 'administrador']],function(){
+// 	Route::get('/', 'administradorController@home');
+// });
 
 /////////////RUTAS WEB SERVICES ///////////////////////
 Route::resource('cabeceras', 'WCabeceraController');
 Route::resource('clientes', 'WClienteController');
 Route::resource('detalles', 'WDetalleController');
-Route::resource('facturaspendientes', 'WFacturaspendientesController');
+Route::resource('FacturasPendientes', 'WFacturaspendientesController');
+Route::resource('cliente/{id}/facturaspendientes', 'WClientesFacturasPendientesController', ['only' => ['index']]);
 
 Route::resource('cabeceras.detalles', 'WCabeceraDetallesController', ['only' => ['index']]);
 Route::resource('cabeceras.facturaspendientes', 'WCabeceraFacturasPendientesController', ['only' => ['index']]);
 Route::resource('clientes.cabeceras', 'WClienteCabecerasController', ['only' => ['index']]);
+
+Route::get('cabecera/{id}/facturaspendientes/{abonito}','WFacturaspendientesController@actualizarFact') ;
 
 
 
@@ -99,5 +95,3 @@ Route::get('delete/{id}','EmpleadoController@destroy') ;
 Route::get('delete/{id}','CajaController@destroy') ;
 
 Route::get('delete/{id}','TipousuarioController@destroy') ;*/
-
-	

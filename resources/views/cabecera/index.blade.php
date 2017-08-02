@@ -94,13 +94,40 @@
                                      @endif
                                      @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
+<<<<<<< HEAD
                                       @endif
                                     </td>
+<<<<<<< HEAD
                                    <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
                                     <td>{{ $c->idcabecera}}</td>
                                     <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
+=======
+                                   
+                                    <td>{{ $c->idcabecera}}</td>
+
+                                    <td align="center">
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>
+                                    <td>{{ $c->IDCABECERA}}</td>
+                         
+=======
+                                      @endif                                
+
+
+                                   
+                                    
+
+                                  
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>                                   
+                 
+>>>>>>> 67dd893275fee43072f9d0c1864aace9f8f85921
+                                    <td>{{ $c->idcabecera}}</td>
+
+                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
+>>>>>>> c54a04804c57b8ffe1d3051227ed135d730d9e4a
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
                                     <td><span maxlength="4">{{ $c->subtotal}}</span></td>
