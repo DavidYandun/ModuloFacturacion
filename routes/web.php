@@ -52,6 +52,7 @@ Route::resource('tipocliente','TipoclienteController');
 
 Route::resource('vistafecha','VistaclienteController');
 Route::resource('vistacliente','VistaclienteController');
+Route::resource('vistapendiente','VistapendienteController');
 Route::resource('nuevafactura','NuevafacturaController');
 Route::resource('usuarios','UserController');
 
