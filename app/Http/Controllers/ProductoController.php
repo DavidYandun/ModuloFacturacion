@@ -49,12 +49,10 @@ class ProductoController extends Controller
         $b=false;
         foreach ($produc as $p) {
           if ($p->idproducto != $list['ID_PROD']) {
-            $b=false; 
-            
+              $b=false; 
           }
-          else{
-            $b=true;
-            break;
+          else{ $b=true;
+                break;
           }
 
         }
@@ -71,19 +69,14 @@ class ProductoController extends Controller
           Producto::create(['stock'=>$stock,'nombrep'=>$nombre,'descripcion'=>$descripcion,'valor'=>$precio,'idproducto'=>$idproducto]);
         } else if($b==true){
           $pp=Producto::find($list['ID_PROD']);
-          //$pp->idproducto=$list['ID_PROD'];
           $pp->stock=$list['STOCK_PROD'];
           $pp->nombrep=$list['NOMBRE_PROD'];
           $pp->descripcion=$list['DESCRIPCION_PROD'];
           $pp->valor=$list['PVP_PROD'];
           $pp->save();
         }
-          
-      
     }
-
 return Redirect::to('producto');
-//return view('productos.index');
 }
  }
 
