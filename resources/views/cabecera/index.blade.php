@@ -40,8 +40,8 @@
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->CEDULA }}">
-                                    {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
+                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->cedula }}">
+                                    {{ $cli->nombre }} {{ $cli->apellido }}
                                 </option>
                             @endforeach
                         </select>                
@@ -75,32 +75,31 @@
                                     <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
-                                <!--{{$codcliente=$c->idcliente}}-->
-                                    <?php
-                                        $nombreCliente = App\Cliente::find($codcliente);
-                                    ?>
-                                <tr>
+                                    <?php $nombreCliente = App\Cliente::find($c->idcliente); ?>
+                                <tr>                                    
+                            <!--BOTON ANULAR-->
                                     <td align="center">                                        
-                                    @if($c->estado=="A")
+                                        @if($c->estado=="A")
                                      <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="estado" name="estado" value="I"> 
-                                     @endif
-                                     @if($c->estado=="I") 
+                                        @endif
+                                        @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
                                       @endif
                                     </td>          
-                                    <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@ExportPDF',$c->idcabecera)}}"><i class="glyphicon glyphicon-print">IMPRIMIR</i></a>                                                                                              
-                                    </td>
+                                    
                                     <td align="center">
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->idcabecera)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
 
                                     </td>
+
+                            <!--DATOS DE FACTURA-->
+
                                     <td>{{ $c->idcabecera}}</td>
                                     <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
                                     <td>{{ $c->idcaja}}</td>
                                     <td>{{ $c->fecha}}</td>
-                                    <td>{{ $c->subtotal}}</td>
+                                    <td>{{ $c->subtotal}}</span></td>
                                     <td>{{ $c->iva}}</td>
                                     <td>{{ $c->total}}</td>                                                                                
                                    </tr>
@@ -161,7 +160,7 @@
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)
                 
-                <option value="{{ $cli->idcliente }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->idcliente }}">{{ $cli->nombre }} {{ $cli->apellido }}</option>
                 @endforeach
                 </select>
 

@@ -17,19 +17,19 @@
             </div>
             <div class="col-lg-6 form-group">
                 <label class="control-label">Cliente: </label>
-                <input class="form-control" type="text" value="{{$cabecera->NOMBRE}} {{$cabecera->APELLIDO}}" disabled>
+                <input class="form-control" type="text" value="{{$cabecera->nombre}} {{$cabecera->apellido}}" disabled>
             </div>
             <div class="col-lg-6 form-group">
                 <label class="control-label">Cédula/RUC: </label>
-                <input class="form-control" type="text" value="{{$cabecera->CEDULA}}" disabled>
+                <input class="form-control" type="text" value="{{$cabecera->cedula}}" disabled>
             </div>
             <div class=" col-lg-6 form-group">
                 <label class="control-label">Dirección: </label>
-                <input class="form-control" type="text" value="{{$cabecera->DIRECCION}}" disabled>
+                <input class="form-control" type="text" value="{{$cabecera->direccion}}" disabled>
             </div>
             <div class=" col-lg-6 form-group">
                 <label class="control-label">Fecha: </label>
-                <input class="form-control" type="text" value="{{$cabecera->FECHA}}" disabled>
+                <input class="form-control" type="text" value="{{$cabecera->fecha}}" disabled>
             </div>
             
             
@@ -66,10 +66,10 @@
                       </tfoot>
                                 @foreach($detalles as $det)
                         <tr>
-                            <td align="center">{{$det->CANTIDAD}}</td>
-                            <td align="center">{{$det->NOMBREP}}</td>
-                            <td align="right">{{$det->VALOR_UNITARIO}}</td>
-                            <td align="right">{{$det->VALOR_total}}</td>
+                            <td align="center">{{$det->cantidad}}</td>
+                            <td align="center">{{$det->nombreo}}</td>
+                            <td align="right">{{$det->valor_unitario}}</td>
+                            <td align="right">{{$det->valor_total}}</td>
                         </tr>
                                 @endforeach
                             </table>                       

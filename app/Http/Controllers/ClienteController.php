@@ -7,11 +7,13 @@ use App\Http\Requests;
 use App\Http\Requests\ClienteRequest;
 use App\Cliente;
 use App\Tipocliente;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class ClienteController extends Controller
 {
  	public function __construct(){
- 	//	$this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+ 	$this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
  	}
  	public function index(){
  		$clientes=Cliente::paginate(10);
@@ -26,6 +28,16 @@ class ClienteController extends Controller
  		Cliente::create($request->all());
  		return Redirect::to('cliente');
  	}
+ 	public function PDF()
+    {
+        $clientes=Cliente::all();
+        $tipoc=Tipocliente::all();
+
+        $pdf = PDF::loadView('clientes.show',compact('clientes') );
+
+        return $pdf->download('clientes.pdf');
+    }
+
 
  	public function edit($id){
  		$cliente=Cliente::find($id);

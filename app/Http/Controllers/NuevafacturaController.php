@@ -11,6 +11,9 @@ use App\Http\Requests;
 
 class NuevafacturaController extends Controller
 {
+	public function __construct(){
+ 	$this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+ 	}
     public function index(){
  		return view('nuevafactura.index');
     }

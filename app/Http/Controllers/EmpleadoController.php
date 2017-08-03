@@ -25,6 +25,7 @@ class EmpleadoController extends Controller
     public function create(){
         return view('empleados.create');
     } 
+
  /*   public function ExportPDF($id)
 {
     $empleados = Empleado::find($id)->first();
@@ -32,6 +33,7 @@ class EmpleadoController extends Controller
     return $pdf->download('empleados.pdf');
 
 }*/      
+
     public function ExportPDF()
     {
         $empleados=Empleado::all();

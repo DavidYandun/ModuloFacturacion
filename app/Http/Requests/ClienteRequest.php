@@ -27,7 +27,7 @@ class ClienteRequest extends FormRequest
     {
 
         if(Input::has('idcliente')){
-            $id=Input::get('idcliente');
+            //$id=Request::get('idcliente');
             return [
                 "idtipo"=>"required|integer|min:1|max:11",
                 "cedula"=>"unique:clientes,cedula|min:10|max:10",

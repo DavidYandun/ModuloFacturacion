@@ -28,7 +28,11 @@ use Barryvdh\DomPDF\Facade as PDF;
 class CabeceraController extends Controller
 {
    public function __construct(){
+
+    $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+
       $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+
     }
 
     #Función index
@@ -42,7 +46,6 @@ class CabeceraController extends Controller
 
     }
     
-
     public function create(){
         $cliente= Cliente::all();
         $caja= Caja::all();
@@ -50,8 +53,6 @@ class CabeceraController extends Controller
         return view('cabecera.create',compact('cliente','caja','producto'));      
     }   
    
-
-
     public function store(CabeceraRequest $request){
        
          DB::beginTransaction();
@@ -94,56 +95,46 @@ class CabeceraController extends Controller
              $cont=$cont+1;                        
          }       
 
-        DB::commit();
-    
+        DB::commit();    
        
         return Redirect::to('cabecera');
     } 
     public function ExportPDF($id)
 {
-    $cabecera = Cabecera::find($id)->first();
-    $detalles = Detalle::all();
+    $cabecera=DB::table('cabecera as c')
+            ->join('clientes as cli','c.idcliente','=','cli.idcliente')
+            ->join('caja as caj','c.idcaja','=','caj.idcaja')
+            ->select('c.idcabecera','cli.nombre','cli.apellido','cli.cedula','cli.direccion','caj.idcaja','c.fecha','c.subtotal','c.iva','c.total')
+            ->where('c.idcabecera',$id)
+            ->first(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
+
+        $detalles=DB::table('detalle as d')
+            ->join('productos as p','d.idproducto','=','p.idproducto')
+            ->select('p.nombrep','d.cantidad','d.valor_unitario','d.valor_total')
+            ->where('d.idcabecera','=',$id)
+            ->get();
+
     $pdf = PDF::loadView("cabecera.imprimir",["cabecera"=>$cabecera,"detalles"=>$detalles]);
     return $pdf->download('cabecera.pdf');
-
 }
+
 
         public function show($id)
     {
         $cabecera=DB::table('cabecera as c')
             ->join('clientes as cli','c.idcliente','=','cli.idcliente')
             ->join('caja as caj','c.idcaja','=','caj.idcaja')
-            ->select('c.idcabecera','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.idcaja','c.fecha','c.subtotal','c.iva','c.total')
+            ->select('c.idcabecera','cli.nombre','cli.apellido','cli.cedula','cli.direccion','caj.idcaja','c.fecha','c.subtotal','c.iva','c.total')
             ->where('c.idcabecera',$id)
             ->first(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
 
         $detalles=DB::table('detalle as d')
             ->join('productos as p','d.idproducto','=','p.idproducto')
-            ->select('p.NOMBREP','d.cantidad','d.valor_unitario','d.valor_total')
+            ->select('p.nombrep','d.cantidad','d.valor_unitario','d.valor_total')
             ->where('d.idcabecera','=',$id)
             ->get();
-        return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
-            
-        
-    }
-    public function pdf($id){
-        $cabecera=DB::table('cabecera as c')
-            ->join('clientes as cli','c.idcliente','=','cli.idcliente')
-            ->join('caja as caj','c.idcaja','=','caj.idcaja')
-            ->select('c.idcabecera','cli.NOMBRE','cli.APELLIDO','cli.CEDULA','cli.DIRECCION','caj.idcaja','c.fecha','c.subtotal','c.iva','c.DESCUENTO','c.total')
-            ->where('c.idcabecera',$id)
-            ->first();
-            $detalles=DB::table('detalle as d')
-            ->join('productos as p','d.idproducto','=','p.idproducto')
-            ->select('p.NOMBREP','d.cantidad','d.valor_unitario','d.DESCUENTO','d.valor_total')
-            ->where('d.idcabecera','=',$id)
-            ->get();
-            $view = view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);
-            $pdf= \App::make('dompdf.wrapper');
-            $pdf->loadHTML($view);
-
-            return $pdf->stream('detalles');
-    }
+        return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);                    
+    }    
 
     public function destroy($id)
     {
@@ -152,11 +143,7 @@ class CabeceraController extends Controller
         $cabecera->update();
         return Redirect::to('cabecera');
     }
-   /* public function show($id){
-        $cabecera=Cabecera::find($id);
-        $detalle=Detalle::all();
-         return view('cabecera.show',compact('cabecera','detalle'));
-    }*/
+
     public function edit($id){
         $cabecera=Cabecera::find($id);       
          $cliente= Cliente::all();
@@ -164,17 +151,6 @@ class CabeceraController extends Controller
         return view('cabecera.edit',compact('cabecera','cliente','caja'));
 
     }
-     
-
-
-      /*public function edit($id){
-
-        $installation = Installation::find($id); 
-        $clients = DB::table('clients')->orderBy('name', 'asc')->lists('name','id');
-
-        return view('installation.edit', compact('installation','clients'));
-    }*/
-
 
     public function update(CabeceraRequest $request, $id){
         
@@ -187,6 +163,7 @@ class CabeceraController extends Controller
         $cabecera->update();
         return Redirect::to('cabecera');
     }
+  }
 
      
   /* public function ultimafactura(){
@@ -200,5 +177,5 @@ class CabeceraController extends Controller
         return Redirect::to('cabecera');*/
 
 
- }
+ 
     

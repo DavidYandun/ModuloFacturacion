@@ -39,22 +39,22 @@
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->IDCLIENTE}}" data-subtext="{{ $cli->CEDULA }}">
-                                    {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
+                                <option value="{{$cli->idcliente}}" data-subtext="{{ $cli->CEDULA }}">
+                                    {{ $cli->nombre }} {{ $cli->apellido }}
                                 </option>
                             @endforeach
                         </select>                
                         </div>
                 </div>
                 <!--FIN POR CLIENTES-->
-                <!--FECHAS-->
+                <!--fechaS-->
                 <div class="col-lg-2">
-                        <input type="button" value="Listar por Fecha" onclick="$('#capa1').css('display', 'block')" class="btn btn-success">
+                        <input type="button" value="Listar por fecha" onclick="$('#capa1').css('display', 'block')" class="btn btn-success">
                         <div id="capa1" style="display: none;padding: 10px;">
                         <input type="date" name="">
                         </div>
                 </div>
-                <!--FIN FECHAS-->
+                <!--FIN fechaS-->
                 </div>
         <!--FIN BUSQUEDA-->
 
@@ -66,15 +66,15 @@
                                     <th>Número</th>
                                     <th>Cliente</th>
                                     <th>Caja</th>
-                                    <th>Fecha</th>
-                                    <th>Sub Total</th>
-                                    <th>Iva</th>                                    
-                                    <th>Total</th>                                    
+                                    <th>fecha</th>
+                                    <th>Sub total</th>
+                                    <th>iva</th>                                    
+                                    <th>total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
                                 
-                                @if($c->IDCLIENTE==$cliente->IDCLIENTE)
-                                <!--{{$codcliente=$c->IDCLIENTE}}-->
+                                @if($c->idcliente==$cliente->idcliente)
+                                <!--{{$codcliente=$c->idcliente}}-->
                                 <?php
                                         $nombreCliente = App\Cliente::find($codcliente);
                                     ?>
@@ -87,24 +87,24 @@
                                     </td>
                                     <td align="center">                                        
 
-                                    @if($c->ESTADO=="A")
-                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
-                                     <input type="hidden" id="ESTADO" name="ESTADO" value="I"> 
+                                    @if($c->estado=="A")
+                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
+                                     <input type="hidden" id="estado" name="estado" value="I"> 
                                      @endif
-                                     @if($c->ESTADO=="I") 
+                                     @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
                                       @endif
                                     </td>
                                     <td align="center">
-                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->idcabecera)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
                                     </td>
-                                    <td>{{ $c->IDCABECERA}}</td>
-                                    <td>{{ $nombreCliente->NOMBRE}} {{ $nombreCliente->APELLIDO}}</td>
-                                    <td>{{ $c->IDCAJA}}</td>
-                                    <td>{{ $c->FECHA}}</td>
-                                    <td>{{ $c->SUBTOTAL}}</td>
-                                    <td>{{ $c->IVA}}</td>
-                                    <td>{{ $c->TOTAL}}</td>                                                                                
+                                    <td>{{ $c->idcabecera}}</td>
+                                    <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
+                                    <td>{{ $c->idcaja}}</td>
+                                    <td>{{ $c->fecha}}</td>
+                                    <td>{{ $c->subtotal}}</td>
+                                    <td>{{ $c->iva}}</td>
+                                    <td>{{ $c->total}}</td>                                                                                
                                    </tr>
                                    @endif
                                 @endforeach

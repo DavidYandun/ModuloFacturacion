@@ -15,17 +15,14 @@
 			@endif
 		</div>
 	</div>
+    <div class="col-lg-1">
+            <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo Cliente</i></button>
+        </div>
 {!!Form::open(array('url'=>'cabecera','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
 		
         <div class="row">
-            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-        <div class="form-group">
-
-            <label for="NUMERO">Número <font color="red">*</font></label>            
-                <input name="NUMERO" id="NUMERO" class="form-control"  value="{{old('NUMERO')}}" type="number" placeholder="00001234">
-            </div>
-        </div>  
+              
 
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
         <div class="form-group">
@@ -99,7 +96,7 @@
                                     <?php
                                         $nombretipo = App\Tipocliente::find($codcliente);
                                     ?>               
-                <option value="{{ $cli->IDTIPO }}" >{{ $nombretipo->detalle }}</option>
+                <option value="{{ $cli->IDTIPO }}"  id="idt" >{{ $nombretipo->detalle }}</option>
                 @endforeach
                 </select>
 
@@ -206,26 +203,26 @@ function agregar(){
             if((STOCK)>=(cantidad)){
             valor_total[cont]=cantidad*valor_unitario;          
             total=(total+valor_total[cont]);
+
             //total=total.toFixed(2);
             subtotal=(total/1.12);
             iva=(total-subtotal);
-            alert("Error"+iva);   
 
+            
             var fila='<tr class="selected" id="fila'+cont+'">\n\
             <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td>\n\
             <td><input type="hidden" name="cantidad[]" value="'+cantidad+'" readonly="readonly">'+cantidad+'</td>\n\
             <td><input type="hidden" name="idproducto[]" value="'+idproducto+'" readonly="readonly">'+PRODUCTO+'</td>\n\
             <td><input type="hidden" name="valor_unitario[]" value="'+valor_unitario+'"readonly="readonly">'+valor_unitario+'</td>\n\
             <td><input type="hidden" name="valor_total[]" value="'+valor_total[cont]+'"readonly="readonly">'+valor_total[cont]+'</td></tr>'                      
-            cont++;
-           
-            document.getElementById("total").value=(total);
-            document.getElementById("subtotal").value=(subtotal);
-            document.getElementById("iva").value=(iva);
-            $("#total").html("$/. " + total);
+            cont++;           
+            document.getElementById("total").value=(total.toFixed(2));
+            document.getElementById("subtotal").value=(subtotal.toFixed(2));
+            document.getElementById("iva").value=(iva.toFixed(2));
+            $("#total").html("$/. " + (total.toFixed(2)));
             $("#to").html("$/. " + (total.toFixed(2)));
-            $("#subtotal").html("$/. " + subtotal);
-            $("#iva").html("$/. " + iva);
+            $("#subtotal").html("$/. " + (subtotal.toFixed(2)));
+            $("#iva").html("$/. " + (iva.toFixed(2)));
             $("#subto").html("$/. " + (subtotal.toFixed(2)));
             $("#iv").html("$/. " + (iva.toFixed(2)));
              limpiar();         
@@ -264,10 +261,10 @@ function agregar(){
         subtotal=total/1.12;
         iva=total-subtotal;
 
-            $("#total").html("$/. " + total);
+            $("#total").html("$/. " + (total.toFixed(2)));
             $("#to").html("$/. " + (total.toFixed(2)));       
-            $("#subtotal").html("$/. " + subtotal);
-            $("#iva").html("$/. " + iva);
+            $("#subtotal").html("$/. " + (subtotal.toFixed(2)));
+            $("#iva").html("$/. " + (iva.toFixed(2)));
             $("#subto").html("$/. " + (subtotal.toFixed(2)));       
             $("#iv").html("$/. " + (iva.toFixed(2)));       
         $("#fila" +index).remove();
@@ -287,13 +284,14 @@ function agregar(){
         }
     }
     return false;
- }
- function mostrarValor(){
+ }*/
+/* function mostrarValor(){
     datoscliente=document.getElementById('idcliente').value.split('_');
-   if((datoscliente[1])=="1"){ 
-    alert("Elproducto");  
-    document.getElementById('IDTIPO').disabled=true;                
-    
+    idtipo=parseFloat(datoscliente[1]);
+
+   if(idtipo=="1"){ 
+     
+    $("#pstock").attr('disabled', true);      
     }
     
     

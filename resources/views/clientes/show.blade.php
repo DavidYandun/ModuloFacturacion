@@ -1,7 +1,7 @@
-      <html lang="es">
+    <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Listado de Empleados</title>
+    <title>Listado de Clientes</title>
     <style type="text/css">
         /* estilos para el footer y el numero de pagina */
         @page { margin: 180px 25px; }
@@ -48,43 +48,53 @@ tr:hover td { color: #339; }
                     <h1 style="color:#339;">MODULO FACTURACIÓN</h1>                                  
     </div>    
         <div class="container" align="center" id="datos">                                     
-                <h4 style="color:#339;">Reporte de Empleados</h4>                
+                <h4 style="color:#339;">Reporte de Clientes</h4>                
             </div>         
-            <div class="panel-body col-lg-12">
+ <div class="panel-body col-lg-10" >
         <div class="container" align="center">
-
-    <table  class="table table-striped table-bordered table-condensed table-hover col-lg-12">
+    <table   class="table table-striped table-bordered table-condensed table-hover col-lg-10">
                                 <thead>
                                 <tr>
+                                    <th>TIPO</th>
                                     <th>CÉDULA</th>
                                     <th>NOMBRE</th>
                                     <th>NACIMIENTO</th>
                                     <th>CIUDAD</th>
                                     <th>DIRECCIÓN</th>
                                     <th>TELÉFONO</th>
+                                    <th>EMAIL</th>
                                     <th>ESTADO</th>    
                                     </tr>                                
                                 </thead>
                               <tbody>
-                                @foreach($empleados as $det)
+                                @foreach($clientes as $cli)
                         <tr>
-
-                            <td align="center">{{$det->cedula}}</td>
-                            <td align="center">{{$det->nombre}}</td>
-                            <td align="center">{{$det->nacimiento}}</td>
-                            <td align="center">{{$det->ciudad}}</td>
-                            <td align="center">{{$det->direccion}}</td>
-                            <td align="center">{{$det->telefono}}</td>
-                            <td align="center">{{$det->estado}}</td>                      
-
+                             <!--{{$codtipo=$cli->idtipo}}-->
+                                    <?php
+                                        $nombreTipo = App\TipoCliente::find($codtipo);
+                                    ?>
+                                    @if(($nombreTipo->detalle)=='CR')
+                                    <td>CREDITO</td>
+                                    @endif
+                                    @if(($nombreTipo->detalle)=='EF')
+                                    <td>CREDITO</td>
+                                    @endif    
+                            <td align="center">{{$cli->cedula}}</td>
+                            <td align="center">{{$cli->nombre}}</td>
+                            <td align="center">{{$cli->nacimiento}}</td>
+                            <td align="center">{{$cli->ciudad}}</td>
+                            <td align="center">{{$cli->direccion}}</td>
+                            <td align="center">{{$cli->telefono}}</td>
+                            <td align="center">{{$cli->email}}</td>
+                            <td align="center">{{$cli->estado}}</td>                      
                         </tr>
                                 @endforeach
                             </tbody>
-                            </table>                       
-</div>
+                </table>
+                </div>
 
-</div>
-</body>
+</div>                       
+    </body>
 </html>
 
     

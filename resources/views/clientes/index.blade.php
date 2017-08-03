@@ -7,15 +7,15 @@
 @section('contenido')
 <div class="container">
     <div class="row">
-       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-
+       
             <!--<button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo</i></button>-->
            
-
+<div class="col-lg-1">
             <p><a href="{{url('cliente/create')}}"><button class="btn btn-success"> Nuevo</button></a></p>
- 
-
-        </div>
+           </div>
+            <div class="col-lg-1">
+             <a class="btn btn-primary" href="export/pdf"><i class="glyphicon glyphicon-print" > IMPRIMIR</i></a>
+            </div>
     </div>
     @if ($message = Session::get('mensaje'))
     <div class="row">

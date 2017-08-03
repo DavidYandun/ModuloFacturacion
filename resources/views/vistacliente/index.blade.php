@@ -29,7 +29,7 @@
                         
                         <select id="seleccion" onchange="capturar()"> 
                             @foreach ($client as $cli)                
-                                <option value="{{$cli->IDCLIENTE}}">
+                                <option value="{{$cli->idcliente}}">
                                     {{ $cli->NOMBRE }} {{ $cli->APELLIDO }}
                                 </option>
                             @endforeach
@@ -56,7 +56,7 @@
                                     <th>Total</th>                                    
                                 </thead>
                                @foreach ($cabecera as $c)
-                                <!--{{$codcliente=$c->IDCLIENTE}}-->
+                                <!--{{$codcliente=$c->idcliente}}-->
                                     <?php
                                         $nombreCliente = App\Cliente::find($codcliente);
                                     ?>
@@ -138,14 +138,14 @@
         </div>  
 
         <div class="form-group">
-            <label for="IDCLIENTE" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Cliente <font color="red">*</font></label>
+            <label for="idcliente" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 control-label">Id Cliente <font color="red">*</font></label>
             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
                 
-                <select name="IDCLIENTE" id="IDCLIENTE" class="form-control">
+                <select name="idcliente" id="idcliente" class="form-control">
                 <option value="">selecciona un cliente</option>
                 @foreach ($cliente as $cli)
                 
-                <option value="{{ $cli->IDCLIENTE }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
+                <option value="{{ $cli->idcliente }}">{{ $cli->NOMBRE }} {{ $cli->APELLIDO }}</option>
                 @endforeach
                 </select>
 

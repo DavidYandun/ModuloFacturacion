@@ -159,97 +159,13 @@ function check_cedula()
       return true;
     }
     else
-    {
+    {       
       alert( "La c\xe9dula NO es v\xe1lida!!!" ); 
-      return false     
+      return false;    
     }
+
   }  
 }
 
-$(document).ready(function() {    
-    	$('#formula').formValidation({
-
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok-sign',
-            invalid: 'glyphicon glyphicon-remove-sign',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            cedula: {
-                validators: {
-
-                    stringLength: {
-                        min: 10,
-                        max: 10,
-                        message: 'Ingrese su cédula correctamente'
-                    }
-                }
-            },
-            nombre: {
-                validators: {
-                    stringLength: {
-                        min: 3,
-                        message: 'Escriba su nombre correctamente'
-                    }
-                }
-            },
-            apellido: {
-                validators: {
-                    stringLength: {
-                        min: 3,
-                        message: 'Escriba su apellido correctamente'
-                    }
-                }
-            },
-            ciudad: {
-                validators: {
-                    stringLength: {
-                        min: 3,
-                        message: 'Escriba su Ciudad de Nacimiento'
-                    }
-                }
-            },
-            direccion: {
-                validators: {
-                    stringLength: {
-                        min: 3,
-                        message: 'Escriba su dirección de Domicilio'
-                    }
-                }
-            },
-             telefono: {
-                validators: {
-                    stringLength: {
-                        min: 9,
-                        message: 'Escriba su Número Telefónico'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    emailAddress: {
-                        message: 'Su Email no es válido, Ejm: usuario@dominio.com'
-                    }
-                }
-            },
-            nacimiento: {
-                validators: {
-                    date: {
-                        format: 'DD/MM/YYYY',
-                        message: 'La fecha no es válida'
-                    }
-                }
-            },            
-            estado: {
-                    validators: {
-                        notEmpty: {
-                            message: 'El estado es Requerido'
-                        }
-                    }
-                }
-        }
-    });
-});
 </script>
 @endpush

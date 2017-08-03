@@ -184,6 +184,7 @@
         <!-- Bootstrap -->
         <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
         <!-- FastClick -->
         <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
         <!-- NProgress -->
@@ -220,11 +221,5 @@
 
         <!-- Custom Theme Scripts -->
         <script src="{{asset('build/js/custom.min.js')}}"></script>
-
-<<<<<<< HEAD
-
-=======
-     
->>>>>>> pdf
 </body>
 </html>

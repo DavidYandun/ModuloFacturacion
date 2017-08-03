@@ -15,6 +15,7 @@ Productos
     
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <p><a href="{{url('producto/create')}}"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="{{url('producto/show')}}"><button class="btn btn-success">Actualizar</button></a></p>
         </div>
     </div>
     @endrole
@@ -31,6 +32,9 @@ Productos
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Productos</div>
+                
+                
+                
                 <div class="panel-body">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="table-responsive">
@@ -46,6 +50,7 @@ Productos
                                     <th>Precio</th>
                                     
                                 </thead>
+
                                @foreach ($productos as $p)
                                 <tr>
                                 @role('admin')
@@ -61,7 +66,8 @@ Productos
                                     <td>{{ $p->stock}}</td>
                                     <td>{{ $p->nombrep}}</td>
                                     <td>{{ $p->descripcion}}</td>
-                                    <td>{{ $p->valor}}</td>
+                                    <td>{{ $p->valor}}</td>                                    
+                                </tr>
                                     
                                 </tr>
                                 @endforeach
