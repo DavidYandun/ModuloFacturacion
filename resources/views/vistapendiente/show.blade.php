@@ -70,6 +70,11 @@
                               @foreach ($facturaspendientes as $d)
                                     <?php $cab = App\Cabecera::find($d->idcabecera); ?>
                                     <?php $cli = App\Cliente::find($cab->idcliente); ?>
+{{$cliente->idcliente}}
+{{$cab->idcliente}}
+{{$cli->idcliente}}
+                                     @if($cliente->idcliente == $cab->idcliente)
+                                
                                 <tr>
                                     <td>{{ $d->idpendiente}}</td>
                                     <td>{{ $d->idcabecera}}</td>
@@ -85,6 +90,7 @@
 
                                     </td>
                                    </tr>
+                                   @endif
                                 @endforeach
                             </table>
                         </div>
@@ -114,7 +120,7 @@
 <script type="text/javascript">
     function capturar(){
         var cod=document.getElementById("seleccion").value;
-        window.location = "vistapendiente/"+cod;
+        window.location = ""+cod;
     }
     
 </script>

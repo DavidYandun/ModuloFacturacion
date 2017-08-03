@@ -93,19 +93,23 @@
             </div>
             <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
         <div class="form-group">
-            <label>Tipo de PAgo<font color="red">*</font></label>         
-                
-                <select name="IDTIPO" id="IDTIPO" disabled="false" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
-                <option value="" selected>selecciona tipo de pago</option>
-                @foreach ($cliente as $cli) 
-                 <!--{{$codcliente=$cli->idtipo}}-->
-                                    <?php
-                                        $nombretipo = App\Tipocliente::find($codcliente);
-                                    ?>               
-                <option value="{{ $cli->IDTIPO }}"  id="idt" >{{ $nombretipo->detalle }}</option>
-                @endforeach
-                </select>
+            <label>Tipo de Pago<font color="red">*</font></label>
 
+                <input type="button" value="Que valor hay en el select" onclick="capturar()">
+                <div id="resultado"></div>
+                <select name="idtipo" id="idtipo"  class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                <option value="" selected>selecciona tipo de pago</option>
+                    <?php $tipo = App\Tipocliente::all(); ?>
+                    @foreach($tipo as $t)
+                        @if($t->detalle=='EF')
+                <option value="{{ $t->idtipo }}"  id="idt" >EFECTIVO</option>
+                        @endif
+                        @if($t->detalle=='CR')
+                <option value="{{ $t->idtipo }}"  id="idt" >CRÉDITO</option>
+                        @endif
+                    @endforeach
+                </select>
+                
             </div>
         </div>
             
@@ -292,14 +296,9 @@ function agregar(){
 /* function mostrarValor(){
     datoscliente=document.getElementById('idcliente').value.split('_');
     idtipo=parseFloat(datoscliente[1]);
-
    if(idtipo=="1"){ 
-     
     $("#pstock").attr('disabled', true);      
     }
-    
-    
-    
 }
  /*function activartipo(){
     alert("La cantidad a vender supera el Stock");
@@ -329,6 +328,12 @@ function agregar(){
     return false;
 }*/
 
+/*function capturar(){
+         var client=document.getElementById("idcliente").value;
+        document.getElementById("resultado").innerHTML=" \
+            <br>Por ID: "+client;
+   
+}*/
  </script>
  @endpush
 @endsection 
