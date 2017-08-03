@@ -9,30 +9,7 @@ Usuarios
 
 
 @section('contenido')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{ route('register') }}"><button class="btn btn-success">Nuevo</button></a></p>
-            
-        </div>
 
-    </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{url('role') }}"><button class="btn btn-success">Role</button></a></p>
-            
-        </div>
-                        
-    </div>
-    <!--@if ($message = Session::get('mensaje'))
-    <div class="row">
-    <div class="alert alert-success">
-        <p>
-            <strong>{{ $message }}</strong>
-        </p>
-    </div>
-    </div>
-    @endif-->
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -80,4 +57,17 @@ Usuarios
 </div>
 @endsection
 
-
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready(function()){
+        $('#modalEliminarTipoCliente').on('show.bs.modal',function(event)){
+        var button=$(event.relatedTarget);
+        var action=button.data('action');
+        var idtipo=button.data('id');
+        var modal=$(this);
+        modal.find(".modal-body #txtEliminar").text("¿Estás seguro de eliminar al cliente con C.I"+idtipo +"?");
+        modal.find(".modal-body form").attr('action',action);
+        });
+    });
+</script>
+@endpush

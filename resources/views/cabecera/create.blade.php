@@ -15,9 +15,7 @@
 			@endif
 		</div>
 	</div>
-    <div class="col-lg-1">
-            <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo Cliente</i></button>
-        </div>
+   
 {!!Form::open(array('url'=>'cabecera','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
 		
