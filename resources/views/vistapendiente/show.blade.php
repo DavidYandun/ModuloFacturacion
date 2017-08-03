@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="facturaspendientes/create"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="{{url('facturaspendientes/create')}}"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
     </div>
     <!--@if ($message = Session::get('mensaje'))
@@ -70,9 +70,7 @@
                               @foreach ($facturaspendientes as $d)
                                     <?php $cab = App\Cabecera::find($d->idcabecera); ?>
                                     <?php $cli = App\Cliente::find($cab->idcliente); ?>
-{{$cliente->idcliente}}
-{{$cab->idcliente}}
-{{$cli->idcliente}}
+
                                      @if($cliente->idcliente == $cab->idcliente)
                                 
                                 <tr>
