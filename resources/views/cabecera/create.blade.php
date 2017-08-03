@@ -16,17 +16,21 @@
 		</div>
 	</div>
     <div class="col-lg-1">
-            <button class="btn btn-success" data-toggle="modal" data-target="#nuevo"><i class="glyphicon glyphicon-edit"> Nuevo Cliente</i></button>
+            
         </div>
 {!!Form::open(array('url'=>'cabecera','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
 		
         <div class="row">
               
-
+<div class="form-group col-lg-2 col-sm-3 col-md-3 col-xs-12">
+           <h3>N°: {{$cabecera->last()->idcabecera + 1}}</h3>
+        </div>
+        <div class="form-group col-lg-2 col-sm-3 col-md-3 col-xs-12">
+           <a href="{{url('cliente/create')}}" class="btn btn-primary">Nuevo Cliente </a>
+        </div>
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
         <div class="form-group">
-            <label >Id Cliente <font color="red">*</font></label>         
                 
                 <select name="idcliente" id="idcliente" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un cliente</option>
@@ -40,8 +44,7 @@
 
         <div class="form-group">
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-            <label for="idcaja">Id Caja <font color="red">*</font></label>            
-                <select name="idcaja" id="idcaja" class="form-control">
+                <select name="idcaja" id="idcaja" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                 <option value="">selecciona un caja</option>
                 @foreach ($caja as $caj)
                 <option value="{{ $caj->idcaja }}">{{ $caj->numero }}</option>
@@ -50,6 +53,8 @@
 
             </div>           
         </div>
+    <!--numero de factura-->
+        
 </div>
 <div class="row">
         <div class="panel panel-primary">
@@ -70,7 +75,7 @@
             </div><div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
      <div class="form-group">
       <label for="cantidad">cantidad</label>
-      <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="cantidad">
+      <input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="cantidad" value="1">
      </div>
     </div>
             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
@@ -241,6 +246,11 @@ function agregar(){
         else
         {
             alert("Error al ingresar el detalle del ingreso, revise los datos del PRODUCTO");
+            swal(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+                );
         }
         
         
@@ -331,5 +341,6 @@ function agregar(){
    
 }*/
  </script>
+ 
  @endpush
 @endsection 

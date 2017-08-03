@@ -49,8 +49,9 @@ class CabeceraController extends Controller
     public function create(){
         $cliente= Cliente::all();
         $caja= Caja::all();
-        $producto=Producto::All();        
-        return view('cabecera.create',compact('cliente','caja','producto'));      
+        $producto=Producto::all(); 
+        $cabecera=Cabecera::all();
+        return view('cabecera.create',compact('cliente','caja','producto','cabecera'));      
     }   
    
     public function store(CabeceraRequest $request){
