@@ -23,15 +23,22 @@ Route::get('home', 'CabeceraController@create');
 
 Auth::routes();
 
+Route::get('register', [
+    'as'   => 'register',
+    'uses' => 'RegisterController@signUp'
+]);
+
+
+
 Route::get('/export/pdf',
     [
         'as' => 'export.pdf',
         'uses' => 'EmpleadoController@ExportPDF'
     ]);
-Route::get('/exp/pdf',
+Route::get('/expo/pdf',
     [
-        'as' => 'exp.pdf',
-        'uses' => 'ClienteController@PDF'
+        'as' => 'export.pdf',
+        'uses' => 'ClienteController@ExportPDF'
     ]);
 Route::get('/export/pdf/{id}',
     [

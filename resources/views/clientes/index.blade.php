@@ -14,7 +14,7 @@
             <p><a href="{{url('cliente/create')}}"><button class="btn btn-success"> Nuevo</button></a></p>
            </div>
             <div class="col-lg-1">
-             <a class="btn btn-primary" href="export/pdf"><i class="glyphicon glyphicon-print" > IMPRIMIR</i></a>
+             <a class="btn btn-primary" href="expo/pdf"><i class="glyphicon glyphicon-print" > IMPRIMIR</i></a>
             </div>
     </div>
     @if ($message = Session::get('mensaje'))
