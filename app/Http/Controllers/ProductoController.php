@@ -69,7 +69,15 @@ class ProductoController extends Controller
           $idproducto=$list['ID_PROD'];
           
           Producto::create(['stock'=>$stock,'nombrep'=>$nombre,'descripcion'=>$descripcion,'valor'=>$precio,'idproducto'=>$idproducto]);
-        } 
+        } else if($b==true){
+          $pp=Producto::find($list['ID_PROD']);
+          //$pp->idproducto=$list['ID_PROD'];
+          $pp->stock=$list['STOCK_PROD'];
+          $pp->nombrep=$list['NOMBRE_PROD'];
+          $pp->descripcion=$list['DESCRIPCION_PROD'];
+          $pp->valor=$list['PVP_PROD'];
+          $pp->save();
+        }
           
       
     }
