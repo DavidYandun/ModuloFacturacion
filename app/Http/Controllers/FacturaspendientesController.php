@@ -16,7 +16,8 @@ class FacturaspendientesController extends Controller
  	}
  	public function index(){
  		$facturaspendientes=Facturaspendientes::paginate(10);
- 		return view('facturaspendientes.index',compact('facturaspendientes'));
+ 		$cabecera=Cabecera::all();
+ 		return view('facturaspendientes.index',compact('facturaspendientes','cabecera'));
 
  	}
  	public function create(){
@@ -34,7 +35,7 @@ class FacturaspendientesController extends Controller
  	
  	public function edit($id){
  		$cabecera=Cabecera::all();
- 		return view('facturaspendientes.edit',['facturaspendiente'=>Facturaspendientes::findOrFail($id)],compact('cabecera'));
+ 		return view('facturaspendientes.edit',['facturaspendientes'=>Facturaspendientes::findOrFail($id)],compact('cabecera'));
 
  	}
  	public function show($id){
@@ -48,6 +49,6 @@ class FacturaspendientesController extends Controller
  	
  	public function delete($id){
         Facturaspendientes::destroy($id);
-        return Redirect::to('facturaspendiente');
+        return Redirect::to('facturaspendientes');
     }
 }

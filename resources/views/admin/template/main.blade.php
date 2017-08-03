@@ -88,7 +88,7 @@
                                         @endrole
                                     <!--FACTURAS PENDIENTES-->
                                      
-                                         <li><a href="{{url('facturaspendiente')}}"><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-right"></span></a>
+                                         <li><a href="{{url('facturaspendientes')}}"><i class="fa fa-columns"></i> Facturas Pendientes <span class="fa fa-chevron-right"></span></a>
                                         </li>
                                     
                                     <!--FACTURAS PENDIENTES--> 

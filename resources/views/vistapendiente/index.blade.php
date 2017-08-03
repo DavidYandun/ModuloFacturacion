@@ -69,7 +69,7 @@
                                 </thead>
                               @foreach ($facturaspendientes as $d)
                                     <?php $cab = App\Cabecera::find($d->idcabecera); ?>
-                                    <?php $cli = App\Cliente::find($cab->idcliente); ?>
+                                    <?php $cli = App\Cliente::find($cab->idcabecera); ?>
                                 <tr>
                                     <td>{{ $d->idpendiente}}</td>
                                     <td>{{ $d->idcabecera}}</td>

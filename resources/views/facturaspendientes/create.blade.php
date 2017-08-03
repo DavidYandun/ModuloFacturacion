@@ -24,11 +24,16 @@
 		<div class="form-group">
 			<label for="idcabecera" class="col-lg-2 control-label">ID-Cabecera<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<select name="idcabecera" id="idcabecera" class="form-control">
+				<input type="hidden" name="idcabecera" id="idcab">
+				<select  id="idcabecera" class="form-control" onchange="Saldo();">
 				@foreach ($cabecera as $cab)
-				<option value="{{ $cab->idcabecera }}">{{ $cab->idcabecera }}</option>
+				<option value="{{ $cab->idcabecera }}_{{$cab->total}}">{{ $cab->idcabecera }} </option>
 				@endforeach
 				</select>
+				
+				<div id='resultado'>
+					
+				</div>
 			</div>
 		</div>
 		
@@ -36,7 +41,7 @@
 		<div class="form-group">
 			<label for="abono" class="col-lg-2 control-label">Abono<font color="red">*</font></label>
 			<div class="col-lg-10">
-				<input name="abono" id="abono" class="form-control" type="text" value="{{old('abono')}}" required>
+				<input name="abono" id="abono" class="form-control" type="text" value="0" required onkeyup="Saldo();">
 			</div>
 		</div>
 		<!--saldo-->
@@ -53,3 +58,20 @@
 	{!!Form::close()!!}
 </div>
 @endsection
+
+<script type="text/javascript">
+	function Saldo(){
+		//alert('hola');
+		var cabecera=document.getElementById("idcabecera").value.split('_');
+		document.getElementById("idcab").value=cabecera['0'];
+		
+		var total = parseFloat(cabecera['1']);
+		var abono = parseFloat(document.getElementById("abono").value);
+		document.getElementById("saldo").value=total-abono;
+
+		 //document.getElementById("resultado").innerHTML=" \
+		 //<span>"+cabecera[0]+"</span>";
+	}
+	
+
+</script>

@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="facturaspendientes/create"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="{{url('facturaspendientes/create')}}"><button class="btn btn-success">Nuevo</button></a></p>
         </div>
     </div>
     <!--@if ($message = Session::get('mensaje'))
@@ -70,6 +70,9 @@
                               @foreach ($facturaspendientes as $d)
                                     <?php $cab = App\Cabecera::find($d->idcabecera); ?>
                                     <?php $cli = App\Cliente::find($cab->idcliente); ?>
+
+                                     @if($cliente->idcliente == $cab->idcliente)
+                                
                                 <tr>
                                     <td>{{ $d->idpendiente}}</td>
                                     <td>{{ $d->idcabecera}}</td>
@@ -85,6 +88,7 @@
 
                                     </td>
                                    </tr>
+                                   @endif
                                 @endforeach
                             </table>
                         </div>
@@ -114,7 +118,7 @@
 <script type="text/javascript">
     function capturar(){
         var cod=document.getElementById("seleccion").value;
-        window.location = "vistapendiente/"+cod;
+        window.location = ""+cod;
     }
     
 </script>
