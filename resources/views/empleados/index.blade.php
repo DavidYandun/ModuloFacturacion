@@ -65,7 +65,7 @@
                                 @endforeach
                             </table>
                         </div>
-                        {{$empleados->render()}]
+                        {{$empleados->render()}}
                     </div>
                     @include('empleados.delete')
                 </div>

@@ -13,6 +13,6 @@ class Producto extends Model
     public $timestamps=false;
 
     protected $fillable=[
-    "stock","nombrep","descripcion","valor"
+    "idproducto","stock","nombrep","descripcion","valor"
     ];
 }
