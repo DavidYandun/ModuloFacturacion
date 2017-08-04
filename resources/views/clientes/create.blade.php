@@ -149,13 +149,12 @@
         	<div class="col-lg-3">
               <a href="{{url('cliente')}}" class="form-control btn btn-danger">Cancelar</a>
         </div>
-<<<<<<< HEAD
-        	
+
 		</div>
 		</div>
 		</form>		
 	</div>
-=======
+
     
 
 
@@ -283,7 +282,7 @@
 
 
 </div>
->>>>>>> 123a546ca329c790121a654a0398be94f666ec43
+
 @endsection
 @push('scripts')
 <script src="{{asset('js\validaciones.js')}}"></script>
@@ -322,7 +321,11 @@ function check_cedula()
     }
     else
     {
-      alert( "La c\xe9dula NO es v\xe1lida!!!" ); 
+      swal(
+  'Cédula incorrecta!',
+  'error'
+);
+   
       return false     
     }
   }  

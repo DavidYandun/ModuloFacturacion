@@ -35,6 +35,11 @@ Route::get('/export/pdf',
         'as' => 'export.pdf',
         'uses' => 'EmpleadoController@ExportPDF'
     ]);
+Route::get('/exportFP/pdf',
+    [
+        'as' => 'export.pdf',
+        'uses' => 'FacturaspendientesController@ExportPDF'
+    ]);
 Route::get('/expo/pdf',
     [
         'as' => 'export.pdf',

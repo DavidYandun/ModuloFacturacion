@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Requests\FacturaspendientesRequest;
 use App\Facturaspendientes;
 use App\Cabecera;
+use App\Cliente;
+use Barryvdh\DomPDF\Facade as PDF;
+use DB;
 
 class FacturaspendientesController extends Controller
 {
@@ -31,6 +34,21 @@ class FacturaspendientesController extends Controller
  	//	return view('detalles.index',compact('detalles'));
  		return Redirect::to('facturaspendientes');
  	}
+    public function ExportPDF()
+    {
+        $fac=Facturaspendientes::all();
+        $clientes=Cliente::all();
+
+        $cabecera=DB::table('cabecera as c')
+            ->join('facturas_pendientes as fa','c.idcabecera','=','fa.idcabecera') 
+            ->join('clientes as cl','cl.idcliente','=','c.idcliente')        
+            ->select('fa.idpendiente','c.idcabecera','cl.nombre','c.total','fa.abono','fa.saldo')            
+            ->get(); // Arriba ya se utilizo group by, acá utilizar first para traer únicamente el primero.
+
+
+        $pdf = PDF::loadView('facturaspendientes.show',compact('cabecera'));
+        return $pdf->download('facturasP.pdf');
+    } 
  	
 
  	
@@ -41,7 +59,7 @@ class FacturaspendientesController extends Controller
  		return view('facturaspendientes.edit',['facturaspendientes'=>Facturaspendientes::findOrFail($id)],compact('cabecera'));
 
  	}
- 	public function ExportPDF($id)
+ /*	public function ExportPDF($id)
 {
 
     $cabecera=DB::table('cabecera as c')
@@ -61,7 +79,7 @@ class FacturaspendientesController extends Controller
             return $pdf->download('cabecera.pdf');
     }
 
-
+*/
 
 
 

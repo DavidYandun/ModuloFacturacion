@@ -10,6 +10,10 @@
 
            <!-- Bootstrap -->
         <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}">
+        <link rel="stylesheet" href="{{asset('css/sweetalert2.min.css')}}">
+
         <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
         <!-- Font Awesome -->
         <link href="{{asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -29,6 +33,12 @@
         <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 
         <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+
+
+
+
+
 
 
 
@@ -186,7 +196,15 @@
         <!-- Bootstrap -->
         <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
+
+        <script src="{{asset('js/sweetalert2.common.js')}}"></script>
+        <script src="{{asset('js/sweetalert2.common.min.js')}}"></script>
+        <script src="{{asset('js/sweetalert2.js')}}"></script>
+        <script src="{{asset('js/sweetalert2.min.js')}}"></script>
+
+
+
+
         <!-- FastClick -->
         <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
         <!-- NProgress -->

@@ -159,8 +159,11 @@ function check_cedula()
       return true;
     }
     else
-    {       
-      alert( "La c\xe9dula NO es v\xe1lida!!!" ); 
+    {            
+      swal(
+  'Cédula incorrecta!',
+  'error'
+);
       return false;    
     }
 

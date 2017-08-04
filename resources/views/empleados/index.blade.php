@@ -46,10 +46,7 @@
                                 <tr>
                                     <td align="center">
 
-                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->idempleado)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
-                                    
-                                   
-                                                                                                        
+                                        <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->idempleado)}}"><i class="glyphicon glyphicon-pencil" ></i></a>                                                                                                                                                              
                                     </td>
                                     <td>{{ $c->cedula}}</td>
                                     <td>{{ $c->nombre}}</td>
