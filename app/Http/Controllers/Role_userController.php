@@ -11,7 +11,7 @@ use DB;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
 
-class UserController extends Controller
+class Role_userController extends Controller
 {
 
 	 public function __construct(){
@@ -20,13 +20,17 @@ class UserController extends Controller
 
 	
  	
- 	public function createrole($id){
+ 	public function index(){
  		$role_user=Role_user::all();
  		$role=Role::all();
- 		$user=User::find($id);
- 		return view('usuarios.createrole',compact('user'));
+ 		$user=User::all();
+ 		return view('role.index',compact('role_user','role','user'));
  	}	
  	
- 	
+ 	public function store(Role_userRequest $request){
+ 	Role_user::create($request->all());
+ 	return Redirect::to('role');
+}
+
 
 }

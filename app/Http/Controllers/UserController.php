@@ -19,10 +19,11 @@ class UserController extends Controller
     }
 
 	public function index(){ 
- 		//$role_user=Role_user::all();
+ 		$role_user=Role_user::all();
+ 		$role=Role::all();
  		//return view('usuarios.index',compact('role_user'));
  		$user=User::all();
- 		return view('usuarios.index',compact('user'));
+ 		return view('usuarios.index',compact('role_user','role','user'));
  	}
  	
  	public function create(){
@@ -39,9 +40,9 @@ class UserController extends Controller
  	public function store(UserRequest $request){
  		User::create($request->all());
  		return Redirect::to('usuarios');
-}
+	}
 
-public function edit($id){
+	public function edit($id){
  		$usuarios=User::find($id);
  		return view('usuarios.edit',compact('usuarios'));
 
@@ -54,6 +55,9 @@ public function edit($id){
  	public function delete($id){
  		User::destroy($id);
  		return Redirect::to('usuarios');
+ 	}
+ 	public function show($id){
+ 		return view('usuarios.index',['user'=>User::findOrFail($id)]);
  	}
     
 }

@@ -25,6 +25,7 @@ class CajaController extends Controller
  	}	
 
  	public function store(CajaRequest $request){
+ 	
  		Caja::create($request->all());
  		//$prductos=Producto::paginate(10);
  	//	return view('productos.index',compact('productos'));

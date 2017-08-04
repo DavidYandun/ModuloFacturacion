@@ -9,30 +9,7 @@ Usuarios
 
 
 @section('contenido')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{ route('register') }}"><button class="btn btn-success">Nuevo</button></a></p>
-            
-        </div>
 
-    </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{url('role') }}"><button class="btn btn-success">Role</button></a></p>
-            
-        </div>
-                        
-    </div>
-    <!--@if ($message = Session::get('mensaje'))
-    <div class="row">
-    <div class="alert alert-success">
-        <p>
-            <strong>{{ $message }}</strong>
-        </p>
-    </div>
-    </div>
-    @endif-->
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -42,23 +19,21 @@ Usuarios
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
-                                <th>Id</th>
+                                
                                 <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Creación</th>
-                                <th>Modificación</th>
+                                
+                                
+                                <th>rol</th>
                               
                                  
-                              @foreach ($user as $usuario)
-                             
+                              @foreach ($role_user as $ru)
+                              <!--{{$u=App\User::find($ru->user_id)}}-->
+                              <!--{{$r=App\Role::find($ru->role_id)}}-->
 
                               
                                  <tr>
-                                    <td>{{$usuario->id}}</td>
-                                    <td>{{$usuario->name}}</td>
-                                    <td>{{$usuario->email}}</td>
-                                    <td>{{$usuario->created_at}}</td>
-                                    <td>{{$usuario->updated_at}}</td>
+                                    <td>{{$u->name}}</td>
+                                    <td>{{$r->name}}</td>
                                     
                                  </tr>
                                     
@@ -79,5 +54,4 @@ Usuarios
     </div>
 </div>
 @endsection
-
 

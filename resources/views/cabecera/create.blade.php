@@ -15,9 +15,13 @@
 			@endif
 		</div>
 	</div>
+<<<<<<< HEAD
     <div class="col-lg-1">
             
         </div>
+=======
+   
+>>>>>>> b982b89d511898119442d87c11ea2010a26fc504
 {!!Form::open(array('url'=>'cabecera','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
 		

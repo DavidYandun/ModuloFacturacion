@@ -85,15 +85,29 @@
                                         @endif
                                         @if($c->estado=="I") 
                                      <h5>ANULADA</h5>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b982b89d511898119442d87c11ea2010a26fc504
                                       @endif
                                     </td>          
                                     
                                     <td align="center">
+<<<<<<< HEAD
                                     <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->idcabecera)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
 
                                     </td>
 
                             <!--DATOS DE FACTURA-->
+=======
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>
+                                    <td>{{ $c->IDCABECERA}}</td>
+                         
+                                    <a class="btn btn-primary" href="{{URL::action('CabeceraController@show',$c->IDCABECERA)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                    </td>                                   
+                 
+>>>>>>> b982b89d511898119442d87c11ea2010a26fc504
 
                                     <td>{{ $c->idcabecera}}</td>
                                     <td>{{ $nombreCliente->nombre}} {{ $nombreCliente->apellido}}</td>
