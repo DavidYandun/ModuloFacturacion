@@ -55,7 +55,7 @@
 
                
                 <!--FIN POR CLIENTES-->
-                
+                </div>
         <!--FIN BUSQUEDA-->
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="table-responsive">
@@ -93,7 +93,7 @@
                         {{$facturaspendientes->render()}}
                     </div>
                     @include('facturaspendientes.delete')
-                </div>
+                
             </div>
         </div>
     </div>

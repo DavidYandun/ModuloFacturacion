@@ -64,6 +64,8 @@ Route::resource('vistapendiente','VistapendienteController');
 Route::resource('nuevafactura','NuevafacturaController');
 Route::resource('usuarios','UserController');
 
+Route::resource('cajeros','CajeroController');
+Route::resource('role','Role_userController');
 
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;

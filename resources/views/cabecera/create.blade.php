@@ -18,6 +18,7 @@
     <div class="col-lg-1">
             
         </div>
+   
 {!!Form::open(array('url'=>'cabecera','method'=>'POST','autocomplete'=>'off'))!!}
 {{Form::token()}}
 		
@@ -66,9 +67,7 @@
                     <select name="pidproducto" class="form-control selectpicker" id="pidproducto" data-live-search="true" data-show-subtext="true">
                     <option value="" selected="true">Select Product</option>
                         @foreach ($producto as $pro)   
-                        @if (($pro->stock) > 0)          
                          <option value="{{ $pro->idproducto}}_{{ $pro->stock}}_{{ $pro->valor}}" data-subtext="{{ $pro->idproducto }}">{{ $pro->nombrep }}</option>
-                 @endif   
                 @endforeach
                     </select>
                 </div>
