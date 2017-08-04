@@ -28,6 +28,8 @@
         <!-- Custom Theme Style -->
         <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 
+        <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+
 
 
 </head>
@@ -221,5 +223,11 @@
 
         <!-- Custom Theme Scripts -->
         <script src="{{asset('build/js/custom.min.js')}}"></script>
+
+        <script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 </body>
 </html>
