@@ -101,7 +101,7 @@
                             <!--BOTON ANULAR-->
                                     <td align="center">                                        
                                         @if($c->estado=="A")
-                                     <a class="btn btn-danger" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
+                                     <a class="btn btn-danger" id="anula" onclick="return confirmar();" href="{{URL::action('CabeceraController@actualizar',$c->idcabecera)}}"><i class="glyphicon glyphicon-trash">ANULAR</i></a>
                                      <input type="hidden" id="estado" name="estado" value="I"> 
                                         @endif
                                         @if($c->estado=="I") 
@@ -262,6 +262,19 @@
 </div>
 
 @endsection
+<script type="text/javascript">
+   function confirmar(){ 
+     return  confirm("Si anula la factura no podrá habilitarla, ¿Confirma el anulado de la factura?") ;
+    
+   
+     
+      }
+
+
+
+
+
+</script> 
 
 <script type="text/javascript">
     function fIva() {
@@ -317,7 +330,7 @@
     var fi=document.getElementById("fechaini").value;
     var ff=document.getElementById("fechafin").value;
         window.location = "vistafecha?fechaini="+fi+"&fechafin="+ff;
-    }
+    }        
     
 </script>
 @endpush

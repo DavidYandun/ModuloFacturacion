@@ -53,6 +53,10 @@
                         </div>
                 </div>
 
+
+                <div class="col-lg-2">
+             <a class="btn btn-primary" href="exportFP/pdf"><i class="glyphicon glyphicon-print" > IMPRIMIR</i></a>
+                </div>
                
                 <!--FIN POR CLIENTES-->
                 </div>

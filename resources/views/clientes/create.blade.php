@@ -83,7 +83,7 @@
 		<div class="form-group col-lg-12">
 			<label for="nacimiento" class="col-lg-2 control-label">Fecha de Nacimiento <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="nacimiento" id="nacimiento" class="form-control" type="date" value="{{old('nacimiento')}}"  required min="1900-01-01" max="<?php echo date('Y-m-d'); ?>">
+				<input name="nacimiento" id="nacimiento" class="form-control" type="date" value="{{old('nacimiento')}}"  required min="1910-01-01" max="<?php echo date('Y-m-d'); ?>">
 			</div>
 			<div class="col lg-4">
 				<label><font color="gray">Ej: 1991-01-01</font></label>
@@ -92,7 +92,7 @@
 		<div class="form-group col-lg-12">
 			<label for="ciudad" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="ciudad" id="ciudad" class="form-control" type="text" value="{{old('ciudad')}}" required placeholder="Ingrese su ciudad de residencia">
+				<input name="ciudad" id="ciudad" class="form-control" type="text" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" value="{{old('ciudad')}}" required placeholder="Ingrese su ciudad de residencia">
 			</div>
 			<div class="col lg-4">
 				<label><font color="gray">Ej: Ibarra/IBARRA</font></label>
@@ -149,13 +149,12 @@
         	<div class="col-lg-3">
               <a href="{{url('cliente')}}" class="form-control btn btn-danger">Cancelar</a>
         </div>
-<<<<<<< HEAD
-        	
+
 		</div>
 		</div>
 		</form>		
 	</div>
-=======
+
     
 
 
@@ -283,7 +282,7 @@
 
 
 </div>
->>>>>>> 123a546ca329c790121a654a0398be94f666ec43
+
 @endsection
 @push('scripts')
 <script src="{{asset('js\validaciones.js')}}"></script>
@@ -322,7 +321,11 @@ function check_cedula()
     }
     else
     {
-      alert( "La c\xe9dula NO es v\xe1lida!!!" ); 
+      swal(
+  'Cédula incorrecta!',
+  'error'
+);
+   
       return false     
     }
   }  
