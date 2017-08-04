@@ -10,6 +10,6 @@ class Facturaspendientes extends Model
   protected $primaryKey='idpendiente';
   public $timestamps=false;
   protected $fillable=[
-  "idcabecera","abono","saldo"
+  "idpendiente","idcabecera","abono","saldo"
   ];
 }

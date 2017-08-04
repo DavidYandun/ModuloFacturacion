@@ -20,6 +20,7 @@ use Illuminate\Support\Collections;
 
 use App\Cliente;
 use App\Caja;
+use App\Facturaspendientes;
 use App\Producto;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -94,7 +95,12 @@ class CabeceraController extends Controller
              $detalle->valor_total= $valor_total[$cont];                          
              $detalle->save();
              $cont=$cont+1;                        
-         }       
+         }  
+         $credito=$request->get('credito');
+         if($credito=="si"){
+            Facturaspendientes::create(['idcabecera'=>$cabecera->idcabecera,'abono'=>0,'saldo'=>$request->get('total')]);
+        }
+         
 
         DB::commit();    
        
