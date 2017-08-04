@@ -4,7 +4,7 @@
     <title>Listado de Empleados</title>
     <style type="text/css">
         /* estilos para el footer y el numero de pagina */
-        @page { margin: 180px 25px; }
+        @page { margin: 180px 75px; }
         #header {
             position: fixed;
             left: 0px;

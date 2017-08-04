@@ -35,7 +35,7 @@
                 <div class="col-lg-2">
                 
                 <?php $client = App\Cliente::all();?>
-                        <input type="button" value="Listar por Cliente" onclick="$('#capa').css('display', 'block')" class="btn btn-success">
+                        <input  id="lc" type="button" value="Listar por Cliente"  class="btn btn-success">
                         <div id="capa" style="display: none;padding: 10px;">
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
@@ -48,13 +48,34 @@
                         </div>
                 </div>
                 <!--FIN POR CLIENTES-->
-                <!--FECHAS-->
-                <div class="col-lg-2">
-                        <input type="button" value="Listar por Fecha" onclick="$('#capa1').css('display', 'block')" class="btn btn-success">
-                        <div id="capa1" style="display: none;padding: 10px;">
-                        <input type="date" name="">
+                <!--FECHAS-->                
+                       <input id="lf" type="button" value="Listar por Fecha" class="btn btn-success">
+                    <div id="fech" style="display: none;padding: 10px;">
+                
+                        <div class="form-group">
+                            @php
+                            $hoy=date('Y-m-d');
+                            @endphp
+                            <label for="fechaini" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha inicial <font color="red">*</font></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="fechaini" id="fechaini" class="form-control" type="date" value="{{old('fechaini')}}" required min="1980-01-01" max="{{$hoy}}">
+                            </div>
                         </div>
-                </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="fechafin" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha final <font color="red">*</font></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input name="fechafin" id="fechafin" class="form-control" type="date" value="{{old('fechafin')}}"  required min="1980-01-01" max="{{$hoy}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4"> <br>
+                                <button type="submit" class="btn btn-primary" onclick="fechas()">Generar</button>
+                            </div>
+                        </div>
+                 
+                    </div>
+                
                 <!--FIN FECHAS-->
                 </div>
         <!--FIN BUSQUEDA-->
@@ -241,6 +262,7 @@
 </div>
 
 @endsection
+
 <script type="text/javascript">
     function fIva() {
     document.getElementById("IVA").value = (parseFloat(document.getElementById("subtotal").value)*12)/100;
@@ -259,6 +281,19 @@
 
 @push('scripts')
 <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('#lc').on('click', function () {
+                $('#capa').css('display', 'block');
+                $('#fech').css('display', 'none');
+            });
+            $('#lf').on('click', function () {                
+                $('#capa').css('display', 'none');
+                $('#fech').css('display', 'block');                         
+            });
+        });
+    </script>
+<script type="text/javascript">
     $(document).ready(function()){
         $('#modalEliminarCabecera').on('show.bs.modal',function(event)){
         var button=$(event.relatedTarget);
@@ -274,6 +309,14 @@
     function capturar(){
         var cod=document.getElementById("seleccion").value;
         window.location = "vistacliente/"+cod;
+    }
+    
+</script>
+<script type="text/javascript">
+    function fechas(){ 
+    var fi=document.getElementById("fechaini").value;
+    var ff=document.getElementById("fechafin").value;
+        window.location = "vistafecha?fechaini="+fi+"&fechafin="+ff;
     }
     
 </script>

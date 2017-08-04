@@ -28,13 +28,11 @@ class ClienteController extends Controller
  		Cliente::create($request->all());
  		return Redirect::to('cliente');
  	}
- 	public function PDF()
+ 	 public function ExportPDF()    
     {
         $clientes=Cliente::all();
         $tipoc=Tipocliente::all();
-
         $pdf = PDF::loadView('clientes.show',compact('clientes') );
-
         return $pdf->download('clientes.pdf');
     }
 

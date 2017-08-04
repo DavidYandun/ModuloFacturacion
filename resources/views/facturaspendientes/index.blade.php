@@ -40,7 +40,7 @@
                 <div class="col-lg-2">
                 
                 <?php $client = App\Cliente::all();?>
-                        <input type="button" value="Listar por Cliente" onclick="$('#capa').css('display', 'block')" class="btn btn-success">
+                        <input id="lc" type="button" value="Listar por Cliente" class="btn btn-success">
                         <div id="capa" style="display: none;padding: 10px;">
                         <select class="selectpicker" data-live-search="true" id="seleccion" onchange="capturar()"> 
                             <option>Seleccione un cliente</option>
@@ -52,6 +52,8 @@
                         </select>                
                         </div>
                 </div>
+
+               
                 <!--FIN POR CLIENTES-->
                 </div>
         <!--FIN BUSQUEDA-->
@@ -91,7 +93,7 @@
                         {{$facturaspendientes->render()}}
                     </div>
                     @include('facturaspendientes.delete')
-                </div>
+                
             </div>
         </div>
     </div>
@@ -111,6 +113,20 @@
         });
     });
 </script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+            $('#lc').on('click', function () {
+                $('#capa').css('display', 'block');
+                $('#fech').css('display', 'none');
+            });
+            $('#lf').on('click', function () {                
+                $('#capa').css('display', 'none');
+                $('#fech').css('display', 'block');                         
+            });
+        });
+    </script>
+
 <script type="text/javascript">
     function capturar(){
         var cod=document.getElementById("seleccion").value;

@@ -48,7 +48,7 @@
 
                                         <a class="btn btn-primary" href="{{URL::action('EmpleadoController@edit',$c->idempleado)}}"><i class="glyphicon glyphicon-pencil" ></i></a>
                                     
-                                    <a class="btn btn-primary" href="{{URL::action('EmpleadoController@ExportPDF',$c->idempleado)}}"><i class="glyphicon glyphicon-list-alt"></i></a>
+                                   
                                                                                                         
                                     </td>
                                     <td>{{ $c->cedula}}</td>

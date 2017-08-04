@@ -121,11 +121,9 @@ class CabeceraController extends Controller
             ->where('d.idcabecera','=',$id)
             ->get();
 
-    $pdf = PDF::loadView("cabecera.imprimir",["cabecera"=>$cabecera,"detalles"=>$detalles]);
-    return $pdf->download('cabecera.pdf');
-}
-
-
+            $pdf = PDF::loadView("cabecera.imprimir",["cabecera"=>$cabecera,"detalles"=>$detalles]);
+            return $pdf->download('cabecera.pdf');
+    }
         public function show($id)
     {
         $cabecera=DB::table('cabecera as c')
@@ -142,6 +140,7 @@ class CabeceraController extends Controller
             ->get();
         return view("cabecera.show",["cabecera"=>$cabecera,"detalles"=>$detalles]);                    
     }    
+
 
     public function destroy($id)
     {

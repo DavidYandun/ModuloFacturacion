@@ -21,24 +21,27 @@ use DB;
 
 class VistafechaController extends Controller
 {
-    public function index(){
-        $cabecera = DB::table('cabecera')
-                ->where('FECHA','=','2017-07-29')
-                ->get();
+    public function index($id){
+        $fechaIni=$fi;
+        $fechaFin=$ff;
         $cliente= Cliente::all();
         $caja= Caja::all();
-
-        return view('vistafecha.show',compact('cabecera'),compact('cliente','caja'));
-
-    }
-    public function show(){
-        $cabecera = DB::table('cabecera')
-                ->whereDate('created_at', '2017-07-30')
-                ->get();
-        $cliente= Cliente::all();
-        $caja= Caja::all();
-
-        return view('vistafecha.show',compact('cabecera'),compact('cliente','caja'));
+        $cabecera=Cabecera::whereDate('fecha','>=' ,$fechaIni)->whereDate('fecha','<=',$fechaFin)->orderBy('fecha')->get();        
+     //   $pdf = \PDF::loadView('reportes.fechas',
+       //          ["cabecera"=>$cabecera,'fechaIni'=>$fechaIni,'fechaFin'=>$fechaFin]);
+       // return $pdf->stream('cabecera por fechas.pdf');       
+        return view('vistafecha.show', ["cabecera"=>$cabecera,'fechaIni'=>$fechaIni,'fechaFin'=>$fechaFin,"caja"=>$caja, "cliente"=>$cliente]);
 
     }
-}
+    public function ReporteFechas($fi,$ff){
+        $fechaIni=$fi;
+        $fechaFin=$ff;
+        $cabecera=Cabecera::whereDate('fecha','>=' ,$fechaIni)->whereDate('fecha','<=',$fechaFin)->orderBy('fecha')->get();
+        $pdf = \PDF::loadView('reportes.fechas',
+                 ["cabecera"=>$cabecera,'fechaIni'=>$fechaIni,'fechaFin'=>$fechaFin]);
+        return $pdf->stream('cabecera por fechas.pdf');
+         }
+  
+
+    }
+

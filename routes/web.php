@@ -23,21 +23,29 @@ Route::get('home', 'CabeceraController@create');
 
 Auth::routes();
 
+Route::get('register', [
+    'as'   => 'register',
+    'uses' => 'RegisterController@signUp'
+]);
+
+
+
 Route::get('/export/pdf',
     [
         'as' => 'export.pdf',
         'uses' => 'EmpleadoController@ExportPDF'
     ]);
-Route::get('/exp/pdf',
+Route::get('/expo/pdf',
     [
-        'as' => 'exp.pdf',
-        'uses' => 'ClienteController@PDF'
+        'as' => 'export.pdf',
+        'uses' => 'ClienteController@ExportPDF'
     ]);
 Route::get('/export/pdf/{id}',
     [
         'as' => 'export.pdf',
         'uses' => 'CabeceraController@ExportPDF'
     ]);
+//oute::get('ReporteFechas','VistapendienteController@ReporteFechas');
 
 
 Route::resource('cabecera','CabeceraController');
@@ -50,7 +58,7 @@ Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
 //Route::resource('tipousuario','TipousuarioController');
 
-Route::resource('vistafecha','VistaclienteController');
+Route::resource('vistafecha','VistafechaController');
 Route::resource('vistacliente','VistaclienteController');
 Route::resource('vistapendiente','VistapendienteController');
 Route::resource('nuevafactura','NuevafacturaController');
@@ -58,6 +66,7 @@ Route::resource('usuarios','UserController');
 
 Route::resource('cajeros','CajeroController');
 Route::resource('role','Role_userController');
+
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 Route::get('caja/delete/{id}','CajaController@delete') ;

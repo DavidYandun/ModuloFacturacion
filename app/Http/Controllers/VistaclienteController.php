@@ -29,6 +29,7 @@ class VistaclienteController extends Controller
         return view('vistacliente.index',compact('cabecera'),compact('cliente','caja'));
 
     }
+    
     public function show($id){
         $cabecera=Cabecera::paginate(10);
         $cliente= Cliente::find($id);
