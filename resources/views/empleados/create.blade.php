@@ -69,7 +69,7 @@
 		<div class="form-group col-lg-12">
 			<label for="ciudad" class="col-lg-2 control-label">Ciudad <font color="red">*</font></label>
 			<div class="col-lg-6">
-				<input name="ciudad" id="ciudad" class="form-control" type="text" value="{{old('ciudad')}}" required placeholder="Ingrese su ciudad de residencia">
+				<input name="ciudad" id="ciudad" class="form-control" type="text" pattern="[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}|[A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11} [A-ZÁÉÍÓÚ][a-zñáéíóú|A-ZÁÉÍÓÚ]{1,11}" value="{{old('ciudad')}}" required placeholder="Ingrese su ciudad de residencia">
 			</div>
 			<div class="col-lg-4">
 				<label><font color="gray">Ej: Ibarra</font></label>
