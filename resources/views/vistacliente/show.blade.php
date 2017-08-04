@@ -45,14 +45,14 @@
                         </div>
                 </div>
                 <!--FIN POR CLIENTES-->
-                <!--fechaS-->
+                <!--fechaS
                 <div class="col-lg-2">
                         <input type="button" value="Listar por fecha" onclick="$('#capa1').css('display', 'block')" class="btn btn-success">
                         <div id="capa1" style="display: none;padding: 10px;">
                         <input type="date" name="">
                         </div>
                 </div>
-                <!--FIN fechaS-->
+                FIN fechaS-->
                 </div>
         <!--FIN BUSQUEDA-->
 

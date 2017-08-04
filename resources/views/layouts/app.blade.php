@@ -255,8 +255,8 @@ textarea:focus, input:focus, button:focus {
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/login') }}">
+                        Módulo Facturación
                     </a>
                 </div>
 

@@ -9,29 +9,16 @@ Roles de Usuario
 
 
 @section('contenido')
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <h3>Roles de Usuario</h3>
-      @if (count($errors)>0)
-      <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{$error}}</li>
-        @endforeach
-        </ul>
-      </div>
-      @endif
-    </div>
-  </div>
-    {!!Form::open(['url'=>'role'])!!}    
-                  
+
+
+ 
+    <form method="POST" action="http://localhost:8000/role/{{roles->user_id}}" accept-charset="UTF-8">                  
                         
                          <div class="form-group">
                            <select name="user_id" id="user_id" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                              
-                             @foreach($user as $u)
-                             <option value="{{$u->id}}" data-subtext="{{$u->email}}">{{$u->name}}</option>
+                             @foreach($roles as $u)
+                             <option value="u->user_id">{{$u->name}}</option>
                              @endforeach
                            </select>
                          </div>
@@ -51,10 +38,10 @@ Roles de Usuario
           </div>
           
     </div>
-  {!!Form::close()!!}
+    </form>
   <br>
     <div class=" col-lg-offset-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
               <a href="{{url('role')}}" class="form-control btn btn-danger">Cancelar</a>
         </div>
-</div>
+
 @endsection

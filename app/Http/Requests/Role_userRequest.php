@@ -24,7 +24,7 @@ class Role_userRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "user_id"=>"unique:role_user,user_id"
         ];
     }
 }

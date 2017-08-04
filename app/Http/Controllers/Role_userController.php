@@ -38,6 +38,26 @@ public function create(){
  		$role=Role::all();
  		return view('role.create',compact('user','role'));
  	}
+public function edit($id){
+	$role=Role::all();
+	$roles=DB::table('role_user as rs')
+            ->join('users as u','rs.user_id','=','u.id')
+            ->join('roles as r','rs.role_id','=','r.id')
+            ->select('rs.user_id','rs.role_id','u.name')
+            ->where('rs.user_id','=',$id)            
+            ->get();
 
+ 		return view('role.edit',compact('roles','role'));
+
+ 	}
+ 	public function update(Role_userRequest $request, $id){
+ 			Role_user::updateOrCreate(['user_id'=>$id],$request->all());
+ 			return Redirect::to('tipocliente');
+ 	}
+
+ 	public function delete($id){
+ 		Role_user::destroy($id);
+ 		return Redirect::to('role');
+ 	}
 
 }

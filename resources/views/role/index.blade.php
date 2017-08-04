@@ -22,20 +22,17 @@ Usuarios
                                 <thead>
                                 
                                 <th>Nombre</th>
-                                
-                                
-                                <th>rol</th>
+                                <th>Rol</th>
                               
                                  
                               @foreach ($role_user as $ru)
                               <!--{{$u=App\User::find($ru->user_id)}}-->
                               <!--{{$r=App\Role::find($ru->role_id)}}-->
 
-                              
                                  <tr>
+                                    
                                     <td>{{$u->name}}</td>
                                     <td>{{$r->name}}</td>
-                                    
                                  </tr>
                                     
                                      
