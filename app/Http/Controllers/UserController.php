@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Role_user;
 use App\Role;
@@ -29,16 +29,22 @@ class UserController extends Controller
  	public function create(){
  		$user=User::all();
  		return view('usuarios.create',compact('user'));
- 	}	/*
- public function store(UserRequest $request){
- 		$user=(new User)->fill($request->except('role'));
- 		$user->save();
- 		$role=Role::where('name',$request->role)->firstOrFail();
- 		$user->attachRole($role);
- 		return Redirect::to('usuarios');
- 	}*/
+ 	}
+
+
+
  	public function store(UserRequest $request){
- 		User::create($request->all());
+
+ 		//User::create($request->all());
+ 		
+ 		$user = new User;
+ 		$user->name=$request->get('name');
+ 		$user->email=$request->get('email');
+ 		$user->password=bcrypt($request->get('password'));
+ 		$user->save();
+ 		//User::create(['name'=>$request->get('name'),'email'=>$request->get('email'),'password'=>$request->get('password')]);
+ 		//Role_user::create(['user_id'=>User::all()->last()->id,'role_id'=>$request->get('rol')]);
+ 		
  		return Redirect::to('usuarios');
 	}
 

@@ -33,7 +33,7 @@ class UserRequest extends FormRequest
           'name'=>'required|min:3|unique:users|max:20|regex:/^[a-z0-9]+$/i',
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:6',
-            'rol'=>'required|in:admin,cajero',
+            //'rol'=>'required|in:1,2',
         ];
         }
     }

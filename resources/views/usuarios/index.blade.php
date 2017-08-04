@@ -10,16 +10,16 @@ Usuarios
 
 @section('contenido')
 <div class="container">
-    <div class="row">
+    <div class="row col-lg-2">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{ route('register') }}"><button class="btn btn-success">Nuevo</button></a></p>
+            <p><a href="{{ url('usuarios/create') }}"><button class="btn btn-success">Nuevo Usuario</button></a></p>
             
         </div>
 
     </div>
-    <div class="row">
+    <div class="row col-lg-2">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <p><a href="{{url('role') }}"><button class="btn btn-success">Role</button></a></p>
+            <p><a href="{{url('role') }}"><button class="btn btn-success">Asignar Roles</button></a></p>
             
         </div>
                         
