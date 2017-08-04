@@ -32,7 +32,6 @@ class CabeceraController extends Controller
 
     $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
 
-      $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
 
     }
 

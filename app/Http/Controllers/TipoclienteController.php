@@ -11,7 +11,9 @@ use App\Tipocliente;
 class TipoclienteController extends Controller
 {
    public function __construct(){
+   	$this->middleware('auth');
  	$this->middleware('role:admin');// debe autenticar el usuario para poder usar el controlador
+
  	}
  	public function index(){
  		$tipoclientes=Tipocliente::paginate(10);

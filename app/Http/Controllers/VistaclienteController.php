@@ -21,6 +21,13 @@ use DB;
 
 class VistaclienteController extends Controller
 {
+
+    public function __construct(){
+
+    $this->middleware('auth');// debe autenticar el usuario para poder usar el controlador
+
+
+    }
     public function index(){
         $cabecera=Cabecera::all(10);
         $cliente= Cliente::all();
