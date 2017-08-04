@@ -55,15 +55,15 @@
                                        <a class="btn btn-primary" href="{{URL::action('ClienteController@edit',$c->idcliente)}}" ><i class="glyphicon glyphicon-pencil" ></i></a>
                                 </td>
                                 
-                                    <!--{{$codtipo=$c->idtipo}}-->
+                                    
                                     <?php
-                                        $nombreTipo = App\TipoCliente::find($codtipo);
+                                        $nombreTipo = App\TipoCliente::find($c->idtipo);
                                     ?>
                                     @if(($nombreTipo->detalle)=='CR')
                                     <td>CREDITO</td>
                                     @endif
                                     @if(($nombreTipo->detalle)=='EF')
-                                    <td>CREDITO</td>
+                                    <td>EFECTIVO</td>
                                     @endif
                                     
                                     <td>{{ $c->cedula}}</td>

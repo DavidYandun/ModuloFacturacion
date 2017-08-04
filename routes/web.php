@@ -45,6 +45,7 @@ Route::get('/export/pdf/{id}',
         'as' => 'export.pdf',
         'uses' => 'CabeceraController@ExportPDF'
     ]);
+//oute::get('ReporteFechas','VistapendienteController@ReporteFechas');
 
 
 Route::resource('cabecera','CabeceraController');
@@ -57,11 +58,13 @@ Route::resource('producto','ProductoController');
 Route::resource('tipocliente','TipoclienteController');
 //Route::resource('tipousuario','TipousuarioController');
 
-Route::resource('vistafecha','VistaclienteController');
+Route::resource('vistafecha','VistafechaController');
 Route::resource('vistacliente','VistaclienteController');
 Route::resource('vistapendiente','VistapendienteController');
 Route::resource('nuevafactura','NuevafacturaController');
 Route::resource('usuarios','UserController');
+
+
 
 Route::get('cabecera/delete/{id}','CabeceraController@delete') ;
 Route::get('caja/delete/{id}','CajaController@delete') ;

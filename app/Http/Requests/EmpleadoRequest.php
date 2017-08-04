@@ -27,7 +27,7 @@ class EmpleadoRequest extends FormRequest
       if(Input::has('idempleado')){
 
             $id=Input::get('ideempleado');
-            $id=Request::get('idempleado');
+         //   $id=Request::get('idempleado');
             return [                
                 "cedula"=>"unique:empleados,cedula|min:10|max:10",
                 "nombre"=>"required|min:3|max:25",

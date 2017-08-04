@@ -31,6 +31,7 @@ class FacturaspendientesController extends Controller
  	//	return view('detalles.index',compact('detalles'));
  		return Redirect::to('facturaspendientes');
  	}
+ 	
 
  	
  	public function edit($id){

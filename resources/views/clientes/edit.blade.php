@@ -36,11 +36,12 @@ Clientes
 						<option selected='true' value="{{$tc->idtipo}}">{{ $tc->detalle }}</option>
 					@endif
 					@if ($tc->idtipo != $cliente->idtipo)
-						<option value="{{ $tc->idtipo }}">{{ $tc->detalle }}</option>
+						<option value="{{$tc->idtipo}}">{{ $tc->detalle }}</option>
 					@endif	
 				@endforeach
 				</select>
 			</div>
+			
 			<div class="col lg-4">
 				<label><font color="gray">EF:efectivo/CR:crédito</font></label>
 			</div>
@@ -51,9 +52,7 @@ Clientes
 			<div class="col-lg-6">
 				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{$cliente->cedula}}" required maxlength="10" minlength="10" disabled>
 			</div>
-			<div class="col-lg-6">
-				<input name="cedula" id="cedula" class="form-control" type="text" pattern="[0-2][0-9]{9}" value="{{old('cedula')}}" required maxlength="10" minlength="10" placeholder="Ingrese su cédula" onchange="return ValidaCedula(this.form.cedula.value)">
-			</div>
+			
 			<div class="col lg-4">
 				<label><font color="gray">Ej: 1234567890</font></label>
 			</div>
@@ -133,7 +132,7 @@ Clientes
 <div class="form-group">
       <label for="estado" class="col-lg-2 control-label">Estado<font color="red">*</font></label>
       <div class="col-lg-6">
-        <select name="estado" id="estado" class="form-control" type="text" value="{{$cliente->estado}}" required required onchange="crear(this.value)">
+        <select name="estado" id="estado" class="form-control" type="text" value="{{$cliente->estado}}" >
         <option value="A">Activo</option>
         <option value="I">Inactivo</option>
         </select>
